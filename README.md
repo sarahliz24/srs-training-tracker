@@ -50,11 +50,13 @@ Happy coding!
     3. [Technologies Used](#technologies-used)
 10. [Acknowledgements](#acknowledgements)
 
-Site link: <a href="" target="_blank">
+Site link:
+
 
 # INTRODUCTION
 
-This application is developed to assist a manager in a busy clinical hospital environment.  Stereotactic Radiosurgery (SRS) is a highly skilled discpline.  in a busy Radiotherapy department it can be difficult to ensure enough staff are trained in the various sub-techniques of SRS, and to track who is trained in which area.  Along with this difficulty there can be frequesnt challenges maintaining a suitable staff base to deliver treatment, particular due to factors such as covid, high staff turnover, and other unexpected staffing shortages.  This app is designed to record the training of each applicable staff member in each or any SRS module they are trained in.  This can actd a training record for each staff member.  This can also function as a tool for the person managing the skill mix of the department - if there is a roster shortage the user can search the app for available staff members to see if their obtained skills match the need for the day, search by staff member to see if an available staff member has the required skills, or simply display a full talbe showing all skills and all staff recorded as having those skills.  This can help to improve staffing decisions by providing the information in a clear manner and reduce stress as managers don't have to recall what each staff member is ablt to do...
+    This application is developed to assist a manager in a busy clinical hospital environment.  Stereotactic Radiosurgery (SRS) is a highly skilled discpline.  in a busy Radiotherapy department it can be difficult to ensure enough staff are trained in the various sub-techniques of SRS, and to track who is trained in which area.  Along with this difficulty there can be frequesnt challenges maintaining a suitable staff base to deliver treatment, particular due to factors such as covid, high staff turnover, and other unexpected staffing shortages.  This app is designed to record the training of each applicable staff member in each or any SRS module they are trained in.  This can actd a training record for each staff member.  This can also function as a tool for the person managing the skill mix of the department - if there is a roster shortage the user can search the app for available staff members to see if their obtained skills match the need for the day, search by staff member to see if an available staff member has the required skills, or simply display a full talbe showing all skills and all staff recorded as having those skills.  This can help to improve staffing decisions by providing the information in a clear manner and reduce stress as managers don't have to recall what each staff member is ablt to do...
+
 
 # User Experience
 
@@ -62,20 +64,30 @@ As a new user I want to:
 * ...
 * ...
 
+
 # Technical Design
 
 * flow chart
 * ?data models
 
+
 # Features
 
 * Info on all app features goes here, with images etc
+
+Start Program & welcome
+instructions
+menu 1 - 3 options
+option 1 - add new trainee
+option 2 - update existing trainee
+option 3 - query training status (trainee, technique or all)
 
 # Future Features
 
 * Admin log-in
 * inactivate staff member
 * 3-tier training status per skill (basic, advanced, expert)
+
 
 # TESTING
 
@@ -103,6 +115,7 @@ The code was regularly tested using W3C validators for HTML and CSS throughout d
 # DEPLOYMENT
 
 This site can be forked using Github as follows (to make a copy in your own repo)
+
 2. Go to **Fork** button on the right-side ribbon menu (between **Unwatch** and **Star**)
 3. Click the button to make a copy automatically into your own respository
 4. **Owner** will default to your own github name
