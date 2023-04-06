@@ -146,7 +146,7 @@ The site github link is here:
 * Languages
 * Libraries - python inbuilt and third party
 * Colorama
-* ASCII art generator
+* <a href="https://patorjk.com/" target="_blank">patorjk</a> ASCII art generator - used to generate welcome title
 
 During the creation of this site I used the following technologies:
 
