@@ -24,6 +24,9 @@ data = skills.get_all_values()
 
 
 def clear_screen():
+    """
+    Clears screen
+    """
     os.system('clear')
 
 
