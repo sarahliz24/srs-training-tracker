@@ -60,7 +60,7 @@ def welcome_menu():
 
     while True:
         try:
-            answer = int(input('Enter 1, 2 or 3 to proceed (or 0 to exit):'))
+            answer = int(input('Enter 1, 2 or 3 to proceed (or 0 to exit):\n'))
         except ValueError:
             # if entering a letter or other non-number key return to input
             print('please choose a valid option from the menu\n')
