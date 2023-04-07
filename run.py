@@ -81,5 +81,19 @@ def welcome_menu():
     #  each option will send user to appropriate new menu/page (add function)
 
 
+def reg_new_staff():
+    """
+    Captures new staff name/position details
+    & adds to staff worksheet
+    """
+    print('You have opted to enter a new staff member')
+    print('Please enter details with no spaces, numbers or symbols\n')
+    fname = input('Enter first name of staff member:\n').lower()
+    lname = input('Enter last name of staff member:\n').lower()
+    position = input('Enter staff position - Junior, Senior or CS:\n')
+    print(f'You entered: {fname} {lname}, {position}')
+
+
 welcome()
 welcome_menu()
+reg_new_staff()
