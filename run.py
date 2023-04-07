@@ -1,6 +1,9 @@
+"""
+importing python modules
+"""
 import os
-import gspread  # API for google sheets
 import sys
+import gspread  # API for google sheets
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -133,7 +136,6 @@ def reg_new_staff():
                 break
         finally:
             print("done")
-
     # add error handling
     # allow input to be amended before confirming
     # add information to staff worksheet
