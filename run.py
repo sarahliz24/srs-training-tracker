@@ -17,9 +17,9 @@ SHEET = GSPREAD_CLIENT.open('srs_training_tracker')
 skills = SHEET.worksheet('skills')
 
 data = skills.get_all_values()
-
-
 # print(data)  # shows get data from worksheet is functioning
+
+
 def clear_screen():
     os.system('clear')
 
@@ -77,6 +77,7 @@ def welcome_menu():
     if answer == 1:
         print('you answered one')
         clear_screen()
+        reg_new_staff()
     elif answer == 2:
         print('you answered two')
     elif answer == 3:
@@ -93,12 +94,50 @@ def reg_new_staff():
     """
     print('You have opted to enter a new staff member')
     print('Please enter details with no spaces, numbers or symbols\n')
-    fname = input('Enter first name of staff member:\n').lower()
-    lname = input('Enter last name of staff member:\n').lower()
-    position = input('Enter staff position - Junior, Senior or CS:\n')
-    print(f'You entered: {fname} {lname}, {position}')
+
+    while True:
+        try:
+            fname = input('Enter first name of staff member:\n').upper()
+            lname = input('Enter last name of staff member:\n').upper()
+            position = input('Enter staff position - \
+                            Junior, Senior or CS:\n').upper()
+            print(f'You entered: {fname} {lname}; position: {position}')
+        except ValueError():
+            # if entering a letter or other non-number key return to input
+            print('please try again as your entry is invalid\n')
+            continue
+        else:
+            if not fname.isalpha():
+                print('please try again as your first name entry is invalid\n')
+                continue
+            if not lname.isalpha():
+                print('please try again as your last name entry is invalid\n')
+                continue
+            if not position.isalpha():
+                print('please try again as your position entry is invalid\n')
+                continue
+            if position != 'JUNIOR':
+                if position != 'SENIOR':
+                    if position != 'CS':
+                        print('please try again, your position \
+                        entry is invalid\n')
+                        continue
+            answer2 = input('is this information correct (Y or N)?\n').upper()
+            if answer2 != 'Y':
+                print('Try input again')
+            if answer2 == 'Y':
+                # False
+                clear_screen()
+                print('Sending information to worksheet')
+                # send info to worksheet
+                break
+        finally:
+            print("done")
+
+    # add error handling
+    # allow input to be amended before confirming
+    # add information to staff worksheet
 
 
 welcome()
 welcome_menu()
-reg_new_staff()
