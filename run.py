@@ -1,3 +1,4 @@
+import os
 import gspread  # API for google sheets
 import sys
 from google.oauth2.service_account import Credentials
@@ -17,7 +18,10 @@ skills = SHEET.worksheet('skills')
 
 data = skills.get_all_values()
 
+
 # print(data)  # shows get data from worksheet is functioning
+def clear_screen():
+    os.system('clear')
 
 
 def welcome():
@@ -72,6 +76,7 @@ def welcome_menu():
         break
     if answer == 1:
         print('you answered one')
+        clear_screen()
     elif answer == 2:
         print('you answered two')
     elif answer == 3:
