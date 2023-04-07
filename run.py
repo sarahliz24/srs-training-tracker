@@ -18,6 +18,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('srs_training_tracker')
 
 skills = SHEET.worksheet('skills')
+staff = SHEET.worksheet('staff')
 
 data = skills.get_all_values()
 # print(data)  # shows get data from worksheet is functioning
@@ -136,12 +137,15 @@ def reg_new_staff():
                 clear_screen()
                 print('Sending information to worksheet')
                 # send info to worksheet
+                staff_id = len(staff.get_all_values())
+                # gets length of rows in staff spreadsheet
+                staff_entry = [staff_id, fname, lname, position]
+                staff.append_row(staff_entry)
+                print(staff_entry)
                 break
         finally:
-            print("done")
-    # add error handling
-    # allow input to be amended before confirming
-    # add information to staff worksheet
+            print('Staff member entry successful')
+            print('Now to update staff skills')
 
 
 welcome()
