@@ -1,4 +1,5 @@
 import gspread  # API for google sheets
+import sys
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -76,7 +77,7 @@ def welcome_menu():
     elif answer == 3:
         print('you answered three')
     elif answer == 0:
-        print('you answered 0')
+        sys.exit("You are exiting the system")
     #  each option will send user to appropriate new menu/page (add function)
 
 
