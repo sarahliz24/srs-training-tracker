@@ -171,21 +171,40 @@ def skill_menu():
 
     skill_to_input = str(input('Enter skill number:\n'))
     # takes input from user, converts to string for dictionary use
+    try:
+        for key, value in skills_dict.items():
+            if skill_to_input == key:
+                print(f'You selected {key}: {value}')
+                answer3 = input('is this correct (Y or N)?\n').upper()
+                if answer3 != 'Y':
+                    print('Try input again')
+                    clear_screen()
+                    skill_menu()
+                if answer3 == 'Y':
+                    print('Sending information to worksheet')
+                    # send info to skills worksheet
+                    skill_entry = ['', skill_to_input, '']
+                    training_log.append_row(skill_entry)
+    except ValueError():
+        print('Try input again - you did not enter a number\n')
+        skill_menu()
+    else:
+        if int(skill_to_input) > len(skills.get_all_values()):
+            print('Try input again - you chose an invalid option')
+            skill_menu()
 
+
+'''
     for key, value in skills_dict.items():
         if skill_to_input == key:
             print(f'You selected {key}: {value}')
-            answer3 = input('is this information correct (Y or N)?\n').upper()
-            if answer3 != 'Y':
-                print('Try input again')
-                clear_screen()
-                skill_menu()
-            if answer3 == 'Y':
-                print('Sending information to worksheet')
-                skill_entry = ['', skill_to_input, '']
-                training_log.append_row(skill_entry)
-                # send info to training log worksheet
-                break
+        elif ValueError():
+            print('Try input again - you did not enter a number\n')
+            skill_menu()
+        elif int(skill_to_input) > len(skills.get_all_values()):
+            print('Try input again - you chose an invalid option')
+            skill_menu()
+'''
 
 
 welcome()
