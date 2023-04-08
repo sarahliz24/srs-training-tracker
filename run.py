@@ -19,6 +19,7 @@ SHEET = GSPREAD_CLIENT.open('srs_training_tracker')
 
 skills = SHEET.worksheet('skills')
 staff = SHEET.worksheet('staff')
+training_log = SHEET.worksheet('training_log')
 
 # data = skills.get_all_values()
 # print(data)  # shows get data from worksheet is functioning
@@ -159,16 +160,32 @@ def skill_menu():
     skills_dict = {i[0]: i[1] for i in skills_list}
     # converts list to dictionary using dictionary comprehension
 
-    # print(skills_dict)
-    # checks to see if list to dict is working
-
     print('SRS SKILLS LIST\n')
     for key in skills_dict:
         print(key, skills_dict[key])
         # loops over dict, prints each key & value on a single line
 
-    # this is for user input to select options (?as csv)
-    # then options stored in training log worksheet connected to user ID
+    print('\n')
+    print('Instructions\n')
+    print('To add a skill - enter the skill number')
+
+    skill_to_input = str(input('Enter skill number:\n'))
+    # takes input from user, converts to string for dictionary use
+
+    for key, value in skills_dict.items():
+        if skill_to_input == key:
+            print(f'You selected {key}: {value}')
+            answer3 = input('is this information correct (Y or N)?\n').upper()
+            if answer3 != 'Y':
+                print('Try input again')
+                clear_screen()
+                skill_menu()
+            if answer3 == 'Y':
+                print('Sending information to worksheet')
+                skill_entry = ['', skill_to_input, '']
+                training_log.append_row(skill_entry)
+                # send info to training log worksheet
+                break
 
 
 welcome()
