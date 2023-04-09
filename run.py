@@ -157,6 +157,7 @@ def skill_menu():
     """
     skills_list = skills.get_all_values()
     # returns a list of lists from skills worksheet
+    global skills_dict
     skills_dict = {i[0]: i[1] for i in skills_list}
     # converts list to dictionary using dictionary comprehension
 
@@ -169,6 +170,14 @@ def skill_menu():
     print('Instructions\n')
     print('To add a skill - enter the skill number')
 
+    user_skill_input()
+
+
+def user_skill_input():
+    """
+    takes user input, checks validity, stores input in
+    training log worksheet
+    """
     skill_to_input = str(input('Enter skill number:\n'))
     # takes input from user, converts to string for dictionary use
     if int(skill_to_input) <= len(skills.get_all_values()):
