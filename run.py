@@ -3,6 +3,7 @@ importing python modules
 """
 import os
 import sys
+from datetime import date
 import gspread  # API for google sheets
 from google.oauth2.service_account import Credentials
 
