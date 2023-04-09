@@ -213,7 +213,7 @@ def more_skill_input():
         clear_screen()
         welcome_menu()
     if answer4 == 'Y':
-        print('Make another selection')
+        print('Make another selection\n')
         skill_menu()
 
 
