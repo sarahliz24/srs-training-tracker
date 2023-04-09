@@ -144,14 +144,15 @@ def reg_new_staff():
                 staff_entry = [staff_id, fname, lname, position]
                 staff.append_row(staff_entry)
                 print(staff_entry)
-                break
-        finally:
-            print('Staff member entry successful')
-            print('Now to update staff skills\n')
-            skill_menu()
+                print('Staff member entry successful')
+                print('Now to update staff skills\n')
+                skill_menu(staff_entry)
+                return staff_entry
+                # break
+        # finally:
 
 
-def skill_menu():
+def skill_menu(staff_entry):
     """
     Gives user list of skills that can be added to staff profile
     Allows user to add skills to staff profile
@@ -171,7 +172,7 @@ def skill_menu():
     print('Instructions\n')
     print('To add a skill - enter the skill number')
 
-    user_skill_input()
+    user_skill_input(staff_entry)
 
 
 def entry_date():
@@ -181,7 +182,7 @@ def entry_date():
     # now = date.today()
 
 
-def user_skill_input():
+def user_skill_input(staff_entry):
     """
     takes user input, checks validity, stores input in
     training log worksheet
@@ -197,21 +198,21 @@ def user_skill_input():
                 if answer3 != 'Y':
                     print('\nTry input again')
                     clear_screen()
-                    skill_menu()
+                    skill_menu(staff_entry)
                 if answer3 == 'Y':
                     print('Sending information to worksheet')
                     # send info to skills worksheet
                     date = str(datetime.date.today())
-                    skill_entry = ['', skill_to_input, date]
+                    skill_entry = [staff_entry[0], skill_to_input, date]
                     training_log.append_row(skill_entry)
-                    more_skill_input()
+                    more_skill_input(staff_entry)
                     break
     else:
         print('\nTry input again - you did not enter a valid number\n')
-        skill_menu()
+        skill_menu(staff_entry)
 
 
-def more_skill_input():
+def more_skill_input(staff_entry):
     """
     Give user option to enter further skills
     """
@@ -223,7 +224,7 @@ def more_skill_input():
         welcome_menu()
     if answer4 == 'Y':
         print('Make another selection\n')
-        skill_menu()
+        skill_menu(staff_entry)
 
 
 welcome()
