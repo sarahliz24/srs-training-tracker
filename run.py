@@ -173,6 +173,13 @@ def skill_menu():
     user_skill_input()
 
 
+def entry_date():
+    """
+    captures date of skill entry
+    """
+    now = None
+
+
 def user_skill_input():
     """
     takes user input, checks validity, stores input in
