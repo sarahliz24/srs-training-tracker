@@ -178,6 +178,7 @@ def user_skill_input():
     takes user input, checks validity, stores input in
     training log worksheet
     """
+    global skill_to_input
     skill_to_input = str(input('Enter skill number:\n'))
     # takes input from user, converts to string for dictionary use
     if int(skill_to_input) <= len(skills.get_all_values()):
@@ -194,9 +195,25 @@ def user_skill_input():
                     # send info to skills worksheet
                     skill_entry = ['', skill_to_input, '']
                     training_log.append_row(skill_entry)
+                    more_skill_input()
                     break
     else:
         print('\nTry input again - you did not enter a valid number\n')
+        skill_menu()
+
+
+def more_skill_input():
+    """
+    Give user option to enter further skills
+    """
+    answer4 = input('Do you want to enter another skill (Y or N)?\n').upper()
+
+    if answer4 != 'Y':
+        print('\n Returning to main menu')
+        clear_screen()
+        welcome_menu()
+    if answer4 == 'Y':
+        print('Make another selection')
         skill_menu()
 
 
