@@ -3,7 +3,7 @@ importing python modules
 """
 import os
 import sys
-from datetime import date
+from datetime import datetime
 import gspread  # API for google sheets
 from google.oauth2.service_account import Credentials
 
@@ -174,11 +174,11 @@ def skill_menu():
     user_skill_input()
 
 
-def entry_date():
-    """
-    captures date of skill entry
-    """
-    now = None
+# def entry_date():
+    # """
+    # captures date of skill entry
+    # """
+    # now = date.today()
 
 
 def user_skill_input():
@@ -201,7 +201,8 @@ def user_skill_input():
                 if answer3 == 'Y':
                     print('Sending information to worksheet')
                     # send info to skills worksheet
-                    skill_entry = ['', skill_to_input, '']
+                    date = str(datetime.date.today())
+                    skill_entry = ['', skill_to_input, date]
                     training_log.append_row(skill_entry)
                     more_skill_input()
                     break
