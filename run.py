@@ -89,6 +89,7 @@ def welcome_menu():
         reg_new_staff()
     elif answer == 2:
         print('you answered two')
+        find_staff()
     elif answer == 3:
         print('you answered three')
     elif answer == 0:
@@ -225,6 +226,59 @@ def more_skill_input(staff_entry):
     if answer4 == 'Y':
         print('Make another selection\n')
         skill_menu(staff_entry)
+
+
+def find_staff():
+    """
+    Allow user to add skills for a previously
+    registered staff member
+    """
+    # get user to input staff name
+    fname_existing = input("Enter first name of staff member:\n")
+    print(f"you entered {fname_existing}. Is this correct?")
+    # error handling goes here
+    lname_existing = input("Enter last name of staff member:\n")
+    print(f"you entered {lname_existing}. Is this correct?")
+    # error handling goes here
+
+    requested_name = [fname_existing.upper(), lname_existing.upper()]
+    print(requested_name)
+    print('')
+
+    name_check = staff.get_all_values()
+    print(name_check)  # prints list of lists
+    print('')
+
+    name_check_dict = {i[0]: i[1:] for i in name_check}
+    # converts list to dictionary & assigns staff id as the key
+    print(name_check_dict)  # prints dictionary of lists
+    print('')
+
+    for key, value in name_check_dict.items():
+        print(value)
+        for i in value:
+            print(f'{key} : {value}')
+            # if value contains first name then check if value
+            # also contains second name, if so return key (which is staff id)
+
+    '''
+    if fname_existing in name_check:
+        print("this works one")
+        if lname_existing in name_check:
+            print("this works also")
+    for name in name_check:
+        if fname_existing:
+            if lname_existing:
+                print("this works")
+    '''
+
+    # search for staff in worksheet
+    # display staff name to user & check if correct
+    # return staff details
+    # extract staff id
+    # use staff id to search training log
+    # display all registered training items to user
+    # give user option to add more training details
 
 
 welcome()
