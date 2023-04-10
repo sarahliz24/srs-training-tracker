@@ -272,22 +272,30 @@ def get_staff_id(requested_name):
                 staff_id_found = key
                 print(staff_id_found)
                 print(f'Enter skill for {value[0]} {value[1]}')
+                display_staff_skills(staff_id_found)
                 skill_menu(staff_id_found)
-                return staff_id_found
+                return str(staff_id_found)
 
 
-def display_staff_skills():
+def display_staff_skills(staff_id_found):
     """
     displays list of skills assigned to staff member
     """
-    print("Here is a list of the staff members current skills")
+    t_log = training_log.get_all_values()
+    print(t_log)
+
+    print("Here is a list of the staff member's current skills\n")
+    for i in range(0, len(t_log)):
+        if t_log[i][0] == staff_id_found:
+            print(t_log[i][0] + " skill name goes here")
 
 
 def check_skill_dupl(staff_id_found):
     """
     check for skill duplication
     """
-    
+    pass
+
     # search for staff in worksheet
     # display staff name to user & check if correct
     # return staff details
