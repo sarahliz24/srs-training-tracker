@@ -282,12 +282,19 @@ def display_staff_skills(staff_id_found):
     displays list of skills assigned to staff member
     """
     t_log = training_log.get_all_values()
-    print(t_log)
+
+    skills_list = skills.get_all_values()
+    skills_dict = {i[0]: i[1] for i in skills_list}
 
     print("Here is a list of the staff member's current skills\n")
-    for i in range(0, len(t_log)):
+    i = 1
+    while i < len(t_log):
         if t_log[i][0] == staff_id_found:
-            print(t_log[i][0] + " skill name goes here")
+            x = t_log[i][1]
+            for key, value in skills_dict.items():
+                if x in key:
+                    print(f'{key} : {value}')
+        i += 1
 
 
 def check_skill_dupl(staff_id_found):
