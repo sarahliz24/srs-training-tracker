@@ -281,6 +281,13 @@ def display_staff_skills():
     displays list of skills assigned to staff member
     """
     print("Here is a list of the staff members current skills")
+
+
+def check_skill_dupl(staff_id_found):
+    """
+    check for skill duplication
+    """
+    
     # search for staff in worksheet
     # display staff name to user & check if correct
     # return staff details
