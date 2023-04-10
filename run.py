@@ -230,8 +230,8 @@ def more_skill_input(staff_entry):
 
 def find_staff():
     """
-    Allow user to add skills for a previously
-    registered staff member
+    Take user input for staff member to search for
+    and return as a list
     """
     # get user to input staff name
     fname_existing = input("Enter first name of staff member:\n")
