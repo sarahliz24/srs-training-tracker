@@ -275,6 +275,12 @@ def get_staff_id(requested_name):
                 skill_menu(staff_id_found)
                 return staff_id_found
 
+
+def display_staff_skills():
+    """
+    displays list of skills assigned to staff member
+    """
+    print("Here is a list of the staff members current skills")
     # search for staff in worksheet
     # display staff name to user & check if correct
     # return staff details
