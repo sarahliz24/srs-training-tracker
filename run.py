@@ -240,11 +240,12 @@ def find_staff():
     lname_existing = input("Enter last name of staff member:\n")
     print(f"you entered {lname_existing}. Is this correct?")
     # error handling goes here
-
+    global requested_name
     requested_name = [fname_existing.upper(), lname_existing.upper()]
+    get_staff_id(requested_name)
     print(requested_name)
     print('')
-    get_staff_id(requested_name)
+    # get_staff_id(requested_name)
     return requested_name
 
 
@@ -262,12 +263,15 @@ def get_staff_id(requested_name):
     print('')
 
     for key, value in name_check_dict.items():
-        print(value)
+        # print(value)
         for i in value:
             print(f'{key} : {value}')
+            # prints each x2 as there are 2 values w each key
             if requested_name == value:
-                print("We did it")
                 print(f"Staff ID is {key}")
+                staff_id_found = key
+                print(staff_id_found)
+                return staff_id_found
 
     # search for staff in worksheet
     # display staff name to user & check if correct
