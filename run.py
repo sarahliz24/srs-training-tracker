@@ -271,6 +271,8 @@ def get_staff_id(requested_name):
                 print(f"Staff ID is {key}")
                 staff_id_found = key
                 print(staff_id_found)
+                print(f'Enter skill for {value[0]} {value[1]}')
+                skill_menu(staff_id_found)
                 return staff_id_found
 
     # search for staff in worksheet
