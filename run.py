@@ -244,12 +244,19 @@ def find_staff():
     requested_name = [fname_existing.upper(), lname_existing.upper()]
     print(requested_name)
     print('')
+    get_staff_id(requested_name)
+    return requested_name
 
+
+def get_staff_id(requested_name):
+    """
+    get staff id
+    """
     name_check = staff.get_all_values()
     print(name_check)  # prints list of lists
     print('')
 
-    name_check_dict = {i[0]: i[1:] for i in name_check}
+    name_check_dict = {i[0]: i[1:3] for i in name_check}
     # converts list to dictionary & assigns staff id as the key
     print(name_check_dict)  # prints dictionary of lists
     print('')
@@ -258,19 +265,9 @@ def find_staff():
         print(value)
         for i in value:
             print(f'{key} : {value}')
-            # if value contains first name then check if value
-            # also contains second name, if so return key (which is staff id)
-
-    '''
-    if fname_existing in name_check:
-        print("this works one")
-        if lname_existing in name_check:
-            print("this works also")
-    for name in name_check:
-        if fname_existing:
-            if lname_existing:
-                print("this works")
-    '''
+            if requested_name == value:
+                print("We did it")
+                print(f"Staff ID is {key}")
 
     # search for staff in worksheet
     # display staff name to user & check if correct
