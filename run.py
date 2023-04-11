@@ -381,6 +381,7 @@ def search_menu():
                 break
             elif answer == 2:
                 print('you answered two')
+                get_skill_id()
             elif answer == 3:
                 print('you answered three')
                 # search_all()
@@ -390,7 +391,21 @@ def search_menu():
 
 
 def get_skill_id():
-    pass
+    """
+    gets skill id
+    """
+    skills_dict()
+    print(skills_dict)
+
+    for key in skills_dict:
+        print(key, skills_dict[key])
+        # loops over dict, prints each key & value on a single line
+
+    print('Which skill do you want to query?')
+    skill_id_key = input("Enter number 1 - 9:\n")
+    # print(f"skill key is {skill_id_key}")
+    
+    return skill_id_key
 
 
 welcome()
