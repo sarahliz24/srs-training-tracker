@@ -111,8 +111,8 @@ def reg_new_staff():
         try:
             fname = input('Enter first name of staff member:\n').upper()
             lname = input('Enter last name of staff member:\n').upper()
-            position = input('Enter staff position - \
-                            Junior, Senior or CS:\n').upper()
+            position = input(
+                'Enter staff position - Junior, Senior or CS:\n').upper()
             print(f'You entered: {fname} {lname}; position: {position}')
         except ValueError():
             # if entering a letter or other non-number key return to input
@@ -146,7 +146,7 @@ def reg_new_staff():
                 global staff_entry
                 staff_entry = [staff_id, fname, lname, position]
                 staff.append_row(staff_entry)
-                print(staff_entry)
+                # print(staff_entry)
                 print('Staff member entry successful')
                 print('Now to update staff skills\n')
                 skill_menu(staff_entry)
