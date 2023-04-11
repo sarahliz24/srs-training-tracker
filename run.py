@@ -294,7 +294,10 @@ def display_staff_skills(staff_id_found):
     skills_list = skills.get_all_values()
     skills_dict = {i[0]: i[1] for i in skills_list}
 
-    print("Here is a list of the staff member's current skills\n")
+    print(
+        f"Here is a list of {requested_name[0]} {requested_name[1]}'s")
+    print('current skills\n')
+
     i = 1
     # current_skills = []
     while i < len(t_log):
