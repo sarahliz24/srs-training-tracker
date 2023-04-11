@@ -188,6 +188,9 @@ def user_skill_input(staff_entry):
     takes user input, checks validity, stores input in
     training log worksheet
     """
+    # skills_list = skills.get_all_values()
+    # skills_dict = {i[0]: i[1] for i in skills_list}
+
     global skill_to_input
     skill_to_input = str(input('Enter skill number:\n'))
     # takes input from user, converts to string for dictionary use
@@ -211,6 +214,8 @@ def user_skill_input(staff_entry):
     else:
         print('\nTry input again - you did not enter a valid number\n')
         skill_menu(staff_entry)
+
+    return skill_to_input
 
 
 def more_skill_input(staff_entry):
@@ -288,20 +293,34 @@ def display_staff_skills(staff_id_found):
 
     print("Here is a list of the staff member's current skills\n")
     i = 1
+    # current_skills = []
     while i < len(t_log):
         if t_log[i][0] == staff_id_found:
             x = t_log[i][1]
             for key, value in skills_dict.items():
                 if x in key:
                     print(f'{key} : {value}')
+                    # current_skills.append(key)
+                    # print(current_skills)
         i += 1
+    # return current_skills
 
 
-def check_skill_dupl(staff_id_found):
+def check_skill_dupl(skill_to_input, staff_id_found):
     """
     check for skill duplication
+    # if skill to input already in display staff skills list,
+    return warning to user
     """
-    pass
+    t_log = training_log.get_all_values()
+
+    # skills_list = skills.get_all_values()
+    # skills_dict = {i[0]: i[1] for i in skills_list}
+    i = 1
+    while i < len(t_log):
+        if (t_log[i][0] == staff_id_found) & (t_log[i][1] == skill_to_input):
+            print("we need to change this")
+        i += 1
 
     # search for staff in worksheet
     # display staff name to user & check if correct
@@ -310,7 +329,7 @@ def check_skill_dupl(staff_id_found):
     # use staff id to search training log
     # display all registered training items to user
     # give user option to add more training details
-
+    
 
 welcome()
 welcome_menu()
