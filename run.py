@@ -392,7 +392,7 @@ def search_menu():
 
 def get_skill_id():
     """
-    gets skill id
+    gets skill id from user input
     """
     skills_dict()
     print(skills_dict)
@@ -403,9 +403,30 @@ def get_skill_id():
 
     print('Which skill do you want to query?')
     skill_id_key = input("Enter number 1 - 9:\n")
+    # print(type(skill_id_key)) = string
     # print(f"skill key is {skill_id_key}")
-    
+    staff_w_skill_id(skill_id_key)
     return skill_id_key
+
+
+def staff_w_skill_id(skill_id_key):
+    """
+    doc string goes here
+    """
+    # get_skill_id()
+    t_log = training_log.get_all_values()
+    print(t_log)
+
+    staff_with_skill = []
+    i = 1
+    while i < len(t_log):
+        if (t_log[i][1] == skill_id_key):
+            # print("we need to change this")
+            staff_with_skill.append(t_log[i][0])
+            # print(staff_with_skill) - returns a list with the staff ids
+        i += 1
+    
+    return staff_with_skill
 
 
 welcome()
