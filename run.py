@@ -240,8 +240,9 @@ def find_staff():
     Take user input for staff member to search for
     and return as a list
     """
-    # get user to input staff name
+    print("UPDATE STAFF MEMBER'S SKILLS\n")
     fname_existing = input("Enter first name of staff member:\n")
+    # get user to input staff name
     print(f"you entered {fname_existing}. Is this correct?")
     # error handling goes here
     lname_existing = input("Enter last name of staff member:\n")
