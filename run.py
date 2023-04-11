@@ -153,16 +153,22 @@ def reg_new_staff():
                 return staff_entry
 
 
-def skill_menu(staff_entry):
-    """
-    Gives user list of skills that can be added to staff profile
-    Allows user to add skills to staff profile
-    """
+def skills_dict():
     skills_list = skills.get_all_values()
     # returns a list of lists from skills worksheet
     global skills_dict
     skills_dict = {i[0]: i[1] for i in skills_list}
     # converts list to dictionary using dictionary comprehension
+
+    return skills_dict
+
+
+def skill_menu(staff_entry):
+    """
+    Gives user list of skills that can be added to staff profile
+    Allows user to add skills to staff profile
+    """
+    skills_dict()
 
     print('SRS SKILLS LIST\n')
     for key in skills_dict:
@@ -291,9 +297,9 @@ def display_staff_skills(staff_id_found):
     # current_skills = []
     while i < len(t_log):
         if t_log[i][0] == staff_id_found:
-            x = t_log[i][1]
+            xxx = t_log[i][1]
             for key, value in skills_dict.items():
-                if x in key:
+                if xxx in key:
                     print(f'{key} : {value}')
                     # current_skills.append(key)
         i += 1
@@ -324,7 +330,8 @@ def display_staff_menu():
         print('you answered one')
         find_staff()
     elif answer5 == 2:
-        skill_menu(staff_entry)
+        print("This will be option 2")
+        # skill_menu(staff_entry)
     elif answer5 == 0:
         sys.exit("You are exiting the system")
 
@@ -351,6 +358,8 @@ def search_menu():
     displays menu with options for user to search by
     staff member, skill or all
     """
+    clear_screen()
+
     print('SEARCH MENU OPTIONS\n')
     print('1: Staff search - displays all skills for a staff member')
     print('2: Skill search - displays all staff members who have a skill')
@@ -368,16 +377,20 @@ def search_menu():
                 # if entering a number not 0-3, set to return to input
                 print('please choose 0 - 3 from the menu\n')
             if answer == 1:
-                print('you answered one')
                 find_staff()
                 break
             elif answer == 2:
                 print('you answered two')
             elif answer == 3:
                 print('you answered three')
+                # search_all()
             elif answer == 0:
                 sys.exit("You are exiting the system")
             #  each option will send user to appropriate new menu/page
+
+
+def get_skill_id():
+    pass
 
 
 welcome()
