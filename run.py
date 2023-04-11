@@ -6,6 +6,7 @@ import sys
 import datetime
 import gspread  # API for google sheets
 from google.oauth2.service_account import Credentials
+from tabulate import tabulate
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -329,7 +330,7 @@ def check_skill_dupl(skill_to_input, staff_id_found):
     # use staff id to search training log
     # display all registered training items to user
     # give user option to add more training details
-    
+
 
 welcome()
 welcome_menu()
