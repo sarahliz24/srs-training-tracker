@@ -47,17 +47,17 @@ def welcome():
     print('+-+-+-+\n')
 
     print('This app records and reports staff training for all SRS skills\n')
-    print('1. You can add a new staff member along with any approved SRS')
-    print('skills they have\n')
+    print('1. You can add a new staff member along with any SRS')
+    print('   skills they have\n')
     print('2. You can update existing staff records when staff achieve')
-    print('new skills\n')
-    print('3. You can search by:\n')
-    print('*SRS skill')
-    print('    - who is approved for a particular skill\n')
-    print('*Staff member')
-    print('    - what skills a particular staff member has\n')
-    print('*Full info')
-    print('    - All staff and all skills in one table\n')
+    print('   new skills\n')
+    print('3. You can search by:')
+    print('   *SRS skill')
+    print('       - who is approved for a particular skill')
+    print('   *Staff member')
+    print('       - what skills a particular staff member has')
+    print('   *Full info')
+    print('       - All staff and all skills in one table\n')
 
 
 def welcome_menu():
