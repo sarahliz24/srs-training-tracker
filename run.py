@@ -93,6 +93,7 @@ def welcome_menu():
         find_staff()
     elif answer == 3:
         print('you answered three')
+        search_menu()
     elif answer == 0:
         sys.exit("You are exiting the system")
     #  each option will send user to appropriate new menu/page (add function)
@@ -330,6 +331,39 @@ def check_skill_dupl(skill_to_input, staff_id_found):
     # use staff id to search training log
     # display all registered training items to user
     # give user option to add more training details
+
+
+def search_menu():
+    """
+    displays menu with options for user to search by
+    staff member, skill or all
+    """
+    print('SEARCH MENU OPTIONS\n')
+    print('1: Staff search - displays all skills for a staff member')
+    print('2: Skill search - displays all staff members who have a skill')
+    print('3: Search all - displays all staff and skills')
+    print('0: Return to main menu\n')
+
+    while True:
+        try:
+            answer = int(input('Enter 1, 2 or 3 to proceed (or 0 to exit):\n'))
+        except ValueError:
+            # if entering a letter or other non-number key return to input
+            print('please choose a valid number option from the menu\n')
+        else:
+            if answer > 3:
+                # if entering a number not 0-3, set to return to input
+                print('please choose 0 - 3 from the menu\n')
+            if answer == 1:
+                print('you answered one')
+                find_staff()
+            elif answer == 2:
+                print('you answered two')
+            elif answer == 3:
+                print('you answered three')
+            elif answer == 0:
+                sys.exit("You are exiting the system")
+            #  each option will send user to appropriate new menu/page
 
 
 welcome()
