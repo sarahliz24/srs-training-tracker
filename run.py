@@ -361,6 +361,7 @@ def search_menu():
             if answer == 1:
                 print('you answered one')
                 find_staff()
+                break
             elif answer == 2:
                 print('you answered two')
             elif answer == 3:
