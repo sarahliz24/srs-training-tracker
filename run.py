@@ -250,14 +250,14 @@ def find_staff():
     # error handling goes here
     global requested_name
     requested_name = [fname_existing.upper(), lname_existing.upper()]
-    get_staff_id(requested_name)
+    get_staff_id()
     print(requested_name)
     print('')
     # get_staff_id(requested_name)
     return requested_name
 
 
-def get_staff_id(requested_name):
+def get_staff_id():
     """
     get staff id
     """
