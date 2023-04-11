@@ -251,7 +251,7 @@ def find_staff():
     global requested_name
     requested_name = [fname_existing.upper(), lname_existing.upper()]
     get_staff_id()
-    print(requested_name)
+    # print(requested_name)
     print('')
     # get_staff_id(requested_name)
     return requested_name
@@ -262,26 +262,26 @@ def get_staff_id():
     get staff id
     """
     name_check = staff.get_all_values()
-    print(name_check)  # prints list of lists
+    # print(name_check)  # prints list of lists
     print('')
 
     name_check_dict = {i[0]: i[1:3] for i in name_check}
     # converts list to dictionary & assigns staff id as the key
-    print(name_check_dict)  # prints dictionary of lists
+    # print(name_check_dict)  # prints dictionary of lists
     print('')
 
     for key, value in name_check_dict.items():
         # print(value)
         for i in value:
-            print(f'{key} : {value}')
+            # print(f'{key} : {value}')
             # prints each x2 as there are 2 values w each key
             if requested_name == value:
-                print(f"Staff ID is {key}")
+                # print(f"Staff ID is {key}")
                 staff_id_found = key
-                print(staff_id_found)
-                print(f'Enter skill for {value[0]} {value[1]}')
+                # print(staff_id_found)
+                # print(f'Enter skill for {value[0]} {value[1]}')
                 display_staff_skills(staff_id_found)
-                skill_menu(staff_id_found)
+                # skill_menu(staff_id_found)
                 return str(staff_id_found)
 
 
