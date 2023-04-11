@@ -138,7 +138,6 @@ def reg_new_staff():
             if answer2 != 'Y':
                 print('Try input again')
             if answer2 == 'Y':
-                # False
                 clear_screen()
                 print('Sending information to worksheet')
                 # send info to worksheet
@@ -151,8 +150,6 @@ def reg_new_staff():
                 print('Now to update staff skills\n')
                 skill_menu(staff_entry)
                 return staff_entry
-                # break
-        # finally:
 
 
 def skill_menu(staff_entry):
@@ -251,9 +248,7 @@ def find_staff():
     global requested_name
     requested_name = [fname_existing.upper(), lname_existing.upper()]
     get_staff_id()
-    # print(requested_name)
     print('')
-    # get_staff_id(requested_name)
     return requested_name
 
 
@@ -262,23 +257,16 @@ def get_staff_id():
     get staff id
     """
     name_check = staff.get_all_values()
-    # print(name_check)  # prints list of lists
     print('')
 
     name_check_dict = {i[0]: i[1:3] for i in name_check}
     # converts list to dictionary & assigns staff id as the key
-    # print(name_check_dict)  # prints dictionary of lists
     print('')
 
     for key, value in name_check_dict.items():
-        # print(value)
         for i in value:
-            # print(f'{key} : {value}')
-            # prints each x2 as there are 2 values w each key
             if requested_name == value:
-                # print(f"Staff ID is {key}")
                 staff_id_found = key
-                # print(staff_id_found)
                 # print(f'Enter skill for {value[0]} {value[1]}')
                 display_staff_skills(staff_id_found)
                 # skill_menu(staff_id_found)
@@ -307,7 +295,6 @@ def display_staff_skills(staff_id_found):
                 if x in key:
                     print(f'{key} : {value}')
                     # current_skills.append(key)
-                    # print(current_skills)
         i += 1
     # return current_skills
 
@@ -327,14 +314,6 @@ def check_skill_dupl(skill_to_input, staff_id_found):
         if (t_log[i][0] == staff_id_found) & (t_log[i][1] == skill_to_input):
             print("we need to change this")
         i += 1
-
-    # search for staff in worksheet
-    # display staff name to user & check if correct
-    # return staff details
-    # extract staff id
-    # use staff id to search training log
-    # display all registered training items to user
-    # give user option to add more training details
 
 
 def search_menu():
