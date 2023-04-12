@@ -154,6 +154,9 @@ def reg_new_staff():
 
 
 def skills_dict():
+    """
+    docsting goes here
+    """
     skills_list = skills.get_all_values()
     # returns a list of lists from skills worksheet
     global skills_dict
@@ -411,7 +414,9 @@ def get_skill_id():
 
 def staff_w_skill_id(skill_id_key):
     """
-    doc string goes here
+    Takes skill id
+    Searches training log for staff with that skill id
+    Returns list with the relevant staff ids
     """
     # get_skill_id()
     t_log = training_log.get_all_values()
@@ -420,13 +425,39 @@ def staff_w_skill_id(skill_id_key):
     staff_with_skill = []
     i = 1
     while i < len(t_log):
-        if (t_log[i][1] == skill_id_key):
+        if t_log[i][1] == skill_id_key:
             # print("we need to change this")
             staff_with_skill.append(t_log[i][0])
             # print(staff_with_skill) - returns a list with the staff ids
         i += 1
-    
-    return staff_with_skill
+
+    skill_search_result(staff_with_skill, skill_id_key)
+    return (staff_with_skill, skill_id_key)
+
+
+def skill_search_result(staff_with_skill, skill_id_key):
+    """
+    Takes in staff_with_skill, skill_id_key & prints list
+    of staff names assigned that skill
+    """
+    # skills_dict()
+    # print(skills_dict())
+
+    t_log = training_log.get_all_values()
+    print(t_log)
+
+    name_check = staff.get_all_values()
+    name_check_dict = {i[0]: i[1:3] for i in name_check}
+    print(name_check_dict)
+
+    # print(f'Staff with skill {skill_id_key}:')
+    i = 1
+    while i < len(staff_with_skill):
+        for key, value in name_check_dict:
+            if staff_with_skill[i] == key:
+                # print(f"{value[i][0] value[i][1]}")
+                i += 1
+    # not working
 
 
 welcome()
