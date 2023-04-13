@@ -256,7 +256,7 @@ def find_staff():
     lname_existing = input("Enter last name of staff member:\n")
     print(f"you entered {lname_existing}. Is this correct?")
     # error handling goes here
-    # global requested_name
+    global requested_name
     requested_name = [fname_existing.upper(), lname_existing.upper()]
     get_staff_id()
     print('')
@@ -267,7 +267,6 @@ def get_staff_id():
     """
     get staff id
     """
-    requested_name1 = find_staff()
     name_check = staff.get_all_values()
     print('')
 
@@ -277,7 +276,7 @@ def get_staff_id():
 
     for key, value in name_check_dict.items():
         for i in value:
-            if requested_name1 == value:
+            if requested_name == value:
                 staff_id_found = key
                 # print(f'Enter skill for {value[0]} {value[1]}')
                 display_staff_skills(staff_id_found)
@@ -289,7 +288,6 @@ def display_staff_skills(staff_id_found):
     """
     displays list of skills assigned to staff member
     """
-    requested_name1 = find_staff()
     t_log = training_log.get_all_values()
 
     # skills_list = skills.get_all_values()
@@ -297,7 +295,7 @@ def display_staff_skills(staff_id_found):
     skills1 = skills_dict()
 
     print(
-        f"Here is a list of {requested_name1[0]} {requested_name1[1]}'s")
+        f"Here is a list of {requested_name[0]} {requested_name[1]}'s")
     print('current skills\n')
 
     i = 1
