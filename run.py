@@ -159,11 +159,11 @@ def skills_dict():
     """
     skills_list = skills.get_all_values()
     # returns a list of lists from skills worksheet
-    global skills_dict
-    skills_dict = {i[0]: i[1] for i in skills_list}
+    # global skills_dict
+    skills_dict1 = {i[0]: i[1] for i in skills_list}
     # converts list to dictionary using dictionary comprehension
 
-    return skills_dict
+    return skills_dict1
 
 
 def skill_menu(staff_entry):
@@ -171,11 +171,11 @@ def skill_menu(staff_entry):
     Gives user list of skills that can be added to staff profile
     Allows user to add skills to staff profile
     """
-    skills_dict()
+    skills1 = skills_dict()
 
     print('SRS SKILLS LIST\n')
-    for key in skills_dict:
-        print(key, skills_dict[key])
+    for key in skills1:
+        print(key, skills1[key])
         # loops over dict, prints each key & value on a single line
 
     print('\n')
@@ -202,9 +202,10 @@ def user_skill_input(staff_entry):
 
     global skill_to_input
     skill_to_input = str(input('Enter skill number:\n'))
+    skills1 = skills_dict()
     # takes input from user, converts to string for dictionary use
     if int(skill_to_input) <= len(skills.get_all_values()):
-        for key, value in skills_dict.items():
+        for key, value in skills1.items():
             if skill_to_input == key:
                 print(f'You selected {key}: {value}')
                 answer3 = input('is this correct (Y or N)?\n').upper()
@@ -289,8 +290,9 @@ def display_staff_skills(staff_id_found):
     """
     t_log = training_log.get_all_values()
 
-    skills_list = skills.get_all_values()
-    skills_dict = {i[0]: i[1] for i in skills_list}
+    # skills_list = skills.get_all_values()
+    # skills_dict = {i[0]: i[1] for i in skills_list}
+    skills1 = skills_dict()
 
     print(
         f"Here is a list of {requested_name[0]} {requested_name[1]}'s")
@@ -301,7 +303,7 @@ def display_staff_skills(staff_id_found):
     while i < len(t_log):
         if t_log[i][0] == staff_id_found:
             xxx = t_log[i][1]
-            for key, value in skills_dict.items():
+            for key, value in skills1.items():
                 if xxx in key:
                     print(f'{key} : {value}')
                     # current_skills.append(key)
@@ -397,11 +399,11 @@ def get_skill_id():
     """
     gets skill id from user input
     """
-    skills_dict()
-    print(skills_dict)
+    skills1 = skills_dict()
+    print(skills1)
 
-    for key in skills_dict:
-        print(key, skills_dict[key])
+    for key in skills1:
+        print(key, skills1[key])
         # loops over dict, prints each key & value on a single line
 
     print('Which skill do you want to query?')
