@@ -143,7 +143,7 @@ def reg_new_staff():
                 # send info to worksheet
                 staff_id = len(staff.get_all_values())
                 # gets length of rows in staff spreadsheet
-                global staff_entry
+                # global staff_entry
                 staff_entry = [staff_id, fname, lname, position]
                 staff.append_row(staff_entry)
                 # print(staff_entry)
