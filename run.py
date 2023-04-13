@@ -338,7 +338,7 @@ def display_staff_menu():
         print("This will be option 2")
         # skill_menu(staff_entry)
     elif answer5 == 0:
-        sys.exit("You are exiting the system")
+        welcome_menu()
 
 
 def check_skill_dupl(skill_to_input, staff_id_found):
