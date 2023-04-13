@@ -99,6 +99,26 @@ def welcome_menu():
     #  each option will send user to appropriate new menu/page (add function)
 
 
+def confirmed_new_staff(fname, lname, position):
+    """
+    if user confirms entry is correct, assigns staff id,
+    sends staff info to workshet
+    """
+    clear_screen()
+    print('Sending information to worksheet')
+    # send info to worksheet
+    staff_id = len(staff.get_all_values())
+    # gets length of rows in staff spreadsheet
+    # global staff_entry
+    staff_entry = [staff_id, fname, lname, position]
+    staff.append_row(staff_entry)
+    # print(staff_entry)
+    print('Staff member entry successful')
+    print('Now to update staff skills\n')
+    skill_menu(staff_entry)
+    return staff_entry
+
+
 def reg_new_staff():
     """
     Captures new staff name/position details
@@ -138,19 +158,7 @@ def reg_new_staff():
             if answer2 != 'Y':
                 print('Try input again')
             if answer2 == 'Y':
-                clear_screen()
-                print('Sending information to worksheet')
-                # send info to worksheet
-                staff_id = len(staff.get_all_values())
-                # gets length of rows in staff spreadsheet
-                # global staff_entry
-                staff_entry = [staff_id, fname, lname, position]
-                staff.append_row(staff_entry)
-                # print(staff_entry)
-                print('Staff member entry successful')
-                print('Now to update staff skills\n')
-                skill_menu(staff_entry)
-                return staff_entry
+                return confirmed_new_staff(fname, lname, position)
 
 
 def skills_dict():
