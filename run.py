@@ -200,7 +200,7 @@ def user_skill_input(staff_entry):
     # skills_list = skills.get_all_values()
     # skills_dict = {i[0]: i[1] for i in skills_list}
 
-    global skill_to_input
+    # global skill_to_input
     skill_to_input = str(input('Enter skill number:\n'))
     skills1 = skills_dict()
     # takes input from user, converts to string for dictionary use
