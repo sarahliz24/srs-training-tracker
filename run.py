@@ -332,6 +332,7 @@ def display_staff_menu():
             print('please choose a valid option from the menu\n')
     if answer5 == 1:
         print('you answered one')
+        find_staff()
     elif answer5 == 0:
         welcome_menu()
 
