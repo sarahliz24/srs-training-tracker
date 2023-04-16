@@ -89,12 +89,15 @@ def main():
     elif answer == 2:
         print('you answered two')
         find_staff()
+        get_staff_id()
+        display_staff_skills()
+        skill_menu()
+        user_skill_input()
     elif answer == 3:
         print('you answered three')
         search_menu()
     elif answer == 0:
         sys.exit("You are exiting the system")
-    #  each option will send user to appropriate new menu/page (add function)
 
 
 def storing_new_staff(fname, lname, position):
