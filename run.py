@@ -75,11 +75,11 @@ def main():
             answer = int(input('Enter 1, 2 or 3 to proceed (or 0 to exit):\n'))
         except ValueError:
             # if entering a letter or other non-number key return to input
-            print('please choose a valid option from the menu\n')
+            print('please choose a number (only) from the menu\n')
             continue
         if answer > 3:
             #  if entering a number not 1-3 or 9, set to return to input
-            print('please choose a valid option from the menu\n')
+            print('please choose number 0, 1, 2, or 3 from the menu\n')
             continue
         break
     if answer == 1:
