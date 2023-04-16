@@ -389,8 +389,9 @@ def search_menu():
                 display_staff_skills()
                 display_staff_menu()
             elif answer == 2:
-                print('you answered two')
-                get_skill_id()
+                print('you answered skill search')
+                # get_skill_id()
+                staff_w_skill_id()
             elif answer == 3:
                 print('you answered three')
                 # search_all()
@@ -410,38 +411,36 @@ def get_skill_id():
         print(key, skills1[key])
         # loops over dict, prints each key & value on a single line
 
-    print('Which skill do you want to query?')
+    print('\nWhich skill do you want to query?')
     skill_id_key = input("Enter number 1 - 9:\n")
     # print(type(skill_id_key)) = string
     # print(f"skill key is {skill_id_key}")
-    staff_w_skill_id(skill_id_key)
+    # staff_w_skill_id(skill_id_key)
     return skill_id_key
 
 
-def staff_w_skill_id(skill_id_key):
+def staff_w_skill_id():
     """
     Takes skill id
     Searches training log for staff with that skill id
     Returns list with the relevant staff ids
     """
-    # get_skill_id()
+    skill_id_key = get_skill_id()
+
     t_log = training_log.get_all_values()
-    print(t_log)
 
     staff_with_skill = []
-    i = 1
+    i = 0
     while i < len(t_log):
         if t_log[i][1] == skill_id_key:
-            # print("we need to change this")
-            staff_with_skill.append(t_log[i][0])
-            # print(staff_with_skill) - returns a list with the staff ids
+            staff_with_skill.extend(t_log[i][0])
+            print(f"staff ids with this skill: {staff_with_skill}")
+            # returns a list with the staff ids
         i += 1
-
-    skill_search_result(staff_with_skill, skill_id_key)
-    return (staff_with_skill, skill_id_key)
+    return staff_with_skill
 
 
-def skill_search_result(staff_with_skill, skill_id_key):
+def skill_search_result():
     """
     Takes in staff_with_skill, skill_id_key & prints list
     of staff names assigned that skill
