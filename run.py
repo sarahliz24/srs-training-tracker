@@ -285,9 +285,7 @@ def get_staff_id():
             if requested_name == value:
                 staff_id_found = key
                 # print(f'Enter skill for {value[0]} {value[1]}')
-                display_staff_skills()
-                # skill_menu(staff_id_found)
-                return str(staff_id_found)
+                return staff_id_found
 
 
 def display_staff_skills():
