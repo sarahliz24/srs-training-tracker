@@ -230,7 +230,7 @@ def user_skill_input():
     # return skill_to_input
 
 
-def more_skill_input(staff_entry):
+def more_skill_input():
     """
     Give user option to enter further skills
     """
@@ -243,7 +243,7 @@ def more_skill_input(staff_entry):
     if answer4 == 'Y':
         print('Make another selection\n')
         skill_menu()
-
+        user_skill_input()
 
 def find_staff():
     """
