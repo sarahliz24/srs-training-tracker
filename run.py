@@ -385,7 +385,9 @@ def search_menu():
                 print('please choose 0 - 3 from the menu\n')
             if answer == 1:
                 find_staff()
-                break
+                get_staff_id()
+                display_staff_skills()
+                display_staff_menu()
             elif answer == 2:
                 print('you answered two')
                 get_skill_id()
