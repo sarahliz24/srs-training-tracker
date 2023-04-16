@@ -171,7 +171,7 @@ def skills_dict():
     return skills_dict1
 
 
-def skill_menu(staff_entry):
+def skill_menu():
     """
     Gives user list of skills that can be added to staff profile
     Allows user to add skills to staff profile
@@ -217,7 +217,7 @@ def user_skill_input(staff_entry):
                 if answer3 != 'Y':
                     print('\nTry input again')
                     clear_screen()
-                    skill_menu(staff_entry)
+                    skill_menu()
                 if answer3 == 'Y':
                     print('Sending information to worksheet')
                     # send info to skills worksheet
@@ -228,7 +228,7 @@ def user_skill_input(staff_entry):
                     break
     else:
         print('\nTry input again - you did not enter a valid number\n')
-        skill_menu(staff_entry)
+        skill_menu()
 
     return skill_to_input
 
@@ -245,7 +245,7 @@ def more_skill_input(staff_entry):
         main()
     if answer4 == 'Y':
         print('Make another selection\n')
-        skill_menu(staff_entry)
+        skill_menu()
 
 
 def find_staff():
@@ -341,7 +341,7 @@ def display_staff_menu():
         find_staff()
     elif answer5 == 2:
         print("This will be option 2")
-        # skill_menu(staff_entry)
+        # skill_menu()
     elif answer5 == 0:
         main()
 
