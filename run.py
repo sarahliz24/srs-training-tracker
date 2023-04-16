@@ -219,18 +219,48 @@ def user_skill_input():
                     clear_screen()
                     skill_menu()
                 if answer3 == 'Y':
-                    print('Sending information to worksheet')
-                    # send info to skills worksheet
+                    t_log = training_log.get_all_values()
                     date = str(datetime.date.today())
                     skill_entry = [staff_id1, skill_to_input, date]
+
+                    i = 0
+                    while i < len(t_log):
+                        if t_log[i][0] == skill_entry[0]:
+                            if t_log[i][1] == skill_entry[1]:
+                                print('\nDuplicate entry, try again')
+                                more_skill_input()
+                                break
+                        i += 1
                     training_log.append_row(skill_entry)
+                    print('Sending information to worksheet')
+                    # send info to skills worksheet
                     more_skill_input()
-                    break
     else:
         print('\nTry input again - you did not enter a valid number\n')
         skill_menu()
 
     # return skill_to_input
+
+
+'''
+def check_skill_dupl():
+    """
+    check for skill duplication
+    # if skill to input already in display staff skills list,
+    return warning to user
+    """
+    staff_id_found2 = get_skill_id()
+
+    t_log = training_log.get_all_values()
+
+    # skills_list = skills.get_all_values()
+    # skills_dict = {i[0]: i[1] for i in skills_list}
+    i = 1
+    while i < len(t_log):
+        if (t_log[i][0] == staff_id_found2) & (t_log[i][1] == skill_to_input):
+            print("we need to change this")
+        i += 1
+'''
 
 
 def more_skill_input():
@@ -341,23 +371,6 @@ def display_staff_menu():
         display_staff_menu()
     else:
         main()
-
-
-def check_skill_dupl(skill_to_input, staff_id_found):
-    """
-    check for skill duplication
-    # if skill to input already in display staff skills list,
-    return warning to user
-    """
-    t_log = training_log.get_all_values()
-
-    # skills_list = skills.get_all_values()
-    # skills_dict = {i[0]: i[1] for i in skills_list}
-    i = 1
-    while i < len(t_log):
-        if (t_log[i][0] == staff_id_found) & (t_log[i][1] == skill_to_input):
-            print("we need to change this")
-        i += 1
 
 
 def search_menu():
