@@ -112,9 +112,8 @@ def storing_new_staff(fname, lname, position):
     staff.append_row(staff_entry)
     # print(staff_entry)
     print('Staff member entry successful')
-    print('Now to update staff skills\n')
-    skill_menu(staff_entry)
-    return staff_entry
+    print('Returning to main menu\n')
+    main()
 
 
 def reg_new_staff():
