@@ -467,4 +467,5 @@ def skill_search_result(staff_with_skill, skill_id_key):
 
 
 if __name__ == '__main__':
+    welcome()
     main()
