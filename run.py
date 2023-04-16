@@ -66,8 +66,8 @@ def main():
         Manages input errors.
     """
     print('MENU OPTIONS\n')
-    print('1: Enter a new staff member & add skills')
-    print('2: Update skills for an existing staff member')
+    print('1: Enter a new staff member')
+    print('2: Update skills for a staff member')
     print('3: Search records by skill, staff or all\n')
 
     while True:
@@ -155,7 +155,7 @@ def reg_new_staff():
             if answer2 != 'Y':
                 print('Try input again')
             if answer2 == 'Y':
-                return storing_new_staff(fname, lname, position)
+                storing_new_staff(fname, lname, position)
 
 
 def skills_dict():
