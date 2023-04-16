@@ -245,6 +245,7 @@ def more_skill_input():
         skill_menu()
         user_skill_input()
 
+
 def find_staff():
     """
     Take user input for staff member to search for
@@ -281,7 +282,7 @@ def get_staff_id():
             if requested_name == value:
                 staff_id_found = key
                 # print(f'Enter skill for {value[0]} {value[1]}')
-                display_staff_skills(staff_id_found)
+                display_staff_skills()
                 # skill_menu(staff_id_found)
                 return str(staff_id_found)
 
