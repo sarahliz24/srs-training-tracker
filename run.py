@@ -286,7 +286,7 @@ def get_staff_id():
                 return str(staff_id_found)
 
 
-def display_staff_skills(staff_id_found):
+def display_staff_skills():
     """
     displays list of skills assigned to staff member
     """
@@ -295,24 +295,23 @@ def display_staff_skills(staff_id_found):
     # skills_list = skills.get_all_values()
     # skills_dict = {i[0]: i[1] for i in skills_list}
     skills1 = skills_dict()
+    staff_id_found1 = get_staff_id()
 
     print(
         f"Here is a list of {requested_name[0]} {requested_name[1]}'s")
     print('current skills\n')
+    # add error checking if staff have no skills yet
 
     i = 1
     # current_skills = []
     while i < len(t_log):
-        if t_log[i][0] == staff_id_found:
+        if t_log[i][0] == staff_id_found1:
             xxx = t_log[i][1]
             for key, value in skills1.items():
                 if xxx in key:
                     print(f'{key} : {value}')
                     # current_skills.append(key)
         i += 1
-    # return current_skills
-
-    display_staff_menu()
 
 
 def display_staff_menu():
