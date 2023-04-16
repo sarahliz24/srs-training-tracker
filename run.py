@@ -97,7 +97,7 @@ def main():
     #  each option will send user to appropriate new menu/page (add function)
 
 
-def confirmed_new_staff(fname, lname, position):
+def storing_new_staff(fname, lname, position):
     """
     if user confirms entry is correct, assigns staff id,
     sends staff info to workshet
