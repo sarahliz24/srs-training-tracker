@@ -174,7 +174,6 @@ def skills_dict():
 def skill_menu():
     """
     Gives user list of skills that can be added to staff profile
-    Allows user to add skills to staff profile
     """
     skills1 = skills_dict()
 
@@ -186,8 +185,6 @@ def skill_menu():
     print('\n')
     print('Instructions\n')
     print('To add a skill - enter the skill number')
-
-    user_skill_input(staff_entry)
 
 
 def entry_date():
