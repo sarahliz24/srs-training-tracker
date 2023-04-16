@@ -47,10 +47,8 @@ def welcome():
     print('+-+-+-+\n')
 
     print('This app records and reports staff training for all SRS skills\n')
-    print('1. You can add a new staff member along with any SRS')
-    print('   skills they have\n')
-    print('2. You can update existing staff records when staff achieve')
-    print('   new skills\n')
+    print('1. You can add a new staff member')
+    print('2. You can update staff records when staff achieve new skills')
     print('3. You can search by:')
     print('   *SRS skill')
     print('       - who is approved for a particular skill')
