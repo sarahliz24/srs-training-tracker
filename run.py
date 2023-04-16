@@ -83,18 +83,18 @@ def main():
             continue
         break
     if answer == 1:
-        print('you answered one')
+        # print('you answered one')
         clear_screen()
         reg_new_staff()
     elif answer == 2:
-        print('you answered two')
+        # print('you answered two')
         find_staff()
         get_staff_id()
         display_staff_skills()
         skill_menu()
         user_skill_input()
     elif answer == 3:
-        print('you answered three')
+        # print('you answered three')
         search_menu()
     elif answer == 0:
         sys.exit("You are exiting the system")
@@ -254,7 +254,7 @@ def find_staff():
     Take user input for staff member to search for
     and return as a list
     """
-    print("UPDATE STAFF MEMBER'S SKILLS\n")
+    print("FIND STAFF MEMBER:\n")
     fname_existing = input("Enter first name of staff member:\n")
     # get user to input staff name
     print(f"you entered {fname_existing}. Is this correct?")
@@ -265,7 +265,7 @@ def find_staff():
     global requested_name
     requested_name = [fname_existing.upper(), lname_existing.upper()]
     get_staff_id()
-    print('')
+    # print('')
     return requested_name
 
 
@@ -274,11 +274,11 @@ def get_staff_id():
     get staff id
     """
     name_check = staff.get_all_values()
-    print('')
+    # print('')
 
     name_check_dict = {i[0]: i[1:3] for i in name_check}
     # converts list to dictionary & assigns staff id as the key
-    print('')
+    # print('')
 
     for key, value in name_check_dict.items():
         for i in value:
@@ -334,7 +334,7 @@ def display_staff_menu():
             #  if entering a number not 0 or 1, set to return to input
             print('please choose a valid option from the menu\n')
     if answer5 == 1:
-        print('you answered one')
+        # print('you answered one')
         find_staff()
         get_staff_id()
         display_staff_skills()
@@ -370,7 +370,7 @@ def search_menu():
     print('SEARCH MENU OPTIONS\n')
     print('1: Staff search - displays all skills for a staff member')
     print('2: Skill search - displays all staff members who have a skill')
-    print('3: Search all - displays all staff and skills')
+    # print('3: Search all - displays all staff and skills')
     print('0: Return to main menu\n')
 
     while True:
@@ -393,8 +393,8 @@ def search_menu():
                 # get_skill_id()
                 # staff_w_skill_id()
                 skill_search_result()
-            elif answer == 3:
-                print('you answered three')
+            # elif answer == 3:
+                # print('you answered three')
                 # search_all()
             elif answer == 0:
                 sys.exit("You are exiting the system")
@@ -436,7 +436,7 @@ def staff_w_skill_id():
     while i < len(t_log):
         if t_log[i][1] == skill_id_key:
             staff_with_skill.extend(t_log[i][0])
-            print(f"staff ids with this skill: {staff_with_skill}")
+            # print(f"staff ids with this skill: {staff_with_skill}")
             # returns a list with the staff ids
         i += 1
     return staff_with_skill
