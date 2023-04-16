@@ -242,27 +242,6 @@ def user_skill_input():
     # return skill_to_input
 
 
-'''
-def check_skill_dupl():
-    """
-    check for skill duplication
-    # if skill to input already in display staff skills list,
-    return warning to user
-    """
-    staff_id_found2 = get_skill_id()
-
-    t_log = training_log.get_all_values()
-
-    # skills_list = skills.get_all_values()
-    # skills_dict = {i[0]: i[1] for i in skills_list}
-    i = 1
-    while i < len(t_log):
-        if (t_log[i][0] == staff_id_found2) & (t_log[i][1] == skill_to_input):
-            print("we need to change this")
-        i += 1
-'''
-
-
 def more_skill_input():
     """
     Give user option to enter further skills
