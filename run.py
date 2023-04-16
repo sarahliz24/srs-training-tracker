@@ -155,7 +155,7 @@ def reg_new_staff():
             if answer2 != 'Y':
                 print('Try input again')
             if answer2 == 'Y':
-                return confirmed_new_staff(fname, lname, position)
+                return storing_new_staff(fname, lname, position)
 
 
 def skills_dict():
