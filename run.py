@@ -194,14 +194,14 @@ def entry_date():
     # now = date.today()
 
 
-def user_skill_input(staff_entry):
+def user_skill_input():
     """
     takes user input, checks validity, stores input in
     training log worksheet
     """
     # skills_list = skills.get_all_values()
     # skills_dict = {i[0]: i[1] for i in skills_list}
-
+    staff_id1 = get_staff_id()
     # global skill_to_input
     skill_to_input = str(input('Enter skill number:\n'))
     skills1 = skills_dict()
@@ -219,15 +219,15 @@ def user_skill_input(staff_entry):
                     print('Sending information to worksheet')
                     # send info to skills worksheet
                     date = str(datetime.date.today())
-                    skill_entry = [staff_entry[0], skill_to_input, date]
+                    skill_entry = [staff_id1, skill_to_input, date]
                     training_log.append_row(skill_entry)
-                    more_skill_input(staff_entry)
+                    more_skill_input()
                     break
     else:
         print('\nTry input again - you did not enter a valid number\n')
         skill_menu()
 
-    return skill_to_input
+    # return skill_to_input
 
 
 def more_skill_input(staff_entry):
