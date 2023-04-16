@@ -391,7 +391,8 @@ def search_menu():
             elif answer == 2:
                 print('you answered skill search')
                 # get_skill_id()
-                staff_w_skill_id()
+                # staff_w_skill_id()
+                skill_search_result()
             elif answer == 3:
                 print('you answered three')
                 # search_all()
@@ -405,7 +406,7 @@ def get_skill_id():
     gets skill id from user input
     """
     skills1 = skills_dict()
-    print(skills1)
+    # print(f"This is from get_skill_id {skills1}")
 
     for key in skills1:
         print(key, skills1[key])
@@ -416,6 +417,7 @@ def get_skill_id():
     # print(type(skill_id_key)) = string
     # print(f"skill key is {skill_id_key}")
     # staff_w_skill_id(skill_id_key)
+    print(f"Staff with skill number {skill_id_key} are:\n")
     return skill_id_key
 
 
@@ -445,24 +447,18 @@ def skill_search_result():
     Takes in staff_with_skill, skill_id_key & prints list
     of staff names assigned that skill
     """
-    # skills_dict()
-    # print(skills_dict())
-
-    t_log = training_log.get_all_values()
-    print(t_log)
-
     name_check = staff.get_all_values()
-    name_check_dict = {i[0]: i[1:3] for i in name_check}
-    print(name_check_dict)
+    name_check_dict = {i[0]: i[1:4] for i in name_check}
 
-    # print(f'Staff with skill {skill_id_key}:')
-    i = 1
-    while i < len(staff_with_skill):
-        for key, value in name_check_dict:
-            if staff_with_skill[i] == key:
-                # print(f"{value[i][0] value[i][1]}")
-                i += 1
-    # not working
+    staff_with_skill1 = staff_w_skill_id()
+
+    i = 0
+    while i < len(staff_with_skill1):
+        for key, value in name_check_dict.items():
+            abc = staff_with_skill1[i]
+            if abc in key:
+                print(f'{value[0]} {value[1]}, position {value[2]}')
+        i += 1
 
 
 if __name__ == '__main__':
