@@ -58,7 +58,7 @@ def welcome():
     print('       - All staff and all skills in one table\n')
 
 
-def welcome_menu():
+def main():
     """
     Gives 3 options to user: enter new staff member;
         update staff member; search.  Sends user to
@@ -243,7 +243,7 @@ def more_skill_input(staff_entry):
     if answer4 != 'Y':
         print('\n Returning to main menu')
         clear_screen()
-        welcome_menu()
+        main()
     if answer4 == 'Y':
         print('Make another selection\n')
         skill_menu(staff_entry)
@@ -344,7 +344,7 @@ def display_staff_menu():
         print("This will be option 2")
         # skill_menu(staff_entry)
     elif answer5 == 0:
-        welcome_menu()
+        main()
 
 
 def check_skill_dupl(skill_to_input, staff_id_found):
@@ -468,5 +468,5 @@ def skill_search_result(staff_with_skill, skill_id_key):
     # not working
 
 
-welcome()
-welcome_menu()
+if __name__ == '__main__':
+    main()
