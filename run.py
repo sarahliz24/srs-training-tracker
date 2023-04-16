@@ -158,6 +158,16 @@ def reg_new_staff():
             if answer2 != 'Y':
                 print('Try input again')
             if answer2 == 'Y':
+                name_check = staff.get_all_values()
+                print(name_check)
+                i = 0
+                while i < len(name_check):
+                    if fname == name_check[i][1]:
+                        if lname == name_check[i][2]:
+                            print('\nDuplicate entry, try again')
+                            # do stuff
+                            break
+                    i += 1
                 storing_new_staff(fname, lname, position)
 
 
