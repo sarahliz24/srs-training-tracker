@@ -342,7 +342,7 @@ def display_staff_skills():
     staff_id_found1 = get_staff_id()
 
     print(
-        f" Here is a list of {requested_name[0]} {requested_name[1]}'s")
+        f"\nHere is a list of {requested_name[0]} {requested_name[1]}'s")
     print('current skills\n')
     # add error checking if staff have no skills yet
 
@@ -355,6 +355,10 @@ def display_staff_skills():
                 if xxx in key:
                     print(f'{key} : {value}')
                     # current_skills.append(key)
+        else:
+            if t_log[i][0] != staff_id_found1:
+                print("**No skills entered for this person**\n")
+                display_staff_menu()
         i += 1
 
 
