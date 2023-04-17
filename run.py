@@ -279,19 +279,33 @@ def more_skill_input():
 
 def find_staff():
     """
-    Take user input for staff member to search for
-    and return as a list
+    Take user input for fname & lname for existing
+    staff in worksheet, return as a list
     """
-    print("FIND STAFF MEMBER:\n")
-    fname_existing = input("Enter first name of staff member:\n")
-    # get user to input staff name
-    print(f"you entered {fname_existing}. Is this correct?")
-    # error handling goes here
-    lname_existing = input("Enter last name of staff member:\n")
-    print(f"you entered {lname_existing}. Is this correct?")
-    # error handling goes here
+    while True:
+        try:
+            print("FIND STAFF MEMBER:\n")
+            print('Please enter details with no spaces, numbers or symbols\n')
+            fname_existing = input(
+                "Enter first name of staff member:\n").upper()
+            # get user to input staff name
+            # print(f"you entered {fname_existing}. Is this correct?")
+            lname_existing = input(
+                "Enter last name of staff member:\n").upper()
+            # print(f"you entered {lname_existing}. Is this correct?")
+        except Exception:
+            continue
+        else:
+            if not fname_existing.isalpha():
+                print('please try again as your first name entry is invalid\n')
+                continue
+            if not lname_existing.isalpha():
+                print('please try again as your last name entry is invalid\n')
+                continue
+            break
+
     global requested_name
-    requested_name = [fname_existing.upper(), lname_existing.upper()]
+    requested_name = [fname_existing, lname_existing]
     get_staff_id()
     # print('')
     return requested_name
