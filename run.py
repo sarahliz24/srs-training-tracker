@@ -7,6 +7,8 @@ import datetime
 import gspread  # API for google sheets
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
+from colorama import init, Fore
+init(autoreset=True)
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -35,13 +37,13 @@ def welcome():
     """
     Welcome title and introduction text
     """
-    print('\n+-+-+-+')
-    print('|S|R|S|')
-    print('+-+-+-+-+-+-+-+-+')
-    print('|T|r|a|i|n|i|n|g|')
-    print('+-+-+-+-+-+-+-+-+')
-    print('|A|p|p|')
-    print('+-+-+-+\n')
+    print(Fore.BLUE + '\n  +-+-+-+')
+    print(Fore.BLUE + '    |S|R|S|')
+    print(Fore.BLUE + '+-+-+-+-+-+-+-+-+')
+    print(Fore.BLUE + '|T|r|a|i|n|i|n|g|')
+    print(Fore.BLUE + '+-+-+-+-+-+-+-+-+')
+    print(Fore.BLUE + '    |A|p|p|')
+    print(Fore.BLUE + '    +-+-+-+\n')
 
     print('This app records and reports staff training for all SRS skills\n')
     print('1. You can add a new staff member')
@@ -62,7 +64,7 @@ def main():
         selected menu page after successful input.
         Manages input errors.
     """
-    print('MENU OPTIONS\n')
+    print(Fore.BLUE + 'MENU OPTIONS\n')
     print('1: Enter a new staff member')
     print('2: Update skills for a staff member')
     print('3: Search records by skill, staff or all\n')
@@ -72,11 +74,12 @@ def main():
             answer = int(input('Enter 1, 2 or 3 to proceed (or 0 to exit):\n'))
         except ValueError:
             # if entering a letter or other non-number key return to input
-            print('please choose a number (only) from the menu\n')
+            print(Fore.RED + 'please choose a number (only) from the menu\n')
             continue
         if answer > 3:
             #  if entering a number not 1-3 or 9, set to return to input
-            print('please choose number 0, 1, 2, or 3 from the menu\n')
+            print(
+                Fore.RED + 'Please choose number 0 - 3 from the menu\n')
             continue
         break
     if answer == 1:
@@ -91,7 +94,7 @@ def main():
     elif answer == 3:
         search_menu()
     elif answer == 0:
-        sys.exit("You are exiting the system")
+        sys.exit(Fore.YELLOW + "You are exiting the system")
 
 
 def check_for_duplication(fname, lname, position):
@@ -105,7 +108,7 @@ def check_for_duplication(fname, lname, position):
     i = 0
     while i < len(name_check):
         if fname == name_check[i][1] and lname == name_check[i][2]:
-            print('\n***Duplicate staff entry, try again***\n')
+            print(Fore.RED + '\n***Duplicate staff entry, try again***\n')
             reg_new_staff()
             break
         i += 1
@@ -131,7 +134,7 @@ def reg_new_staff():
     Captures new staff name/position details
     & adds to staff worksheet
     """
-    print('You have opted to enter a new staff member')
+    print(Fore.BLUE + 'You have opted to enter a new staff member')
     print('Please enter details with no spaces, numbers or symbols\n')
 
     while True:
@@ -141,29 +144,34 @@ def reg_new_staff():
             lname = input('Enter last name of staff member:\n').upper()
             position = input(
                 'Enter staff position - Junior, Senior or CS:\n').upper()
-            print(f'You entered: {fname} {lname}; position: {position}')
+            print(Fore.GREEN +
+                  f'You entered: {fname} {lname}; position: {position}')
         except ValueError():
             # if entering a letter or other non-number key return to input
-            print('please try again as your entry is invalid\n')
+            print(Fore.RED + 'please try again as your entry is invalid\n')
             continue
         else:
             if not fname.isalpha():
-                print('please try again as your first name entry is invalid\n')
+                print(Fore.RED +
+                      'Try again as your first name entry is invalid\n')
                 continue
             elif not lname.isalpha():
-                print('please try again as your last name entry is invalid\n')
+                print(Fore.RED +
+                      'Try again as your last name entry is invalid\n')
                 continue
             elif not position.isalpha():
-                print('please try again as your position entry is invalid\n')
+                print(Fore.RED +
+                      'Try again as your position entry is invalid\n')
                 continue
             elif position != 'JUNIOR' and position != 'SENIOR' and \
                     position != 'CS':
-                print(
-                    'please try again, position entry is invalid\n')
+                print(Fore.RED +
+                      'Try again, position entry is invalid\n')
                 continue
-            answer2 = input('is this information correct (Y or N)?\n').upper()
+            answer2 = input(Fore.GREEN +
+                            'is this information correct (Y or N)?\n').upper()
             if answer2 != 'Y':
-                print('Try input again')
+                print(Fore.RED + 'Try input again')
                 continue
             elif answer2 == 'Y':
                 check_for_duplication(fname, lname, position)
@@ -187,13 +195,13 @@ def skill_menu():
     """
     skills1 = skills_dict()
 
-    print('SRS SKILLS LIST\n')
+    print(Fore.BLUE + 'SRS SKILLS LIST\n')
     for key in skills1:
         print(key, skills1[key])
         # loops over dict, prints each key & value on a single line
 
     print('\n')
-    print('Instructions\n')
+    print(Fore.BLUE + 'Instructions\n')
     print('To add a skill - enter the skill number')
 
 
@@ -210,16 +218,17 @@ def user_skill_input():
     training log worksheet
     """
     staff_id1 = get_staff_id()
-    skill_to_input = str(input('Enter skill number:\n'))
+    skill_to_input = str(input(Fore.BLUE + 'Enter skill number:\n'))
     skills1 = skills_dict()
     # takes input from user, converts to string for dictionary use
     if int(skill_to_input) <= len(skills.get_all_values()):
         for key, value in skills1.items():
             if skill_to_input == key:
-                print(f'You selected {key}: {value}')
-                answer3 = input('is this correct (Y or N)?\n').upper()
+                print(Fore.GREEN + f'You selected {key}: {value}')
+                answer3 = input(Fore.GREEN +
+                                'is this correct (Y or N)?\n').upper()
                 if answer3 != 'Y':
-                    print('\nTry input again')
+                    print(Fore.RED + '\nTry input again')
                     clear_screen()
                     skill_menu()
                 if answer3 == 'Y':
@@ -231,7 +240,8 @@ def user_skill_input():
                     while i < len(t_log):
                         if t_log[i][0] == skill_entry[0]:
                             if t_log[i][1] == skill_entry[1]:
-                                print('\nDuplicate entry, try again')
+                                print(Fore.RED +
+                                      '\nDuplicate entry, try again')
                                 more_skill_input()
                                 break
                         i += 1
@@ -240,7 +250,8 @@ def user_skill_input():
                     # send info to skills worksheet
                     more_skill_input()
     else:
-        print('\nTry input again - you did not enter a valid number\n')
+        print(Fore.RED +
+              '\nTry again - you did not enter a valid number\n')
         skill_menu()
 
 
@@ -248,14 +259,15 @@ def more_skill_input():
     """
     Give user option to enter further skills
     """
-    answer4 = input('Do you want to enter another skill (Y or N)?\n').upper()
+    answer4 = input(Fore.BLUE +
+                    'Do you want to enter another skill (Y or N)?\n').upper()
 
     if answer4 != 'Y':
         print('\n Returning to main menu')
         clear_screen()
         main()
     if answer4 == 'Y':
-        print('Make another selection\n')
+        print(Fore.BLUE + 'Make another selection\n')
         skill_menu()
         user_skill_input()
 
@@ -267,7 +279,7 @@ def find_staff():
     """
     while True:
         try:
-            print("FIND STAFF MEMBER:\n")
+            print(Fore.BLUE + "FIND STAFF MEMBER:\n")
             print('Please enter details with no spaces, numbers or symbols\n')
             fname_existing = input(
                 "Enter first name of staff member:\n").upper()
@@ -278,10 +290,12 @@ def find_staff():
             continue
         else:
             if not fname_existing.isalpha():
-                print('please try again as your first name entry is invalid\n')
+                print(Fore.RED +
+                      'please try again as your first name entry is invalid\n')
                 continue
             if not lname_existing.isalpha():
-                print('please try again as your last name entry is invalid\n')
+                print(Fore.RED +
+                      'please try again as your last name entry is invalid\n')
                 continue
             break
 
@@ -316,8 +330,8 @@ def display_staff_skills():
     skills1 = skills_dict()
     staff_id_found1 = get_staff_id()
 
-    print(
-        f"\nHere is a list of {requested_name[0]} {requested_name[1]}'s")
+    print(Fore.GREEN +
+          f"\nHere is a list of {requested_name[0]} {requested_name[1]}'s")
     print('current skills\n')
 
     i = 1
@@ -334,7 +348,7 @@ def display_staff_menu():
     """
     loads menu choices after user views staff skills
     """
-    print('\nDo you want to:\n')
+    print(Fore.BLUE + '\nDo you want to:\n')
     print('1: Search for another staff member')
     print('1: Add skills for this staff member')
     print('0: Return to main menu\n')
@@ -351,11 +365,11 @@ def display_staff_menu():
             user_skill_input()
     except ValueError:
         # if entering a letter or other non-number key return to input
-        print('please choose a valid option from the menu\n')
+        print(Fore.RED + 'please choose a valid option from the menu\n')
     else:
         if answer5 != 0 or 1 or 2:
             #  if entering a number not 0 or 1, set to return to input
-            print('please choose a valid option from the menu\n')
+            print(Fore.RED + 'please choose a valid option from the menu\n')
     finally:
         main()
 
@@ -369,25 +383,26 @@ def search_menu():
 
     while True:
         try:
-            print('SEARCH MENU OPTIONS\n')
+            print(Fore.BLUE + 'SEARCH MENU OPTIONS\n')
             print('1: Staff search - displays all skills for a staff member')
             print('2: Skill search - displays all staff members with skill')
             print('0: Return to main menu\n')
             answer = int(input('Enter 1 or 2 to proceed (or 0 to exit):\n'))
         except ValueError:
             # if entering a letter or other non-number key return to input
-            print('please choose a valid number option from the menu\n')
+            print(Fore.RED +
+                  'please choose a valid number option from the menu\n')
         else:
             if answer > 3:
                 # if entering a number not 0-3, set to return to input
-                print('please choose 0 - 3 from the menu\n')
+                print(Fore.RED + 'please choose 0 - 3 from the menu\n')
             if answer == 1:
                 find_staff()
                 get_staff_id()
                 display_staff_skills()
                 display_staff_menu()
             elif answer == 2:
-                print('you answered skill search')
+                print('You selected skill search')
                 skill_search_result()
             elif answer == 0:
                 sys.exit("You are exiting the system")
