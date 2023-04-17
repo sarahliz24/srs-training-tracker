@@ -104,17 +104,15 @@ def check_for_duplication(fname, lname, position):
     """
     Checks for duplicate fname/lname combination
     in staff worksheet.  Duplication sends user back
-    to reg_new_staff. No duplication sends user 
+    to reg_new_staff. No duplication sends user
     to storing_new_staff
     """
-    # answer2 = input('is this information correct (Y or N)?\n').upper()
-    # if answer2 == 'Y':
     name_check = staff.get_all_values()
     print(name_check)
     i = 0
     while i < len(name_check):
         if fname == name_check[i][1] and lname == name_check[i][2]:
-            print('\nDuplicate entry, try again')
+            print('\nDuplicate staff entry, try again\n')
             reg_new_staff()
             break
         i += 1
@@ -169,12 +167,11 @@ def reg_new_staff():
             elif not position.isalpha():
                 print('please try again as your position entry is invalid\n')
                 continue
-            elif position != 'JUNIOR':
-                if position != 'SENIOR':
-                    if position != 'CS':
-                        print('please try again, your position \
-                        entry is invalid\n')
-                        continue
+            elif position != 'JUNIOR' and position != 'SENIOR' and \
+                    position != 'CS':
+                print(
+                    'please try again, position entry is invalid\n')
+                continue
             answer2 = input('is this information correct (Y or N)?\n').upper()
             if answer2 != 'Y':
                 print('Try input again')
