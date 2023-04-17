@@ -100,10 +100,28 @@ def main():
         sys.exit("You are exiting the system")
 
 
-def storing_new_staff(fname, lname, position):
+def check_for_duplication(fname, lname, position):
     """
     if user confirms entry is correct, assigns staff id,
     sends staff info to workshet
+    """
+    # answer2 = input('is this information correct (Y or N)?\n').upper()
+    # if answer2 == 'Y':
+    name_check = staff.get_all_values()
+    print(name_check)
+    i = 0
+    while i < len(name_check):
+        if fname == name_check[i][1] and lname == name_check[i][2]:
+            print('\nDuplicate entry, try again')
+            reg_new_staff()
+            break
+        i += 1
+    storing_new_staff(fname, lname, position)
+
+
+def storing_new_staff(fname, lname, position):
+    """
+    stores new staff in worksheet
     """
     clear_screen()
     print('Sending information to worksheet')
@@ -129,7 +147,8 @@ def reg_new_staff():
 
     while True:
         try:
-            fname = input('Enter first name of staff member:\n').upper()
+            fname = input(
+                'Enter first name of staff member:\n').upper()
             lname = input('Enter last name of staff member:\n').upper()
             position = input(
                 'Enter staff position - Junior, Senior or CS:\n').upper()
@@ -142,13 +161,13 @@ def reg_new_staff():
             if not fname.isalpha():
                 print('please try again as your first name entry is invalid\n')
                 continue
-            if not lname.isalpha():
+            elif not lname.isalpha():
                 print('please try again as your last name entry is invalid\n')
                 continue
-            if not position.isalpha():
+            elif not position.isalpha():
                 print('please try again as your position entry is invalid\n')
                 continue
-            if position != 'JUNIOR':
+            elif position != 'JUNIOR':
                 if position != 'SENIOR':
                     if position != 'CS':
                         print('please try again, your position \
@@ -157,18 +176,9 @@ def reg_new_staff():
             answer2 = input('is this information correct (Y or N)?\n').upper()
             if answer2 != 'Y':
                 print('Try input again')
-            if answer2 == 'Y':
-                name_check = staff.get_all_values()
-                print(name_check)
-                i = 0
-                while i < len(name_check):
-                    if fname == name_check[i][1]:
-                        if lname == name_check[i][2]:
-                            print('\nDuplicate entry, try again')
-                            # do stuff
-                            break
-                    i += 1
-                storing_new_staff(fname, lname, position)
+                continue
+            elif answer2 == 'Y':
+                check_for_duplication(fname, lname, position)
 
 
 def skills_dict():
