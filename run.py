@@ -342,7 +342,7 @@ def display_staff_skills():
     staff_id_found1 = get_staff_id()
 
     print(
-        f"Here is a list of {requested_name[0]} {requested_name[1]}'s")
+        f" Here is a list of {requested_name[0]} {requested_name[1]}'s")
     print('current skills\n')
     # add error checking if staff have no skills yet
 
@@ -367,7 +367,13 @@ def display_staff_menu():
     print('0: Return to main menu\n')
 
     try:
-        answer5 = int(input('Enter 1 to proceed (or 0 to exit):\n'))
+        answer5 = int(input('Enter 1 to proceed (or 0 for main menu):\n'))
+        if answer5 == 1:
+            # print('you answered one')
+            find_staff()
+            get_staff_id()
+            display_staff_skills()
+            display_staff_menu()
     except ValueError:
         # if entering a letter or other non-number key return to input
         print('please choose a valid option from the menu\n')
@@ -375,13 +381,7 @@ def display_staff_menu():
         if answer5 != 0 or 1:
             #  if entering a number not 0 or 1, set to return to input
             print('please choose a valid option from the menu\n')
-    if answer5 == 1:
-        # print('you answered one')
-        find_staff()
-        get_staff_id()
-        display_staff_skills()
-        display_staff_menu()
-    else:
+    finally:
         main()
 
 
