@@ -442,12 +442,22 @@ def get_skill_id():
         # loops over dict, prints each key & value on a single line
 
     print('\nWhich skill do you want to query?')
-    skill_id_key = input("Enter number 1 - 9:\n")
-    # print(type(skill_id_key)) = string
-    # print(f"skill key is {skill_id_key}")
-    # staff_w_skill_id(skill_id_key)
+
+    while True:
+        try:
+            skill_id_key = int(input("Enter number 1 - 9:\n"))
+        except ValueError:
+            print('please enter a number only\n')
+            continue
+        else:
+            if skill_id_key < 0 or skill_id_key > 9:
+                print('Please enter number 1 - 9\n')
+                continue
+        break
+
     print(f"Staff with skill number {skill_id_key} are:\n")
-    return skill_id_key
+
+    return str(skill_id_key)
 
 
 def staff_w_skill_id():
