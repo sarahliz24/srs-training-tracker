@@ -328,10 +328,6 @@ def display_staff_skills():
             for key, value in skills1.items():
                 if xxx in key:
                     print(f'{key} : {value}')
-        else:
-            if t_log[i][0] != staff_id_found1:
-                print("**No skills entered for this person**\n")
-                display_staff_menu()
         i += 1
 
 
@@ -379,7 +375,7 @@ def search_menu():
 
     while True:
         try:
-            answer = int(input('Enter 1, 2 or 3 to proceed (or 0 to exit):\n'))
+            answer = int(input('Enter 1 or 3 to proceed (or 0 to exit):\n'))
         except ValueError:
             # if entering a letter or other non-number key return to input
             print('please choose a valid number option from the menu\n')
@@ -467,6 +463,8 @@ def skill_search_result():
                 print(f'{value[0]} {value[1]}, position: {value[2]}')
         i += 1
     print('')
+
+    search_menu()
 
 
 if __name__ == '__main__':
