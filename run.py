@@ -368,14 +368,13 @@ def search_menu():
     """
     clear_screen()
 
-    print('SEARCH MENU OPTIONS\n')
-    print('1: Staff search - displays all skills for a staff member')
-    print('2: Skill search - displays all staff members who have a skill')
-    print('0: Return to main menu\n')
-
     while True:
         try:
-            answer = int(input('Enter 1 or 3 to proceed (or 0 to exit):\n'))
+            print('SEARCH MENU OPTIONS\n')
+            print('1: Staff search - displays all skills for a staff member')
+            print('2: Skill search - displays all staff members with skill')
+            print('0: Return to main menu\n')
+            answer = int(input('Enter 1 or 2 to proceed (or 0 to exit):\n'))
         except ValueError:
             # if entering a letter or other non-number key return to input
             print('please choose a valid number option from the menu\n')
@@ -464,7 +463,7 @@ def skill_search_result():
         i += 1
     print('')
 
-    search_menu()
+    # search_menu()
 
 
 if __name__ == '__main__':
