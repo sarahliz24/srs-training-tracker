@@ -341,20 +341,24 @@ def display_staff_menu():
     """
     print('\nDo you want to:\n')
     print('1: Search for another staff member')
+    print('1: Add skills for this staff member')
     print('0: Return to main menu\n')
 
     try:
-        answer5 = int(input('Enter 1 to proceed (or 0 for main menu):\n'))
+        answer5 = int(input('Enter 1 or 2 to proceed (or 0 for main menu):\n'))
         if answer5 == 1:
             find_staff()
             get_staff_id()
             display_staff_skills()
             display_staff_menu()
+        if answer5 == 2:
+            skill_menu()
+            user_skill_input()
     except ValueError:
         # if entering a letter or other non-number key return to input
         print('please choose a valid option from the menu\n')
     else:
-        if answer5 != 0 or 1:
+        if answer5 != 0 or 1 or 2:
             #  if entering a number not 0 or 1, set to return to input
             print('please choose a valid option from the menu\n')
     finally:
@@ -460,8 +464,9 @@ def skill_search_result():
         for key, value in name_check_dict.items():
             abc = staff_with_skill1[i]
             if abc in key:
-                print(f'{value[0]} {value[1]}, position {value[2]}')
+                print(f'{value[0]} {value[1]}, position: {value[2]}')
         i += 1
+    print('')
 
 
 if __name__ == '__main__':
