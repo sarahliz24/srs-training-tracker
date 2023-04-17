@@ -102,8 +102,10 @@ def main():
 
 def check_for_duplication(fname, lname, position):
     """
-    if user confirms entry is correct, assigns staff id,
-    sends staff info to workshet
+    Checks for duplicate fname/lname combination
+    in staff worksheet.  Duplication sends user back
+    to reg_new_staff. No duplication sends user 
+    to storing_new_staff
     """
     # answer2 = input('is this information correct (Y or N)?\n').upper()
     # if answer2 == 'Y':
