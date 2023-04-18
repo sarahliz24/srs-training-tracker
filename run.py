@@ -159,20 +159,24 @@ def reg_staff_validation(fname, lname, position):
     """
     Validates new staff registration entry
     """
-    while True:
+    try:
         if not fname.isalpha():
-            print(Fore.RED + 'Try again as your first name entry is invalid\n')
-            continue
+            print(Fore.RED + 'Try again, first name entry is invalid\n')
+            reg_new_staff()
         elif not lname.isalpha():
-            print(Fore.RED + 'Try again as your last name entry is invalid\n')
-            continue
+            print(Fore.RED + 'Try again, last name entry is invalid\n')
+            reg_new_staff()
         elif not position.isalpha():
-            print(Fore.RED + 'Try again as your position entry is invalid\n')
-            continue
+            print(Fore.RED + 'Try again, position entry is invalid\n')
+            reg_new_staff()
         elif position != 'JUNIOR' and position != 'SENIOR' and \
                 position != 'CS':
             print(Fore.RED + 'Try again, position entry is invalid\n')
-            continue
+            reg_new_staff()
+    except ValueError:
+        print(Fore.RED + 'Try again, entry is invalid\n')
+        reg_new_staff()
+    else:
         answer2 = input(Fore.GREEN
                         + 'Is this information correct (Y or N)?\n').upper()
         if answer2 != 'Y':
