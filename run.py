@@ -356,7 +356,7 @@ def display_staff_menu():
     """
     print(Fore.BLUE + Style.BRIGHT + '\nDo you want to:\n')
     print('1: Search for another staff member')
-    print('1: Add skills for this staff member')
+    print('2: Add skills for this staff member')
     print('0: Return to main menu\n')
 
     try:
