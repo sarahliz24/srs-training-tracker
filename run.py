@@ -147,7 +147,6 @@ def reg_new_staff():
             print(Fore.GREEN +
                   f'You entered: {fname} {lname}; position: {position}')
         except ValueError():
-            # if entering a letter or other non-number key return to input
             print(Fore.RED + 'please try again as your entry is invalid\n')
             continue
         else:
@@ -242,7 +241,6 @@ def user_skill_input():
                     vaildation_user_skill_input(skill_entry)
                     training_log.append_row(skill_entry)
                     print('Sending information to worksheet')
-                    # send info to skills worksheet
                     more_skill_input()
     else:
         print(Fore.RED +
@@ -255,9 +253,8 @@ def vaildation_user_skill_input(skill_entry):
     Checks if skill entry is a duplicate, sends user
     to more_skill_input if duplicate found
     """
-    # staff_id1 = get_staff_id()
     t_log = training_log.get_all_values()
-    # skill_entry = [staff_id1, skill_to_input, date]
+
     i = 0
     while i < len(t_log):
         if t_log[i][0] == skill_entry[0]:
@@ -296,7 +293,6 @@ def find_staff():
             print('Please enter details with no spaces, numbers or symbols\n')
             fname_existing = input(
                 "Enter first name of staff member:\n").upper()
-            # get user to input staff name
             lname_existing = input(
                 "Enter last name of staff member:\n").upper()
         except Exception:
@@ -324,13 +320,10 @@ def get_staff_id():
    returns user to find_staff if not
     """
     name_check = staff.get_all_values()
-    # print(name_check)
     name_check_dict = {i[0]: i[1:3] for i in name_check}
-    # print(name_check_dict)
     # converts list to dictionary & assigns staff id as the key
     name_check_values = name_check_dict.values()
     if requested_name in name_check_values:
-        # print("Suceess")
         for key, value in name_check_dict.items():
             for i in value:
                 if requested_name == value:
@@ -426,7 +419,6 @@ def search_menu():
                 skill_search_result()
             elif answer == 0:
                 sys.exit("You are exiting the system")
-            #  each option will send user to appropriate new menu/page
 
 
 def get_skill_id():
@@ -506,8 +498,6 @@ def skill_search_result():
         print('')
     except TypeError:
         skill_search_result()
-
-    # search_menu()
 
 
 if __name__ == '__main__':
