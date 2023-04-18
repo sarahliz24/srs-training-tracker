@@ -146,7 +146,7 @@ def reg_new_staff():
             position = input(
                 'Enter staff position - Junior, Senior or CS:\n').upper()
             print(Fore.GREEN +
-                  f'You entered: {fname} {lname}; position: {position}')
+                  f'\n You entered: {fname} {lname}; position: {position}')
         except ValueError():
             print(Fore.RED + 'Please try again as your entry is invalid\n')
             continue
@@ -173,7 +173,7 @@ def reg_staff_validation(fname, lname, position):
             print(Fore.RED + 'Try again, position entry is invalid\n')
             continue
         answer2 = input(Fore.GREEN
-                        + '\nis this information correct (Y or N)?\n').upper()
+                        + 'Is this information correct (Y or N)?\n').upper()
         if answer2 != 'Y':
             print(Fore.RED + '\nTry input again')
             reg_new_staff()
@@ -205,8 +205,8 @@ def skill_menu():
         # loops over dict, prints each key & value on a single line
 
     print('\n')
-    print(Fore.BLUE + Style.BRIGHT + 'Instructions\n')
-    print('To add a skill - enter the skill number')
+    print(Fore.BLUE + Style.BRIGHT + 'Instructions')
+    print('To add a skill - enter the skill number\n')
 
 
 def user_skill_input():
@@ -216,7 +216,7 @@ def user_skill_input():
     """
     staff_id1 = get_staff_id()
     skill_to_input = str(input(Fore.BLUE + Style.BRIGHT
-                         + 'Enter skill number:\n'))
+                         + '\nEnter skill number:\n'))
     skills1 = skills_dict()
     # takes input from user, converts to string for dictionary use
     if int(skill_to_input) <= len(skills.get_all_values()):
@@ -285,7 +285,7 @@ def find_staff():
     """
     while True:
         try:
-            print(Fore.BLUE + Style.BRIGHT + "FIND STAFF MEMBER:\n")
+            print(Fore.BLUE + Style.BRIGHT + "\nFIND STAFF MEMBER:\n")
             print('Please enter details with no spaces, numbers or symbols\n')
             fname_existing = input(
                 "Enter first name of staff member:\n").upper()
@@ -339,7 +339,9 @@ def display_staff_skills():
     skills1 = skills_dict()
     staff_id_found1 = get_staff_id()
 
-    print(Fore.GREEN +
+    clear_screen()
+
+    print(Fore.BLUE +
           f"\nHere is a list of {requested_name[0]} {requested_name[1]}'s")
     print(Fore.GREEN + 'current skills\n')
 
@@ -404,14 +406,14 @@ def search_menu():
         else:
             if answer > 2:
                 # if entering a number not 0-2, set to return to input
-                print(Fore.RED + 'Please choose 0 - 2 from the menu\n')
+                print(Fore.RED + '\nPlease choose 0 - 2 from the menu\n')
             if answer == 1:
                 find_staff()
                 get_staff_id()
                 display_staff_skills()
                 display_staff_menu()
             elif answer == 2:
-                print('YOU SELECTED SKILL SEARCH')
+                print('\nSKILL SEARCH\n')
                 skill_search_result()
             elif answer == 0:
                 main()
@@ -427,11 +429,11 @@ def get_skill_id():
         print(key, skills1[key])
         # loops over dict, prints each key & value on a single line
 
-    print('\nWhich skill do you want to query?')
+    print(Fore.GREEN + '\nWhich skill do you want to query?')
 
     while True:
         try:
-            skill_id_key = int(input("Enter number 1 - 9:\n"))
+            skill_id_key = int(input(Fore.GREEN + "Enter number 1 - 9:\n"))
         except ValueError:
             print('Please enter a number only\n')
             continue
