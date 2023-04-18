@@ -197,7 +197,7 @@ def skill_menu():
     """
     skills1 = skills_dict()
 
-    print(Fore.BLUE + Style.BRIGHT + 'SRS SKILLS LIST\n')
+    print(Fore.BLUE + Style.BRIGHT + '\nSRS SKILLS LIST\n')
     for key in skills1:
         print(key, skills1[key])
         # loops over dict, prints each key & value on a single line
