@@ -374,6 +374,9 @@ def display_staff_menu():
         if answer5 == 2:
             skill_menu()
             user_skill_input()
+        if answer5 == 0:
+            main()
+
     except ValueError:
         # if entering a letter or other non-number key return to input
         print(Fore.RED + 'please choose a valid option from the menu\n')
@@ -381,8 +384,6 @@ def display_staff_menu():
         if answer5 != 0 or 1 or 2:
             #  if entering a number not 0 or 1, set to return to input
             print(Fore.RED + 'please choose a valid option from the menu\n')
-    finally:
-        main()
 
 
 def search_menu():
