@@ -45,7 +45,7 @@ def welcome():
     print(Fore.BLUE + Style.BRIGHT + '            |A|p|p|')
     print(Fore.BLUE + Style.BRIGHT + '           +-+-+-+\n')
 
-    print('This app records and reports staff training for all SRS skills\n')
+    print('This app records & reports staff training for all SRS skills\n')
     print('1. You can add a new staff member')
     print('2. You can update staff records when staff achieve new skills')
     print('3. You can search by:')
@@ -53,8 +53,6 @@ def welcome():
     print('       - who is approved for a particular skill')
     print('   *Staff member')
     print('       - what skills a particular staff member has')
-    print('   *Full info')
-    print('       - All staff and all skills in one table\n')
 
 
 def main():
