@@ -475,7 +475,14 @@ def staff_w_skill_id():
             staff_with_skill.extend(t_log[i][0])
             # returns a list with the staff ids
         i += 1
-    return staff_with_skill
+
+    if not staff_with_skill:
+        print(Fore.RED
+              + "There are no staff registered with this skill\n")
+        sleep(3)
+        search_menu()
+    else:
+        return staff_with_skill
 
 
 def skill_search_result():
