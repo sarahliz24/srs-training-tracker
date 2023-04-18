@@ -157,7 +157,7 @@ def reg_new_staff():
 
 def reg_staff_validation(fname, lname, position):
     """
-    docsting goes here
+    Validates new staff registration entry
     """
     while True:
         if not fname.isalpha():
@@ -184,7 +184,7 @@ def reg_staff_validation(fname, lname, position):
 
 def skills_dict():
     """
-    docsting goes here
+    Creates skills dictionary from skills list for re-use
     """
     skills_list = skills.get_all_values()
     # returns a list of lists from skills worksheet
