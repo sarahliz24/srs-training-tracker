@@ -7,7 +7,7 @@ import datetime
 from time import sleep
 import gspread  # API for google sheets
 from google.oauth2.service_account import Credentials
-from colorama import init, Fore
+from colorama import init, Fore, Style
 init(autoreset=True)
 
 SCOPE = [
@@ -37,13 +37,13 @@ def welcome():
     """
     Welcome title and introduction text
     """
-    print(Fore.BLUE + '\n  +-+-+-+')
-    print(Fore.BLUE + '    |S|R|S|')
-    print(Fore.BLUE + '+-+-+-+-+-+-+-+-+')
-    print(Fore.BLUE + '|T|r|a|i|n|i|n|g|')
-    print(Fore.BLUE + '+-+-+-+-+-+-+-+-+')
-    print(Fore.BLUE + '    |A|p|p|')
-    print(Fore.BLUE + '    +-+-+-+\n')
+    print(Fore.BLUE + Style.BRIGHT + '        +-+-+-+')
+    print(Fore.BLUE + Style.BRIGHT + '        |S|R|S|')
+    print(Fore.BLUE + Style.BRIGHT + '    +-+-+-+-+-+-+-+-+')
+    print(Fore.BLUE + Style.BRIGHT + '    |T|r|a|i|n|i|n|g|')
+    print(Fore.BLUE + Style.BRIGHT + '    +-+-+-+-+-+-+-+-+')
+    print(Fore.BLUE + Style.BRIGHT + '        |A|p|p|')
+    print(Fore.BLUE + Style.BRIGHT + '        +-+-+-+\n')
 
     print('This app records and reports staff training for all SRS skills\n')
     print('1. You can add a new staff member')
