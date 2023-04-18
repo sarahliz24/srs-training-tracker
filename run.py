@@ -338,7 +338,7 @@ def display_staff_skills():
 
     print(Fore.GREEN +
           f"\nHere is a list of {requested_name[0]} {requested_name[1]}'s")
-    print('current skills\n')
+    print(Fore.GREEN + 'current skills\n')
 
     i = 1
     while i < len(t_log):
