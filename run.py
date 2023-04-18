@@ -65,7 +65,7 @@ def main():
     print(Fore.BLUE + Style.BRIGHT + '\nMENU OPTIONS')
     print('1: Enter a new staff member')
     print('2: Update skills for a staff member')
-    print('3: Search records by skill, staff or all\n')
+    print('3: Search records by skill or staff\n')
 
     while True:
         try:
