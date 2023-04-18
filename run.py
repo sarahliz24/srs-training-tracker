@@ -234,21 +234,12 @@ def user_skill_input():
                 if answer3 != 'Y':
                     print(Fore.RED + '\nTry input again')
                     clear_screen()
-                    skill_menu()
+                    display_staff_skills()
+                    user_skill_input()
                 if answer3 == 'Y':
-                    t_log = training_log.get_all_values()
                     date = str(datetime.date.today())
                     skill_entry = [staff_id1, skill_to_input, date]
-
-                    i = 0
-                    while i < len(t_log):
-                        if t_log[i][0] == skill_entry[0]:
-                            if t_log[i][1] == skill_entry[1]:
-                                print(Fore.RED +
-                                      '\nDuplicate entry, try again')
-                                more_skill_input()
-                                break
-                        i += 1
+                    vaildation_user_skill_input(skill_entry)
                     training_log.append_row(skill_entry)
                     print('Sending information to worksheet')
                     # send info to skills worksheet
@@ -257,6 +248,24 @@ def user_skill_input():
         print(Fore.RED +
               '\nTry again - you did not enter a valid number\n')
         skill_menu()
+
+
+def vaildation_user_skill_input(skill_entry):
+    """
+    Checks if skill entry is a duplicate, sends user
+    to more_skill_input if duplicate found
+    """
+    # staff_id1 = get_staff_id()
+    t_log = training_log.get_all_values()
+    # skill_entry = [staff_id1, skill_to_input, date]
+    i = 0
+    while i < len(t_log):
+        if t_log[i][0] == skill_entry[0]:
+            if t_log[i][1] == skill_entry[1]:
+                print(Fore.RED + '\nDuplicate entry, try again')
+                more_skill_input()
+                break
+        i += 1
 
 
 def more_skill_input():
