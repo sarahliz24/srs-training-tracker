@@ -37,13 +37,13 @@ def welcome():
     """
     Welcome title and introduction text
     """
-    print(Fore.BLUE + Style.BRIGHT + '        +-+-+-+')
-    print(Fore.BLUE + Style.BRIGHT + '        |S|R|S|')
-    print(Fore.BLUE + Style.BRIGHT + '    +-+-+-+-+-+-+-+-+')
-    print(Fore.BLUE + Style.BRIGHT + '    |T|r|a|i|n|i|n|g|')
-    print(Fore.BLUE + Style.BRIGHT + '    +-+-+-+-+-+-+-+-+')
-    print(Fore.BLUE + Style.BRIGHT + '        |A|p|p|')
-    print(Fore.BLUE + Style.BRIGHT + '        +-+-+-+\n')
+    print(Fore.BLUE + Style.BRIGHT + '          +-+-+-+')
+    print(Fore.BLUE + Style.BRIGHT + '          |S|R|S|')
+    print(Fore.BLUE + Style.BRIGHT + '       +-+-+-+-+-+-+-+-+')
+    print(Fore.BLUE + Style.BRIGHT + '      |T|r|a|i|n|i|n|g|')
+    print(Fore.BLUE + Style.BRIGHT + '       +-+-+-+-+-+-+-+-+')
+    print(Fore.BLUE + Style.BRIGHT + '            |A|p|p|')
+    print(Fore.BLUE + Style.BRIGHT + '           +-+-+-+\n')
 
     print('This app records and reports staff training for all SRS skills\n')
     print('1. You can add a new staff member')
@@ -64,7 +64,7 @@ def main():
         selected menu page after successful input.
         Manages input errors.
     """
-    print(Fore.BLUE + 'MENU OPTIONS\n')
+    print(Fore.BLUE + Style.BRIGHT + 'MENU OPTIONS\n')
     print('1: Enter a new staff member')
     print('2: Update skills for a staff member')
     print('3: Search records by skill, staff or all\n')
@@ -134,7 +134,8 @@ def reg_new_staff():
     Captures new staff name/position details
     & adds to staff worksheet
     """
-    print(Fore.BLUE + 'You have opted to enter a new staff member')
+    print(Fore.BLUE + Style.BRIGHT
+          + 'You have opted to enter a new staff member')
     print('Please enter details with no spaces, numbers or symbols\n')
 
     while True:
@@ -198,13 +199,13 @@ def skill_menu():
     """
     skills1 = skills_dict()
 
-    print(Fore.BLUE + 'SRS SKILLS LIST\n')
+    print(Fore.BLUE + Style.BRIGHT + 'SRS SKILLS LIST\n')
     for key in skills1:
         print(key, skills1[key])
         # loops over dict, prints each key & value on a single line
 
     print('\n')
-    print(Fore.BLUE + 'Instructions\n')
+    print(Fore.BLUE + Style.BRIGHT + 'Instructions\n')
     print('To add a skill - enter the skill number')
 
 
@@ -214,7 +215,8 @@ def user_skill_input():
     training log worksheet
     """
     staff_id1 = get_staff_id()
-    skill_to_input = str(input(Fore.BLUE + 'Enter skill number:\n'))
+    skill_to_input = str(input(Fore.BLUE + Style.BRIGHT
+                         + 'Enter skill number:\n'))
     skills1 = skills_dict()
     # takes input from user, converts to string for dictionary use
     if int(skill_to_input) <= len(skills.get_all_values()):
@@ -262,15 +264,15 @@ def more_skill_input():
     """
     Give user option to enter further skills
     """
-    answer4 = input(Fore.BLUE +
-                    'Do you want to enter another skill (Y or N)?\n').upper()
+    answer4 = input(Fore.BLUE + Style.BRIGHT
+                    + 'Do you want to enter another skill (Y or N)?\n').upper()
 
     if answer4 != 'Y':
         print('\n Returning to main menu')
         clear_screen()
         main()
     if answer4 == 'Y':
-        print(Fore.BLUE + 'Make another selection\n')
+        print(Fore.BLUE + Style.BRIGHT + 'Make another selection\n')
         skill_menu()
         user_skill_input()
 
@@ -282,7 +284,7 @@ def find_staff():
     """
     while True:
         try:
-            print(Fore.BLUE + "FIND STAFF MEMBER:\n")
+            print(Fore.BLUE + Style.BRIGHT + "FIND STAFF MEMBER:\n")
             print('Please enter details with no spaces, numbers or symbols\n')
             fname_existing = input(
                 "Enter first name of staff member:\n").upper()
@@ -354,7 +356,7 @@ def display_staff_menu():
     """
     loads menu choices after user views staff skills
     """
-    print(Fore.BLUE + '\nDo you want to:\n')
+    print(Fore.BLUE + Style.BRIGHT + '\nDo you want to:\n')
     print('1: Search for another staff member')
     print('1: Add skills for this staff member')
     print('0: Return to main menu\n')
@@ -389,7 +391,7 @@ def search_menu():
 
     while True:
         try:
-            print(Fore.BLUE + 'SEARCH MENU OPTIONS\n')
+            print(Fore.BLUE + Style.BRIGHT + 'SEARCH MENU OPTIONS\n')
             print('1: Staff search - displays all skills for a staff member')
             print('2: Skill search - displays all staff members with skill')
             print('0: Return to main menu\n')
