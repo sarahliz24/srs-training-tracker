@@ -208,13 +208,6 @@ def skill_menu():
     print('To add a skill - enter the skill number')
 
 
-def entry_date():
-    """
-    captures date of skill entry
-    """
-    # now = date.today()
-
-
 def user_skill_input():
     """
     takes user input, checks validity, stores input in
