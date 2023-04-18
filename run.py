@@ -69,7 +69,8 @@ def main():
 
     while True:
         try:
-            answer = int(input('Enter 1, 2 or 3 to proceed (or 0 to exit):\n'))
+            answer = int(input(Fore.GREEN
+                         + 'Enter 1, 2 or 3 to proceed (or 0 to exit):\n'))
         except ValueError:
             # if entering a letter or other non-number key return to input
             print(Fore.RED + 'please choose a number (only) from the menu\n')
