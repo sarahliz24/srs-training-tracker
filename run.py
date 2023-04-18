@@ -311,18 +311,25 @@ def find_staff():
 
 def get_staff_id():
     """
-    get staff id
+   Validates staff id exists (based on requested_name),
+   returns user to find_staff if not
     """
     name_check = staff.get_all_values()
-
+    # print(name_check)
     name_check_dict = {i[0]: i[1:3] for i in name_check}
+    # print(name_check_dict)
     # converts list to dictionary & assigns staff id as the key
-
-    for key, value in name_check_dict.items():
-        for i in value:
-            if requested_name == value:
-                staff_id_found = key
-                return staff_id_found
+    name_check_values = name_check_dict.values()
+    if requested_name in name_check_values:
+        # print("Suceess")
+        for key, value in name_check_dict.items():
+            for i in value:
+                if requested_name == value:
+                    staff_id_found = key
+                    return staff_id_found
+    else:
+        print(Fore.RED + "\nStaff member does not exist, try again\n")
+        find_staff()
 
 
 def display_staff_skills():
