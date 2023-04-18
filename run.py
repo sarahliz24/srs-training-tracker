@@ -220,34 +220,41 @@ def user_skill_input():
     training log worksheet
     """
     staff_id1 = get_staff_id()
-    skill_to_input = (input(Fore.BLUE + Style.BRIGHT
-                      + '\nEnter skill number:\n'))
-    skill_to_input_int = int(skill_to_input)
-    # convert skill_to_input into integer for use with comparison below
     skills1 = skills_dict()
 
-    if skill_to_input_int <= len(skills.get_all_values()):
-        for key, value in skills1.items():
-            if skill_to_input == key:
-                print(Fore.GREEN + f'You selected {key}: {value}')
-                answer3 = input(Fore.GREEN +
-                                'is this correct (Y or N)?\n').upper()
-                if answer3 != 'Y':
-                    print(Fore.RED + '\nTry input again')
-                    clear_screen()
-                    display_staff_skills()
-                    user_skill_input()
-                if answer3 == 'Y':
-                    date = str(datetime.date.today())
-                    skill_entry = [staff_id1, skill_to_input, date]
-                    vaildation_user_skill_input(skill_entry)
-                    training_log.append_row(skill_entry)
-                    print('Sending information to worksheet')
-                    sleep(1)
-                    more_skill_input()
-    else:
-        print(Fore.RED +
-              '\nTry again - you did not enter a valid number\n')
+    try:
+        skill_to_input = (input(Fore.BLUE + Style.BRIGHT
+                          + '\nEnter skill number:\n'))
+
+        # skill_to_input_int = int(skill_to_input)
+        # convert skill_to_input into integer for use with comparison below
+
+        if int(skill_to_input) <= len(skills.get_all_values()):
+            for key, value in skills1.items():
+                if skill_to_input == key:
+                    print(Fore.GREEN + f'You selected {key}: {value}')
+                    answer3 = input(Fore.GREEN +
+                                    'is this correct (Y or N)?\n').upper()
+                    if answer3 != 'Y':
+                        print(Fore.RED + '\nTry input again')
+                        clear_screen()
+                        display_staff_skills()
+                        user_skill_input()
+                    if answer3 == 'Y':
+                        date = str(datetime.date.today())
+                        skill_entry = [staff_id1, skill_to_input, date]
+                        vaildation_user_skill_input(skill_entry)
+                        training_log.append_row(skill_entry)
+                        print('Sending information to worksheet')
+                        sleep(1)
+                        more_skill_input()
+        else:
+            print(Fore.RED +
+                  '\nTry again - you did not enter a valid number\n')
+            user_skill_input()
+
+    except ValueError:
+        print(Fore.RED + "You must enter a number only")
         user_skill_input()
 
 
