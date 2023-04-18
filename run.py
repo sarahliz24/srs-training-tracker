@@ -151,30 +151,34 @@ def reg_new_staff():
             print(Fore.RED + 'please try again as your entry is invalid\n')
             continue
         else:
-            if not fname.isalpha():
-                print(Fore.RED +
-                      'Try again as your first name entry is invalid\n')
-                continue
-            elif not lname.isalpha():
-                print(Fore.RED +
-                      'Try again as your last name entry is invalid\n')
-                continue
-            elif not position.isalpha():
-                print(Fore.RED +
-                      'Try again as your position entry is invalid\n')
-                continue
-            elif position != 'JUNIOR' and position != 'SENIOR' and \
-                    position != 'CS':
-                print(Fore.RED +
-                      'Try again, position entry is invalid\n')
-                continue
-            answer2 = input(Fore.GREEN +
-                            'is this information correct (Y or N)?\n').upper()
-            if answer2 != 'Y':
-                print(Fore.RED + 'Try input again')
-                continue
-            elif answer2 == 'Y':
-                check_for_duplication(fname, lname, position)
+            reg_staff_validation(fname, lname, position)
+
+
+def reg_staff_validation(fname, lname, position):
+    """
+    docsting goes here
+    """
+    while True:
+        if not fname.isalpha():
+            print(Fore.RED + 'Try again as your first name entry is invalid\n')
+            continue
+        elif not lname.isalpha():
+            print(Fore.RED + 'Try again as your last name entry is invalid\n')
+            continue
+        elif not position.isalpha():
+            print(Fore.RED + 'Try again as your position entry is invalid\n')
+            continue
+        elif position != 'JUNIOR' and position != 'SENIOR' and \
+                position != 'CS':
+            print(Fore.RED + 'Try again, position entry is invalid\n')
+            continue
+        answer2 = input(Fore.GREEN
+                        + 'is this information correct (Y or N)?\n').upper()
+        if answer2 != 'Y':
+            print(Fore.RED + 'Try input again')
+            continue
+        elif answer2 == 'Y':
+            check_for_duplication(fname, lname, position)
 
 
 def skills_dict():
