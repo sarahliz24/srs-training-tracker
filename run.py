@@ -496,14 +496,17 @@ def skill_search_result():
 
     staff_with_skill1 = staff_w_skill_id()
 
-    i = 0
-    while i < len(staff_with_skill1):
-        for key, value in name_check_dict.items():
-            abc = staff_with_skill1[i]
-            if abc in key:
-                print(f'{value[0]} {value[1]}, position: {value[2]}')
-        i += 1
-    print('')
+    try:
+        i = 0
+        while i < len(staff_with_skill1):
+            for key, value in name_check_dict.items():
+                abc = staff_with_skill1[i]
+                if abc in key:
+                    print(f'{value[0]} {value[1]}, position: {value[2]}')
+            i += 1
+        print('')
+    except TypeError:
+        skill_search_result()
 
     # search_menu()
 
