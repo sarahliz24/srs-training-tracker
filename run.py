@@ -346,6 +346,7 @@ def get_staff_id():
     name_check_dict = {i[0]: i[1:3] for i in name_check}
     # converts list to dictionary & assigns staff id as the key
     name_check_values = name_check_dict.values()
+
     if requested_name in name_check_values:
         for key, value in name_check_dict.items():
             for i in value:
@@ -513,16 +514,19 @@ def skill_search_result():
     staff_with_skill1 = staff_w_skill_id()
 
     try:
-        i = 0
-        while i < len(staff_with_skill1):
-            for key, value in name_check_dict.items():
-                abc = staff_with_skill1[i]
-                if abc in key:
-                    print(f'{value[0]} {value[1]}, position: {value[2]}')
-            i += 1
-        print('')
+        if staff_with_skill1 in name_check_dict.items():
+            i = 0
+            while i < len(staff_with_skill1):
+                for key, value in name_check_dict.items():
+                    abc = staff_with_skill1[i]
+                    if abc in key:
+                        print(f'{value[0]} {value[1]}, position: {value[2]}')
+                i += 1
+            print('')
     except TypeError:
         skill_search_result()
+    else:
+        print(Fore.RED + "No staff are assigned this skill\n")
 
 
 if __name__ == '__main__':
