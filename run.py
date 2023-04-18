@@ -4,6 +4,7 @@ importing python modules
 import os
 import sys
 import datetime
+from time import sleep
 import gspread  # API for google sheets
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
