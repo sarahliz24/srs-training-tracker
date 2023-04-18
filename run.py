@@ -93,7 +93,8 @@ def main():
     elif answer == 3:
         search_menu()
     elif answer == 0:
-        sys.exit(Fore.YELLOW + "You are exiting the system")
+        print(Fore.YELLOW + "You are exiting the system")
+        sys.exit()
 
 
 def check_for_duplication(fname, lname, position):
@@ -376,7 +377,6 @@ def display_staff_menu():
             user_skill_input()
         if answer5 == 0:
             main()
-
     except ValueError:
         # if entering a letter or other non-number key return to input
         print(Fore.RED + 'please choose a valid option from the menu\n')
