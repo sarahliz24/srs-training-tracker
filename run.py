@@ -37,8 +37,8 @@ def welcome():
     """
     Welcome title and introduction text
     """
-    print(Fore.BLUE + Style.BRIGHT + '          +-+-+-+')
-    print(Fore.BLUE + Style.BRIGHT + '          |S|R|S|')
+    print(Fore.BLUE + Style.BRIGHT + '           +-+-+-+')
+    print(Fore.BLUE + Style.BRIGHT + '           |S|R|S|')
     print(Fore.BLUE + Style.BRIGHT + '       +-+-+-+-+-+-+-+-+')
     print(Fore.BLUE + Style.BRIGHT + '      |T|r|a|i|n|i|n|g|')
     print(Fore.BLUE + Style.BRIGHT + '       +-+-+-+-+-+-+-+-+')
@@ -62,7 +62,7 @@ def main():
         selected menu page after successful input.
         Manages input errors.
     """
-    print(Fore.BLUE + Style.BRIGHT + 'MENU OPTIONS\n')
+    print(Fore.BLUE + Style.BRIGHT + '\nMENU OPTIONS')
     print('1: Enter a new staff member')
     print('2: Update skills for a staff member')
     print('3: Search records by skill, staff or all\n')
@@ -146,7 +146,7 @@ def reg_new_staff():
             print(Fore.GREEN +
                   f'You entered: {fname} {lname}; position: {position}')
         except ValueError():
-            print(Fore.RED + 'please try again as your entry is invalid\n')
+            print(Fore.RED + 'Please try again as your entry is invalid\n')
             continue
         else:
             reg_staff_validation(fname, lname, position)
@@ -171,9 +171,9 @@ def reg_staff_validation(fname, lname, position):
             print(Fore.RED + 'Try again, position entry is invalid\n')
             continue
         answer2 = input(Fore.GREEN
-                        + 'is this information correct (Y or N)?\n').upper()
+                        + '\nis this information correct (Y or N)?\n').upper()
         if answer2 != 'Y':
-            print(Fore.RED + 'Try input again')
+            print(Fore.RED + '\nTry input again')
             reg_new_staff()
         elif answer2 == 'Y':
             check_for_duplication(fname, lname, position)
@@ -393,22 +393,22 @@ def search_menu():
             print('1: Staff search - displays all skills for a staff member')
             print('2: Skill search - displays all staff members with skill')
             print('0: Return to main menu\n')
-            answer = int(input('Enter 1 or 2 to proceed (or 0 to exit):\n'))
+            answer = int(input('Enter 0, 1 or 2 to proceed:\n'))
         except ValueError:
             # if entering a letter or other non-number key return to input
             print(Fore.RED +
-                  'please choose a valid number option from the menu\n')
+                  'Please choose a valid number option from the menu\n')
         else:
             if answer > 2:
                 # if entering a number not 0-2, set to return to input
-                print(Fore.RED + 'please choose 0 - 2 from the menu\n')
+                print(Fore.RED + 'Please choose 0 - 2 from the menu\n')
             if answer == 1:
                 find_staff()
                 get_staff_id()
                 display_staff_skills()
                 display_staff_menu()
             elif answer == 2:
-                print('You selected skill search')
+                print('YOU SELECTED SKILL SEARCH')
                 skill_search_result()
             elif answer == 0:
                 main()
@@ -416,7 +416,7 @@ def search_menu():
 
 def get_skill_id():
     """
-    gets skill id from user input
+    Gets skill id from user input
     """
     skills1 = skills_dict()
 
@@ -430,7 +430,7 @@ def get_skill_id():
         try:
             skill_id_key = int(input("Enter number 1 - 9:\n"))
         except ValueError:
-            print('please enter a number only\n')
+            print('Please enter a number only\n')
             continue
         else:
             if skill_id_key < 0 or skill_id_key > 9:
@@ -438,7 +438,7 @@ def get_skill_id():
                 continue
         break
 
-    print(f"Staff with skill number {skill_id_key} are:\n")
+    print(f"\nStaff with skill number {skill_id_key} are:\n")
 
     return str(skill_id_key)
 
