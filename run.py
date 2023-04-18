@@ -300,12 +300,11 @@ def find_staff():
             continue
         else:
             if not fname_existing.isalpha():
-                print(Fore.RED +
-                      'please try again as your first name entry is invalid\n')
-                continue
+                print(Fore.RED + 'Your first name entry is invalid')
+                find_staff_validation()
             if not lname_existing.isalpha():
-                print(Fore.RED +
-                      'please try again as your last name entry is invalid\n')
+                print(Fore.RED + 'Your last name entry is invalid')
+                find_staff_validation()
                 continue
             break
 
@@ -313,6 +312,20 @@ def find_staff():
     requested_name = [fname_existing, lname_existing]
     get_staff_id()
     return requested_name
+
+
+def find_staff_validation():
+    """
+    If name inputs in find_staff are invalid, gives
+    user option to try again or return to main menu
+    """
+    answer6 = int(input(Fore.GREEN
+                  + 'Enter 1 to try again, 0 to go to main menu:'))
+    if answer6 == 0:
+        main()
+    else:
+        if answer6 == 1:
+            find_staff()
 
 
 def get_staff_id():
