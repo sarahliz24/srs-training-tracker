@@ -177,7 +177,7 @@ def reg_staff_validation(fname, lname, position):
                         + 'is this information correct (Y or N)?\n').upper()
         if answer2 != 'Y':
             print(Fore.RED + 'Try input again')
-            continue
+            reg_new_staff()
         elif answer2 == 'Y':
             check_for_duplication(fname, lname, position)
 
