@@ -301,10 +301,10 @@ def find_staff():
         else:
             if not fname_existing.isalpha():
                 print(Fore.RED + 'Your first name entry is invalid')
-                find_staff_validation()
+                find_staff_breaker()
             if not lname_existing.isalpha():
                 print(Fore.RED + 'Your last name entry is invalid')
-                find_staff_validation()
+                find_staff_breaker()
                 continue
             break
 
@@ -314,7 +314,7 @@ def find_staff():
     return requested_name
 
 
-def find_staff_validation():
+def find_staff_breaker():
     """
     If name inputs in find_staff are invalid, gives
     user option to try again or return to main menu
