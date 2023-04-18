@@ -373,14 +373,17 @@ def display_staff_skills():
           f"\nHere is a list of {requested_name[0]} {requested_name[1]}'s")
     print(Fore.GREEN + 'current skills\n')
 
-    i = 1
-    while i < len(t_log):
-        if t_log[i][0] == staff_id_found1:
-            xxx = t_log[i][1]
-            for key, value in skills1.items():
-                if xxx in key:
-                    print(f'{key} : {value}')
-        i += 1
+    if staff_id_found1 in skills1.items():
+        i = 1
+        while i < len(t_log):
+            if t_log[i][0] == staff_id_found1:
+                xxx = t_log[i][1]
+                for key, value in skills1.items():
+                    if xxx in key:
+                        print(f'{key} : {value}')
+            i += 1
+    else:
+        print(Fore.RED + "No skills are assigned to this staff member\n")
 
 
 def display_staff_menu():
