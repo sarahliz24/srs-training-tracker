@@ -121,7 +121,7 @@ def storing_new_staff(fname, lname, position):
     """
     clear_screen()
     print('Sending information to worksheet')
-    sleep(2)
+    sleep(1)
     staff_id = len(staff.get_all_values())
     staff_entry = [staff_id, fname, lname, position]
     staff.append_row(staff_entry)
@@ -237,7 +237,7 @@ def user_skill_input():
                     vaildation_user_skill_input(skill_entry)
                     training_log.append_row(skill_entry)
                     print('Sending information to worksheet')
-                    sleep(2)
+                    sleep(1)
                     more_skill_input()
     else:
         print(Fore.RED +
