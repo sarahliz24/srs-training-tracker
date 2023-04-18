@@ -399,9 +399,9 @@ def search_menu():
             print(Fore.RED +
                   'please choose a valid number option from the menu\n')
         else:
-            if answer > 3:
-                # if entering a number not 0-3, set to return to input
-                print(Fore.RED + 'please choose 0 - 3 from the menu\n')
+            if answer > 2:
+                # if entering a number not 0-2, set to return to input
+                print(Fore.RED + 'please choose 0 - 2 from the menu\n')
             if answer == 1:
                 find_staff()
                 get_staff_id()
@@ -411,7 +411,7 @@ def search_menu():
                 print('You selected skill search')
                 skill_search_result()
             elif answer == 0:
-                sys.exit("You are exiting the system")
+                main()
 
 
 def get_skill_id():
