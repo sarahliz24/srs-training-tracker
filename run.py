@@ -246,7 +246,7 @@ def user_skill_input():
     else:
         print(Fore.RED +
               '\nTry again - you did not enter a valid number\n')
-        skill_menu()
+        user_skill_input()
 
 
 def vaildation_user_skill_input(skill_entry):
