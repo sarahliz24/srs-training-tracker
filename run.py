@@ -220,11 +220,13 @@ def user_skill_input():
     training log worksheet
     """
     staff_id1 = get_staff_id()
-    skill_to_input = str(input(Fore.BLUE + Style.BRIGHT
-                         + '\nEnter skill number:\n'))
+    skill_to_input = (input(Fore.BLUE + Style.BRIGHT
+                      + '\nEnter skill number:\n'))
+    skill_to_input_int = int(skill_to_input)
+    # convert skill_to_input into integer for use with comparison below
     skills1 = skills_dict()
-    # takes input from user, converts to string for dictionary use
-    if int(skill_to_input) <= len(skills.get_all_values()):
+
+    if skill_to_input_int <= len(skills.get_all_values()):
         for key, value in skills1.items():
             if skill_to_input == key:
                 print(Fore.GREEN + f'You selected {key}: {value}')
