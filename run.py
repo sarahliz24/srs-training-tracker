@@ -465,7 +465,7 @@ def search_menu():
     displays menu with options for user to search by
     staff member, skill or all
     """
-    # clear_screen()
+    clear_screen()
 
     while True:
         try:
@@ -482,7 +482,7 @@ def search_menu():
             if answer > 2:
                 # if entering a number not 0-2, set to return to input
                 print(Fore.RED + '\nPlease choose 0 - 2 from the menu\n')
-            if answer == 1:
+            elif answer == 1:
                 find_staff()
                 get_staff_id()
                 display_staff_skills()
