@@ -316,6 +316,8 @@ def find_staff():
     Take user input for fname & lname for existing
     staff in worksheet, return as a list
     """
+    clear_screen()
+
     while True:
         try:
             print(Fore.BLUE + Style.BRIGHT + "\nFIND STAFF MEMBER:\n")
@@ -409,9 +411,8 @@ def display_staff_skills():
 
     clear_screen()
 
-    print(Fore.BLUE +
-          f"\nHere is a list of {requested_name[0]} {requested_name[1]}'s")
-    print(Fore.GREEN + 'current skills\n')
+    print(Fore.BLUE + Style.BRIGHT
+          + f"\n{requested_name[0]} {requested_name[1]}'s current skills")
 
     key_dict = {}
     i = 1
