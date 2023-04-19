@@ -355,7 +355,26 @@ def get_staff_id():
                     return staff_id_found
     else:
         print(Fore.RED + "\nStaff member does not exist, try again\n")
+        get_id_breaker()
+
+
+def get_id_breaker():
+    """
+    If name inputs in get_staff_id not found, gives
+    user option to try again or return to main or
+    search menu
+    """
+    answer7 = int(input(Fore.GREEN
+                  + 'Enter 0: main menu, 1: search menu, 2: try again:'))
+    if answer7 == 0:
+        main()
+    elif answer7 == 1:
+        search_menu()
+    elif answer7 == 2:
         find_staff()
+    else:
+        print(Fore.RED + 'Please choose number 0 -2 from the menu')
+        get_id_breaker()
 
 
 def display_staff_skills():
