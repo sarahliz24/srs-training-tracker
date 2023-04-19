@@ -492,6 +492,7 @@ def search_menu():
                 print('\nSKILL SEARCH\n')
                 skill_search_result()
             elif answer == 0:
+                clear_screen()
                 main()
 
 
