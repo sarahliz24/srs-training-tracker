@@ -158,6 +158,22 @@ def reg_new_staff():
             reg_staff_validation(fname, lname, position)
 
 
+def reg_staff_breaker():
+    """
+    Give menu options to allow user to break
+    out of staff entry routine
+    """
+    answer8 = int(input(Fore.GREEN
+                  + 'Enter 0: main menu 1: try again:'))
+    if answer8 == 0:
+        main()
+    elif answer8 == 1:
+        reg_new_staff()
+    else:
+        print(Fore.RED + 'Please choose number 0 or 1 from the menu')
+        reg_staff_breaker()
+
+
 def reg_staff_validation(fname, lname, position):
     """
     Validates new staff registration entry
@@ -165,26 +181,26 @@ def reg_staff_validation(fname, lname, position):
     try:
         if not fname.isalpha():
             print(Fore.RED + 'Try again, first name entry is invalid\n')
-            reg_new_staff()
+            reg_staff_breaker()
         elif not lname.isalpha():
             print(Fore.RED + 'Try again, last name entry is invalid\n')
-            reg_new_staff()
+            reg_staff_breaker()
         elif not position.isalpha():
             print(Fore.RED + 'Try again, position entry is invalid\n')
-            reg_new_staff()
+            reg_staff_breaker()
         elif position != 'JUNIOR' and position != 'SENIOR' and \
                 position != 'CS':
             print(Fore.RED + 'Try again, position entry is invalid\n')
-            reg_new_staff()
+            reg_staff_breaker()
     except ValueError:
         print(Fore.RED + 'Try again, entry is invalid\n')
-        reg_new_staff()
+        reg_staff_breaker()
     else:
         answer2 = input(Fore.GREEN
                         + 'Is this information correct (Y or N)?\n').upper()
         if answer2 != 'Y':
             print(Fore.RED + '\nTry input again')
-            reg_new_staff()
+            reg_staff_breaker()
         elif answer2 == 'Y':
             check_for_duplication(fname, lname, position)
 
