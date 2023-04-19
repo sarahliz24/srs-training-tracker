@@ -1,36 +1,8 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# SRS Training App
 
-Welcome sarahliz24,
+![Welcome image](docs/screenshots/SRS_training_app_main.png)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
-
-## Reminders
-
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Site Link: <a href="" target="_blank">SRS Training App</a>
 
 1. [Introduction](#introduction)
 2. [User Experience](#user-experience)
@@ -44,18 +16,24 @@ Happy coding!
     1. [Known Bugs](#known-bugs)
     2. [Solved Bugs](#solved-bugs)
 8. [Deployment](#deployment)
+    1. [Github](#github)
+    2. [Heroku](#heroku)
 9. [Credits](#credits)
     1. [Code Used](#code-used)
     2. [Content](#content)
     3. [Technologies Used](#technologies-used)
 10. [Acknowledgements](#acknowledgements)
 
-Site link:
+## Site Link: (https://srs-training-tracker.herokuapp.com/)
 
 
 # INTRODUCTION
 
-    This application is developed to assist a manager in a busy clinical hospital environment.  Stereotactic Radiosurgery (SRS) is a highly skilled discpline.  in a busy Radiotherapy department it can be difficult to ensure enough staff are trained in the various sub-techniques of SRS, and to track who is trained in which area.  Along with this difficulty there can be frequesnt challenges maintaining a suitable staff base to deliver treatment, particular due to factors such as covid, high staff turnover, and other unexpected staffing shortages.  This app is designed to record the training of each applicable staff member in each or any SRS module they are trained in.  This can actd a training record for each staff member.  This can also function as a tool for the person managing the skill mix of the department - if there is a roster shortage the user can search the app for available staff members to see if their obtained skills match the need for the day, search by staff member to see if an available staff member has the required skills, or simply display a full talbe showing all skills and all staff recorded as having those skills.  This can help to improve staffing decisions by providing the information in a clear manner and reduce stress as managers don't have to recall what each staff member is ablt to do...
+    This application is developed to assist a manager in a busy clinical hospital environment, by tracking staff skill training, and allowing the user to query staff and skills as needed.  
+    
+    Stereotactic Radiosurgery (SRS) is a highly skilled discpline.  in a busy Radiotherapy department it can be difficult to ensure enough staff are trained in the various sub-techniques (skills) of SRS, and to track who is trained in which area.  Along with this difficulty there can be frequent challenges maintaining a suitable staff base to deliver treatment, particular due to factors such as covid, high staff turnover, and other unexpected staffing shortages, and a manager is often required to adjust staffing across various units at short notice.  
+    
+    This application is designed to record the training of staff members in each or any SRS skill they are trained in.  This acts as a training record for each staff member.  This is also a daily tool for the person managing the skill mix of the department - if there is a roster shortage the user can search the app for available staff members to see if their skills match the need for the day, or search by staff member to see if an available staff member has the required skills.  This can improve staffing decisions by providing the required information in an easy to access manner, and reduce stress as managers don't have to memorise what skill each staff member possesses (particularly in cases where the skill is not often applied clinically).
 
 
 # User Experience
@@ -64,11 +42,18 @@ As a new user I want to:
 * ...
 * ...
 
+As a returning user I want to:
+* ...
+* ...
 
 # Technical Design
 
-* flow chart
-* ?data models
+## Flowchart
+
+Designed at planning stage of application, the chart was used to guide thedevelopment process while building the application.  The initial flowchart closely reflects the structure of the finished application.
+<details><summary>SRS Training App Flowchart</summary>
+    <img src="docs/flowchart/SRS_skill_flowchart.png">
+</details>
 
 
 # Features
@@ -80,29 +65,31 @@ instructions
 menu 1 - 3 options
 option 1 - add new trainee
 option 2 - update existing trainee
-option 3 - query training status (trainee, technique or all)
+option 3 - search training status (staff, skill)
 
 # Future Features
 
-* Admin log-in
-* inactivate staff member
+* Administrator log-in with password to restrict application use/misuse
+* Ability to inactivate staff members (e.g. at end of service, maternity leave)
 * 3-tier training status per skill (basic, advanced, expert)
+* Ability to search by staff position
+* Ability to view the date skill was entered (this data is currently available in the spreadsheets & ready for future implementation)
+* Display staff and/or skills in order (numerical or alphabetical as relevant)
+* Display all staff & skills in one table
+* Expand for other sub-specialities, such as adding a module for tracking virtual simulation skills
+* Improve visual layout of application with screen centering and background image
 
 
 # TESTING
 
 ## Validator Testing
 
-The code was regularly tested using CI PEP* substitute...
-<a href="blah blah blah" target="_blank">stuff goes here</a>
-<details><summary>CI PEP* validation</summary>
-    <img src="here goes the image address">
+The code was regularly tested using the Code Institute PEP Validator substitute:
+<a href="https://pep8ci.herokuapp.com/" target="_blank">CI Python Linter</a>
+
+<details><summary>CI Python Linter Results</summary>
+    <img src="docs/screenshots/py_linter_results.png">
 </details>
-
-
-The code was regularly tested using W3C validators for HTML and CSS throughout development, and passed both tests on final testing.
-<a href="https://validator.w3.org/#validate_by_input" target="_blank">W3C HTML Validator</a>
-<a href="https://jigsaw.w3.org/css-validator/" target="_blank">W3C CSS Validator</a>
 
 ## Manual Testing
 
@@ -110,11 +97,18 @@ The code was regularly tested using W3C validators for HTML and CSS throughout d
 
 # BUGS
 
+## Known Bugs
  * info about bugs fixed and bugs remaining goes here...
+
+ ## Solved Bugs
+ * info about bugs fixed and bugs remaining goes here...
+
 
 # DEPLOYMENT
 
 This site can be forked using Github as follows (to make a copy in your own repo)
+
+## Github
 
 2. Go to **Fork** button on the right-side ribbon menu (between **Unwatch** and **Star**)
 3. Click the button to make a copy automatically into your own respository
@@ -133,34 +127,89 @@ This site can be cloned using Github as follows (to make a copy on your own mach
 5. Type 'git clone' then copy in your link
 The site github link is here: 
 
-* Add Heroku deployment process here...
+## Heroku
+
+### In Github
+1. Ensure all input methods have a new line at the end of the text (due to software behaviour of the mock terminal)
+2. Create requirements.txt file so Heroku can load required dependancies
+    - in workspace terminal, type 'Pip3 freeze > requirements.txt' to automatically update the requirements.txt file
+    - push to GitHub
+
+### In Heroku
+1. In Heroku dashboard click **Create New App** button
+2. Give app a unique name
+3. Select region e.g. **Europe**
+4. Click **Create App**
+5. Go to **Settings** tab
+6. Add **Config Vars**:
+    1. Click on **Reveal Config Vars** button
+    2. Type **CREDS** in the **KEY** field
+    3. Copy & paste the contents of the **creds.json** file from github workspace into the **VALUE** field
+    4. Click **Add* button
+    5. In the next config var row, type **PORT** in the **KEY** field, and add **8000** to the **VALUE** field
+7. Add **Buildpacks**:
+    1. Click **Add Buildpack** button
+    2. Click **Python** in pop-up window and click **Save changes**
+    3. Click **Add Buildpack** button again
+    4. Click **nodejs** in pop-up window and click **Save changes**
+    5. Ensure python buildpack is first in the list (click and drag to re-order if needed)
+8. Go to **Deploy** tab
+    1. Click on **Github** icon
+    2. Click on **Connect to Github** button
+    3. In search field, search for repo name and click **Search**
+    4. Click **Connect** button
+    5. Scroll to bottom of page to select deployment method
+        * Click **Deploy Branch** to manually deploy, ensuring desired branch is selected
+        * Click **Enable Automatic Deploys** to enable automatic deployment based on every git push (ensuring desired branch is selected)
+        6. Click **View** to go to deployed link
+
+
 
 # CREDITS
 
-## Code used
+## Code
+
+- <a href="" target="_blank">Test</a>
+
+- <a href="" target="_blank">Test</a>
+
+- <a href="" target="_blank">Test</a>
+
+- <a href="" target="_blank">Test</a>
+
+- <a href="" target="_blank">Test</a>
+
+- <a href="" target="_blank">Test</a>
 
 ## Contents
+All written content was created by the site author based on professional knowledge
 
 ## Technologies Used
 
-* Languages
-* Libraries - python inbuilt and third party
-* Colorama
-* <a href="https://patorjk.com/" target="_blank">patorjk</a> ASCII art generator - used to generate welcome title
+Languages
+- <a href="https://www.python.org/" target="_blank">Python</a>
+
+Libraries
+- <a href="https://docs.python.org/3/library/os.html" target="_blank">OS</a> Gives functions for interacting with the operating system.
+- <a href="https://docs.python.org/3/library/sys.html" target="_blank">Sys</a> Interacts with the runtime environment.
+- <a href="https://docs.python.org/3/library/datetime.html" target="_blank">Datetime</a> For getting & manipulation dates & time.  The date is added to the database when user adds a skill.  The date display (attached to a skill & user) will be implemented in user display in future versions of the applicationn.
+- <a href="https://docs.python.org/3/library/time.html" target="_blank">Time </a> Sleep was imported from Time to give a delay when sending information to worksheets, to enhance user experience (gives impression program is doing "work".)
+- <a href="https://docs.gspread.org/en/v5.7.2/" target="_blank">Gspread</a> An API for google sheets, used to enable interaction between sheet and application.
+- <a href="https://pypi.org/project/colorama/" target="_blank">Colorama</a> Used to enhance user experience & expectations by colouring warnings red, menus and important information in blue, and input sections in green.
+- <a href="https://google-auth.readthedocs.io/en/master/reference/google.oauth2.service_account.html" target="_blank">google-auth</a> Enables service account between application and google service.
+
 
 During the creation of this site I used the following technologies:
 
-* Github - used for online programming, change tracking and storage respository for this project <a href="https://github.com/" target="_blank">Git Hub</a>
-* Google Sheets...
-* Google Cloud Services...
-* Draw.io for flowchart creation during devlopment phase <a href="https://app.diagrams.net/?src=about">Draw.io</a>
+- <a href="https://github.com/" target="_blank">Git Hub</a> used for online programming, change tracking and storage respository for this project
+- <a href="https://www.heroku.com/" target="_blank">Heroku</a> cloud platform service to deploy, use & manage the application.
+- <a href="https://www.google.com/sheets/about/" target="_blank">Google Sheets</a> used as online spreadsheet editor to store application data.
+- <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Services</a> used as public cloud service.
+-  <a href="https://app.diagrams.net/">Draw.io</a> for flowchart creation during devlopment phase.
+- <a href="https://patorjk.com/" target="_blank">ASCII art generator</a> used to generate the welcome title.
 
-* Images
-	* Background image is from... <a href="do i have a background image?">What is it's name???</a>
-
-* Typography
-    * ...
----
 
 # Acknowledgements
-Thanks to my mentor Maranatha Ilesanmi...
+Thanks to my mentor Maranatha Ilesanmi for his advice and support, and my fellow students on Slack for advice and colleagiality.
+
+<a href="" target="_blank">Test</a>
