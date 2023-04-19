@@ -329,12 +329,14 @@ def find_staff_breaker():
     user option to try again or return to main menu
     """
     answer6 = int(input(Fore.GREEN
-                  + 'Enter 1 to try again, 0 to go to main menu:'))
+                  + 'Enter 1 to try again, 0 to go to main menu:\n'))
     if answer6 == 0:
         main()
+    elif answer6 == 1:
+        find_staff()
     else:
-        if answer6 == 1:
-            find_staff()
+        print(Fore.RED + 'Please choose number 0 or 1 from the menu')
+        find_staff_breaker()
 
 
 def get_staff_id():
