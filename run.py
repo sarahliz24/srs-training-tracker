@@ -138,7 +138,8 @@ def reg_new_staff():
     & adds to staff worksheet
     """
     print(Fore.BLUE + Style.BRIGHT
-          + 'You have opted to enter a new staff member')
+          + 'ENTER NEW STAFF MEMBER')
+    print('Search is by first name & last name')
     print('Please enter details with no spaces, numbers or symbols\n')
 
     while True:
