@@ -414,7 +414,7 @@ def display_staff_skills():
     clear_screen()
 
     print(Fore.BLUE + Style.BRIGHT
-          + f"\n{requested_name[0]} {requested_name[1]}'s current skills")
+          + f"\n{requested_name[0]} {requested_name[1]}'s current skills\n")
 
     key_dict = {}
     i = 1
