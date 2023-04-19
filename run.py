@@ -512,11 +512,11 @@ def get_skill_id():
         try:
             skill_id_key = int(input(Fore.GREEN + "Enter number 1 - 9:\n"))
         except ValueError:
-            print('Please enter a number only\n')
+            print(Fore.RED + 'Please enter a number only\n')
             continue
         else:
             if 0 < skill_id_key > 9:
-                print('Please enter number 1 - 9\n')
+                print(Fore.RED + 'Please enter number 1 - 9\n')
                 continue
         break
 
@@ -554,8 +554,8 @@ def staff_w_skill_id():
 
 def skill_search_result():
     """
-    Takes in staff_with_skill, skill_id_key & prints list
-    of staff names assigned that skill
+    Takes in staff_with_skill, skill_id_key
+    & prints list  of staff assigned that skill
     """
     name_check = staff.get_all_values()
     name_check_dict = {i[0]: i[1:4] for i in name_check}
