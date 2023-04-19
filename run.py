@@ -248,7 +248,7 @@ def user_skill_input():
         # skill_to_input_int = int(skill_to_input)
         # convert skill_to_input into integer for use with comparison below
 
-        if int(skill_to_input) <= len(skills.get_all_values()):
+        if 0 < int(skill_to_input) <= len(skills.get_all_values()):
             for key, value in skills1.items():
                 if skill_to_input == key:
                     print(Fore.GREEN + f'You selected {key}: {value}')
@@ -270,10 +270,12 @@ def user_skill_input():
         else:
             print(Fore.RED +
                   '\nTry again - you did not enter a valid number\n')
+            skill_menu()
             user_skill_input()
 
     except ValueError:
         print(Fore.RED + "You must enter a number only")
+        skill_menu()
         user_skill_input()
 
 
