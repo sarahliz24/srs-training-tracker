@@ -58,9 +58,9 @@ def welcome():
 def main():
     """
     Gives 3 options to user: enter new staff member;
-        update staff member; search.  Sends user to
-        selected menu page after successful input.
-        Manages input errors.
+    update staff member; search.  Sends user to
+    selected menu page after successful input.
+    Manages input errors.
     """
     print(Fore.BLUE + Style.BRIGHT + '\nMENU OPTIONS')
     print('1: Enter a new staff member')
@@ -91,9 +91,11 @@ def main():
         skill_menu()
         user_skill_input()
     elif answer == 3:
+        clear_screen()
         search_menu()
     elif answer == 0:
         print(Fore.YELLOW + "You are exiting the system")
+        clear_screen()
         sys.exit()
 
 
