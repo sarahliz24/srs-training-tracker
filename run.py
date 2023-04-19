@@ -450,6 +450,7 @@ def display_staff_menu():
             skill_menu()
             user_skill_input()
         if answer5 == 0:
+            clear_screen()
             main()
     except ValueError:
         # if entering a letter or other non-number key return to input
@@ -462,7 +463,7 @@ def display_staff_menu():
 
 def search_menu():
     """
-    displays menu with options for user to search by
+    Displays menu with options for user to search by
     staff member, skill or all
     """
     clear_screen()
@@ -513,7 +514,7 @@ def get_skill_id():
             print('Please enter a number only\n')
             continue
         else:
-            if skill_id_key < 0 or skill_id_key > 9:
+            if 0 < skill_id_key > 9:
                 print('Please enter number 1 - 9\n')
                 continue
         break
