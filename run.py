@@ -27,16 +27,14 @@ training_log = SHEET.worksheet('training_log')
 
 
 def clear_screen():
-    """
-    Clears screen
-    """
+    """Clear screen."""
+
     os.system('clear')
 
 
 def welcome():
-    """
-    Welcome title and introduction text
-    """
+    """ Welcome title and intro text."""
+
     print(Fore.BLUE + Style.BRIGHT + '           +-+-+-+')
     print(Fore.BLUE + Style.BRIGHT + '           |S|R|S|')
     print(Fore.BLUE + Style.BRIGHT + '       +-+-+-+-+-+-+-+-+')
@@ -56,11 +54,12 @@ def welcome():
 
 
 def main():
-    """
-    Gives 3 options to user: enter new staff member;
-    update staff member; search.  Sends user to
+    """Main menu.
+
+    Give 3 options to user: enter new staff member;
+    update staff member; search.  Send user to
     selected menu page after successful input.
-    Manages input errors.
+    Manage input errors.
     """
     print(Fore.BLUE + Style.BRIGHT + '\nMENU OPTIONS')
     print('1: Enter a new staff member')
@@ -81,6 +80,7 @@ def main():
                 Fore.RED + 'Please choose number 0 - 3 from the menu\n')
             continue
         break
+
     if answer == 1:
         clear_screen()
         reg_new_staff()
@@ -100,13 +100,15 @@ def main():
 
 
 def check_for_duplication(fname, lname, position):
-    """
-    Checks for duplicate fname/lname combination
-    in staff worksheet.  If found sends user back
-    to name entry. If no duplication moves to storing
-    new staff function
+    """Check for fname/lname duplication.
+
+    Check against staff worksheet.  If found send
+    user back to name entry. If OK, go to storing
+    new staff function.
+    Take fname, lname, position parameters.
     """
     name_check = staff.get_all_values()
+
     i = 0
     while i < len(name_check):
         if fname == name_check[i][1] and lname == name_check[i][2]:
@@ -114,13 +116,16 @@ def check_for_duplication(fname, lname, position):
             reg_new_staff()
             break
         i += 1
+
     storing_new_staff(fname, lname, position)
 
 
 def storing_new_staff(fname, lname, position):
+    """ Store new staff in worksheet.
+
+    Take fname, lname & position parameters.
     """
-    stores new staff in worksheet
-    """
+
     clear_screen()
     print('Sending information to worksheet')
     sleep(1)
@@ -133,10 +138,11 @@ def storing_new_staff(fname, lname, position):
 
 
 def reg_new_staff():
+    """Capture new staff name/position.
+
+    Add to staff worksheet.
     """
-    Captures new staff name/position details
-    & adds to staff worksheet
-    """
+
     print(Fore.BLUE + Style.BRIGHT
           + 'ENTER NEW STAFF MEMBER')
     print('Search is by first name & last name')
@@ -159,10 +165,8 @@ def reg_new_staff():
 
 
 def reg_staff_breaker():
-    """
-    Give menu options to allow user to break
-    out of staff entry routine
-    """
+    """Menu options to break out of staff_entry loop."""
+
     answer8 = int(input(Fore.GREEN
                   + 'Enter 0: main menu 1: try again:'))
     if answer8 == 0:
@@ -175,8 +179,9 @@ def reg_staff_breaker():
 
 
 def reg_staff_validation(fname, lname, position):
-    """
-    Validates new staff registration entry
+    """Validate new staff registration entry.
+
+    Takes parameters fname, lname & position.
     """
     try:
         if not fname.isalpha():
@@ -206,9 +211,8 @@ def reg_staff_validation(fname, lname, position):
 
 
 def skills_dict():
-    """
-    Creates skills dictionary from skills list for re-use
-    """
+    """Create skills dictionary from skills list"""
+
     skills_list = skills.get_all_values()
     # returns a list of lists from skills worksheet
     skills_dict1 = {i[0]: i[1] for i in skills_list}
@@ -218,9 +222,8 @@ def skills_dict():
 
 
 def skill_menu():
-    """
-    Gives user list of skills that can be added to staff profile
-    """
+    """List of skills to be added to staff profile."""
+
     skills1 = skills_dict()
 
     print(Fore.BLUE + Style.BRIGHT + '\nSRS SKILLS LIST\n')
@@ -234,9 +237,10 @@ def skill_menu():
 
 
 def user_skill_input():
-    """
-    takes user input, checks validity, stores input in
-    training log worksheet
+    """Accepts user skill input.
+
+    Checks validity.  Stores input in
+    training log worksheet.
     """
     staff_id1 = get_staff_id()
     skills1 = skills_dict()
@@ -280,9 +284,10 @@ def user_skill_input():
 
 
 def vaildation_user_skill_input(skill_entry):
-    """
-    Checks if skill entry is a duplicate, sends user
-    to more_skill_input if duplicate found
+    """Check for skill entry duplication.
+
+    Send user to more_skill_input if duplicate found.
+    Takes skill_entry parameter.
     """
     t_log = training_log.get_all_values()
 
@@ -297,9 +302,8 @@ def vaildation_user_skill_input(skill_entry):
 
 
 def more_skill_input():
-    """
-    Give user option to enter further skills
-    """
+    """Give option to enter further skills"""
+
     answer4 = input(Fore.BLUE + Style.BRIGHT
                     + 'Do you want to enter another skill (Y or N)?\n').upper()
 
@@ -314,9 +318,9 @@ def more_skill_input():
 
 
 def find_staff():
-    """
-    Take user input for fname & lname for existing
-    staff in worksheet, return as a list
+    """User input for fname/lname for existing staff.
+
+    Check validity.
     """
     clear_screen()
 
@@ -347,9 +351,10 @@ def find_staff():
 
 
 def find_staff_breaker():
-    """
-    If name inputs in find_staff are invalid, gives
-    user option to try again or return to main menu
+    """Menu options to break out of find_staff loop.
+
+    If name input in find_staff are invalid give
+    user option to try again or return to main menu.
     """
     answer6 = int(input(Fore.GREEN
                   + 'Enter 1 to try again, 0 to go to main menu:\n'))
@@ -363,9 +368,10 @@ def find_staff_breaker():
 
 
 def get_staff_id():
-    """
-   Validates staff id exists (based on requested_name),
-   returns user to find_staff if not
+    """Validate staff id exists.
+
+   Uses requested_name.
+   Returns user to find_staff if invalid.
     """
     name_check = staff.get_all_values()
     name_check_dict = {i[0]: i[1:3] for i in name_check}
@@ -384,10 +390,11 @@ def get_staff_id():
 
 
 def get_id_breaker():
-    """
-    If name inputs in get_staff_id not found, gives
+    """Menu options to break out of get_id loop.
+
+    If name input in get_staff_id not found, give
     user option to try again or return to main or
-    search menu
+    search menu.
     """
     answer7 = int(input(Fore.GREEN
                   + 'Enter 0: main menu, 1: search menu, 2: try again:'))
@@ -403,9 +410,7 @@ def get_id_breaker():
 
 
 def display_staff_skills():
-    """
-    displays list of skills assigned to staff member
-    """
+    """Display list of skills assigned to staff member"""
     t_log = training_log.get_all_values()
 
     skills1 = skills_dict()
@@ -431,9 +436,7 @@ def display_staff_skills():
 
 
 def display_staff_menu():
-    """
-    loads menu choices after user views staff skills
-    """
+    """Load menu choices after user views staff skills"""
     print(Fore.BLUE + Style.BRIGHT + '\nDo you want to:\n')
     print('1: Search for another staff member')
     print('2: Add skills for this staff member')
@@ -457,14 +460,15 @@ def display_staff_menu():
         print(Fore.RED + 'please choose a valid option from the menu\n')
     else:
         if answer5 != 0 or 1 or 2:
-            #  if entering a number not 0 or 1, set to return to input
+            # if entering a number not 0 or 1, set to return to input
             print(Fore.RED + 'please choose a valid option from the menu\n')
 
 
 def search_menu():
-    """
-    Displays menu with options for user to search by
-    staff member, skill or all
+    """Display search menu options.
+
+    Options for user to search by
+    staff member, skill or all.
     """
     clear_screen()
 
@@ -497,9 +501,7 @@ def search_menu():
 
 
 def get_skill_id():
-    """
-    Gets skill id from user input
-    """
+    """Get skill id from user input."""
     skills1 = skills_dict()
 
     for key in skills1:
@@ -530,10 +532,11 @@ def get_skill_id():
 
 
 def staff_w_skill_id():
-    """
-    Takes skill id
-    Searches training log for staff with that skill id
-    Returns list with the relevant staff ids
+    """Search worksheet for staff with skill id.
+
+    Use skill_id to search training log for staff
+    with that skill id.
+    Return list with the relevant staff ids.
     """
     skill_id_key = get_skill_id()
 
@@ -557,9 +560,9 @@ def staff_w_skill_id():
 
 
 def skill_search_result():
-    """
-    Takes in staff_with_skill, skill_id_key
-    & prints list  of staff assigned that skill
+    """Display list of staff with assigned skill.
+
+    Takes staff_with_skill, skill_id_key.
     """
     name_check = staff.get_all_values()
     name_check_dict = {i[0]: i[1:4] for i in name_check}
