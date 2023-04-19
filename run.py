@@ -565,7 +565,6 @@ def skill_search_result():
     name_check_dict = {i[0]: i[1:4] for i in name_check}
 
     staff_with_skill1 = staff_w_skill_id()
-    print(staff_with_skill1)
 
     i = 0
     while i < len(staff_with_skill1):
