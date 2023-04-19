@@ -28,7 +28,6 @@ training_log = SHEET.worksheet('training_log')
 
 def clear_screen():
     """Clear screen."""
-
     os.system('clear')
 
 
@@ -249,9 +248,6 @@ def user_skill_input():
         skill_to_input = (input(Fore.BLUE + Style.BRIGHT
                           + '\nEnter skill number:\n'))
 
-        # skill_to_input_int = int(skill_to_input)
-        # convert skill_to_input into integer for use with comparison below
-
         if 0 < int(skill_to_input) <= len(skills.get_all_values()):
             for key, value in skills1.items():
                 if skill_to_input == key:
@@ -375,7 +371,7 @@ def get_staff_id():
     """
     name_check = staff.get_all_values()
     name_check_dict = {i[0]: i[1:3] for i in name_check}
-    # converts list to dictionary & assigns staff id as the key
+    # convert list to dictionary & assign staff id as the key
     name_check_values = name_check_dict.values()
 
     if requested_name in name_check_values:
@@ -539,7 +535,6 @@ def staff_w_skill_id():
     Return list with the relevant staff ids.
     """
     skill_id_key = get_skill_id()
-
     t_log = training_log.get_all_values()
 
     staff_with_skill = []
@@ -547,13 +542,12 @@ def staff_w_skill_id():
     while i < len(t_log):
         if t_log[i][1] == skill_id_key:
             staff_with_skill.extend(t_log[i][0])
-            # returns a list with the staff ids
+            # return a list with the staff ids
         i += 1
 
     if not staff_with_skill:
         print(Fore.RED
               + "There are no staff registered with this skill\n")
-        # sleep(3)
         search_menu()
     else:
         return staff_with_skill
