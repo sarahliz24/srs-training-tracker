@@ -515,12 +515,16 @@ def get_skill_id():
             print(Fore.RED + 'Please enter a number only\n')
             continue
         else:
-            if 0 < skill_id_key > 9:
+            if 1 < skill_id_key > 9:
+                print(Fore.RED + 'Please enter number 1 - 9\n')
+                continue
+            elif skill_id_key == 0:
                 print(Fore.RED + 'Please enter number 1 - 9\n')
                 continue
         break
 
-    print(f"\nStaff with skill number {skill_id_key} are:\n")
+    print(Fore.BLUE + Style.BRIGHT
+          + f"\nStaff with skill number {skill_id_key} are:\n")
 
     return str(skill_id_key)
 
