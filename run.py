@@ -356,17 +356,17 @@ def find_staff_breaker():
     If name input in find_staff are invalid give
     user option to try again or return to main menu.
     """
+    answer6 = int(input(Fore.GREEN
+                  + 'Enter 1 to try again, 0 to go to main menu:\n'))
     try:
-        answer6 = int(input(Fore.GREEN
-                      + 'Enter 1 to try again, 0 to go to main menu:\n'))
         if answer6 == 0:
             main()
         elif answer6 == 1:
             find_staff()
+        else:
+            print(Fore.RED + 'Please choose number 0 or 1 from the menu')
+            find_staff_breaker()
     except ValueError:
-        print(Fore.RED + 'Please choose number 0 or 1 from the menu')
-        find_staff_breaker()
-    else:
         print(Fore.RED + 'Please choose number 0 or 1 from the menu')
         find_staff_breaker()
 
@@ -400,19 +400,19 @@ def get_id_breaker():
     user option to try again or return to main or
     search menu.
     """
+    answer7 = int(input(Fore.GREEN
+                  + 'Enter 0: main menu, 1: search menu, 2: try again:'))
     try:
-        answer7 = int(input(Fore.GREEN
-                      + 'Enter 0: main menu, 1: search menu, 2: try again:'))
         if answer7 == 0:
             main()
         elif answer7 == 1:
             search_menu()
         elif answer7 == 2:
             find_staff()
+        else:
+            print(Fore.RED + 'Please choose number 0 - 2 from the menu')
+            get_id_breaker()
     except ValueError:
-        print(Fore.RED + 'Please choose number 0 - 2 from the menu')
-        get_id_breaker()
-    else:
         print(Fore.RED + 'Please choose number 0 - 2 from the menu')
         get_id_breaker()
 
