@@ -55,10 +55,20 @@ Designed at planning stage of application, the chart was used to guide thedevelo
     <img src="docs/flowchart/SRS_skill_flowchart.png">
 </details>
 
+## Data Models
+Functional python - OOP could be implemented within this program to take advantage of classes, objects etc...
+
 
 # Features
 
-* Info on all app features goes here, with images etc
+* Info on all application features (with screenshots), incorporating user stories.
+
+## Welcome page & Description
+<details><summary>Welcome page</summary>
+    <img src="">
+</details>
+
+
 
 Start Program & welcome
 instructions
@@ -93,7 +103,15 @@ The code was regularly tested using the Code Institute PEP Validator substitute:
 
 ## Manual Testing
 
-* Testing user stories goes here?
+# Welcome Menu
+| Feature   | Action                                               | Expected Result                                                         | Actual Result     |
+|-----------|------------------------------------------------------|-------------------------------------------------------------------------|-------------------|
+| Main Menu | Select 0 to exit                                     | Exits program                                                           | Works as expected |
+| Main Menu |  Select  1 to enter new staff member                 | Sends user to: Enter new staff member section                           | Works as expected |
+| Main Menu |  Select  2 to update skills for  a staff member      | Sends user to: Find staff member section                                | Works as expected |
+| Main Menu | Select 3 to search records by  skill or staff member | Sends user to: Search menu options section                              | Works as expected |
+| Main Menu | Select number other than 0-3                         | Warning message to user:  "Please choose number 0 -3 from the menu"     | Works as expected |
+| Main Menu | Select non-number input e.g. 'g'                     | Warning message to user:  "Please choose a number (only) from the menu" | Works as expected |
 
 # BUGS
 
@@ -181,8 +199,10 @@ The site github link is here:
 
 - <a href="" target="_blank">Test</a>
 
+- Code Institute - deployment process for Heroku, API set-up, use of creds etc
+
 ## Contents
-All written content was created by the site author based on professional knowledge
+All written content was created by the site author based on professional knowledge.  All code was written by the site author.
 
 ## Technologies Used
 
@@ -190,7 +210,7 @@ Languages
 - <a href="https://www.python.org/" target="_blank">Python</a>
 
 Libraries
-- <a href="https://docs.python.org/3/library/os.html" target="_blank">OS</a> Gives functions for interacting with the operating system.
+- <a href="https://docs.python.org/3/library/os.html" target="_blank">OS</a> Gives functions for interacting with the operating system.  Allows use of clear screen function (used to improve user experience to declutter screen).
 - <a href="https://docs.python.org/3/library/sys.html" target="_blank">Sys</a> Interacts with the runtime environment.
 - <a href="https://docs.python.org/3/library/datetime.html" target="_blank">Datetime</a> For getting & manipulation dates & time.  The date is added to the database when user adds a skill.  The date display (attached to a skill & user) will be implemented in user display in future versions of the applicationn.
 - <a href="https://docs.python.org/3/library/time.html" target="_blank">Time </a> Sleep was imported from Time to give a delay when sending information to worksheets, to enhance user experience (gives impression program is doing "work".)
@@ -207,6 +227,7 @@ During the creation of this site I used the following technologies:
 - <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Services</a> used as public cloud service.
 -  <a href="https://app.diagrams.net/">Draw.io</a> for flowchart creation during devlopment phase.
 - <a href="https://patorjk.com/" target="_blank">ASCII art generator</a> used to generate the welcome title.
+- <a href="https://tablesgenerator.com/markdown_tables" target="_blank">Tables Generator</a> used to create tables in manual testing section for README.
 
 
 # Acknowledgements

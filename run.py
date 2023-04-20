@@ -167,7 +167,7 @@ def reg_staff_breaker():
     """Menu options to break out of staff_entry loop."""
 
     answer8 = int(input(Fore.GREEN
-                  + 'Enter 0: main menu 1: try again:'))
+                  + 'Enter 0: main menu 1: try again:\n'))
     if answer8 == 0:
         main()
     elif answer8 == 1:
