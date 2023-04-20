@@ -29,11 +29,11 @@
 
 # INTRODUCTION
 
-    This application is developed to assist a manager in a busy clinical hospital environment, by tracking staff skill training, and allowing the user to query staff and skills as needed.  
+This application is developed to assist a manager in a busy clinical hospital environment, by tracking staff skill training, and allowing the user to query staff and skills as needed.  
     
-    Stereotactic Radiosurgery (SRS) is a highly skilled discpline.  in a busy Radiotherapy department it can be difficult to ensure enough staff are trained in the various sub-techniques (skills) of SRS, and to track who is trained in which area.  Along with this difficulty there can be frequent challenges maintaining a suitable staff base to deliver treatment, particular due to factors such as covid, high staff turnover, and other unexpected staffing shortages, and a manager is often required to adjust staffing across various units at short notice.  
+Stereotactic Radiosurgery (SRS) is a highly skilled discpline.  in a busy Radiotherapy department it can be difficult to ensure enough staff are trained in the various sub-techniques (skills) of SRS, and to track who is trained in which area.  Along with this difficulty there can be frequent challenges maintaining a suitable staff base to deliver treatment, particular due to factors such as covid, high staff turnover, and other unexpected staffing shortages, and a manager is often required to adjust staffing across various units at short notice.  
     
-    This application is designed to record the training of staff members in each or any SRS skill they are trained in.  This acts as a training record for each staff member.  This is also a daily tool for the person managing the skill mix of the department - if there is a roster shortage the user can search the app for available staff members to see if their skills match the need for the day, or search by staff member to see if an available staff member has the required skills.  This can improve staffing decisions by providing the required information in an easy to access manner, and reduce stress as managers don't have to memorise what skill each staff member possesses (particularly in cases where the skill is not often applied clinically).
+This application is designed to record the training of staff members in each or any SRS skill they are trained in.  This acts as a training record for each staff member.  This is also a daily tool for the person managing the skill mix of the department - if there is a roster shortage the user can search the app for available staff members to see if their skills match the need for the day (with staff position displayed to aid in roster decision making), or search by staff member to see if an available staff member has the required skills.  This can improve staffing decisions by providing the required information in an easy to access manner, and reduce stress as managers don't have to memorise what skill each staff member possesses (particularly in cases where the skill is not often applied clinically).
 
 
 # User Experience
@@ -131,21 +131,47 @@ The code was regularly tested using the Code Institute PEP Validator substitute:
 | Input validation | User enters name (using alpha characters) for staff that is not registered | Warning to user (staff does not exist). Menu options: main menu, search menu, try again   | Works as expected |
 |  | User enters number in first name field for staff | Warning to user, menu options try again or go to main menu | Bug found - see bug 1 |
 |  | User enters number in last name field for staff | Warning to user, menu options try again or go to main menu | Works as expected |
-|  | User enters existing staff name correctly | User skills are display, list of skills to add display, option to enter more skills presented | Works as expected |
+|  | User enters existing staff name correctly | User skills are displayed, list of skills to add display, option to enter more skills presented | Works as expected |
 | Enter skill | User enters skill number from list | Skill added, confirmation text shown, option to accept or reject (Y/N) | Works as expected |
+|  | User enters duplicate skill number from list | Warning to user, return to skill entry | Works as expected |
 |  | User enters incorrect number or a letter | Warning to user, skills list re-presented, enter skill prompt | Works as expected |
 |  | User selects No to confirm skill selected is not what intended | Skill list reloaded, input skill requested again | Works as expected |
 |  | User selects Yes to add skill | Option to add further skill given | Works as expected |
 | Option to enter further skill | User chooses from menu option to enter skill or not (Y/N) | Staff skills and skill list re-presented if Y, return to main menu if N | Works as expected |
 |  |  |  |  |
 
+# Search Records by Skill or Staff Member Menu
+| Feature | Action | Expected Result | Actual Result |
+|---|---|---|---|
+| Menu options | User selects 1 for staff search, 2 for skill search, 0 for main menu | Selected menu loads | Works as expected |
+| Input validation | User selects a letter or invalid number | Warning message to user, menu reloads | Works as expected |
+
+# Staff Search
+| Feature | Action | Expected Result | Actual Result |
+|---|---|---|---|
+| User input prompts | Enter first name, last name in successive input prompts | Validation of input occurs | Works as expected |
+| Input validation | User enters name (using alpha characters) for staff that is not registered | Warning to user (staff does not exist). Menu options: main menu, search menu, try again   | Works as expected |
+|  | User enters number in first name field for staff | Warning to user, menu options try again or go to main menu | Bug found - see bug 1 |
+|  | User enters number in last name field for staff | Warning to user, menu options try again or go to main menu | Works as expected |
+|  | User enters existing staff name correctly | User skills are displayed, menu presented to search for another staff member, add skills to this staff member, return to main menu | Works as expected |
+| Search staff again| User performs search for different staff member | Search works as previously | Works as expected |
+|  | User enters incorrect number or a letter | Warning to user, search menu re-presented | Works as expected |
+|  |  |  |  |
+
+# Skill Search
+| Feature | Action | Expected Result | Actual Result |
+|---|---|---|---|
+| Menu options | Skills list displayed, user prompted to enter skill number | List of staff with skill (and staff position) is displayed | Works as expected |
+| Input validation | User selects a letter or invalid number | Warning message to user, menu reloads | Works as expected |
+| Menu options | Search menu displayed,  user prompted to go to staff or skill search or main menu | User directed to selected menu | Works as expected |
+
 # BUGS
 
 ## Known Bugs
- 1. When searching for existing staff member to update skills - if a user enters a number in the first name field (but not the last name field), then selects try again, the name input is re-presented to user.  If user then enters a known existing user, the application returns warning to user that staff does not exist. if user then searches for same staff again the serach is then successful.
+ 1. When searching for existing staff member to update skills - if a user enters a number in the first name field (but not the last name field), then selects try again, the name input is re-presented to user.  If user then enters a known existing user, the application returns warning to user that staff does not exist. if user then searches for same staff again the search is then successful.
 
  ## Solved Bugs
- * info about bugs fixed and bugs remaining goes here...
+ * 
 
 
 # DEPLOYMENT
