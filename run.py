@@ -324,25 +324,17 @@ def find_staff():
     """
     clear_screen()
 
-    while True:
-        try:
-            print(Fore.BLUE + Style.BRIGHT + "\nFIND STAFF MEMBER:\n")
-            print('Please enter details with no spaces, numbers or symbols\n')
-            fname_existing = input(
-                "Enter first name of staff member:\n").upper()
-            lname_existing = input(
-                "Enter last name of staff member:\n").upper()
-        except Exception:
-            continue
-        else:
-            if not fname_existing.isalpha():
-                print(Fore.RED + 'Your first name entry is invalid')
-                find_staff_breaker()
-            if not lname_existing.isalpha():
-                print(Fore.RED + 'Your last name entry is invalid')
-                find_staff_breaker()
-                continue
-            break
+    print(Fore.BLUE + Style.BRIGHT + "\nFIND STAFF MEMBER:\n")
+    print('Please enter details with no spaces, numbers or symbols\n')
+    fname_existing = input("Enter first name of staff member:\n").upper()
+    lname_existing = input("Enter last name of staff member:\n").upper()
+
+    if not fname_existing.isalpha():
+        print(Fore.RED + 'Your first name entry is invalid')
+        find_staff_breaker()
+        if not lname_existing.isalpha():
+            print(Fore.RED + 'Your last name entry is invalid')
+            find_staff_breaker()
 
     global requested_name
     requested_name = [fname_existing, lname_existing]
