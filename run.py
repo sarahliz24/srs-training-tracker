@@ -348,9 +348,9 @@ def find_staff_breaker():
     If name input in find_staff are invalid give
     user option to try again or return to main menu.
     """
-    answer6 = int(input(Fore.GREEN
-                  + 'Enter 1 to try again, 0 to go to main menu:\n'))
     try:
+        answer6 = int(input(Fore.GREEN
+                      + 'Enter 1 to try again, 0 to go to main menu:\n'))
         if answer6 == 0:
             main()
         elif answer6 == 1:
