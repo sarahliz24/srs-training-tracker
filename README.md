@@ -105,7 +105,7 @@ The code was regularly tested using the Code Institute PEP Validator substitute:
 
 # Welcome Menu
 | Feature | Action | Expected Result | Actual Result |
-|-----------|------------------------------------------------------|-------------------------------------------------------------------------|-------------------|
+|---|---|---|---|
 | Main Menu | Select 0 to exit | Exits program | Works as expected |
 | Main Menu |  Select  1 to enter new staff member | Sends user to: Enter new staff member section  | Works as expected |
 | Main Menu |  Select  2 to update skills for  a staff member | Sends user to: Find staff member section | Works as expected |
@@ -116,7 +116,7 @@ The code was regularly tested using the Code Institute PEP Validator substitute:
 #  Enter new staff member
 
 | Feature | Action | Expected Result | Actual Result |
-|----------------------------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-------------------|
+|---|---|---|---|
 | User input prompts | Enter first name, last name & position in successive input prompts | Validation of input occurs | Works as expected |
 | Input validation | Entry of a non-alpha character in any of above fields | Warning to user, specifying the first invalid entry Menu option to exit or try again | Works as expected |
 | Menu option to exit or try again | User selects 0 or 1 | Reloads user input prompts (first/last names, position) or returns to main menu | Works as expected |
@@ -125,13 +125,25 @@ The code was regularly tested using the Code Institute PEP Validator substitute:
 | Final validation  | User inputs previously registered staff member | Warning to user re duplication, Menu option to exit or try again | Works as expected |
 
 # Update skills for existing staff member
-
+| Feature | Action | Expected Result | Actual Result |
+|---|---|---|---|
+| User input prompts | Enter first name, last name in successive input prompts | Validation of input occurs | Works as expected |
+| Input validation | User enters name (using alpha characters) for staff that is not registered | Warning to user (staff does not exist). Menu options: main menu, search menu, try again   | Works as expected |
+|  | User enters number in first name field for staff | Warning to user, menu options try again or go to main menu | Bug found - see bug 1 |
+|  | User enters number in last name field for staff | Warning to user, menu options try again or go to main menu | Works as expected |
+|  | User enters existing staff name correctly | User skills are display, list of skills to add display, option to enter more skills presented | Works as expected |
+| Enter skill | User enters skill number from list | Skill added, confirmation text shown, option to accept or reject (Y/N) | Works as expected |
+|  | User enters incorrect number or a letter | Warning to user, skills list re-presented, enter skill prompt | Works as expected |
+|  | User selects No to confirm skill selected is not what intended | Skill list reloaded, input skill requested again | Works as expected |
+|  | User selects Yes to add skill | Option to add further skill given | Works as expected |
+| Option to enter further skill | User chooses from menu option to enter skill or not (Y/N) | Staff skills and skill list re-presented if Y, return to main menu if N | Works as expected |
+|  |  |  |  |
 
 # BUGS
 
 ## Known Bugs
  1. When searching for existing staff member to update skills - if a user enters a number in the first name field (but not the last name field), then selects try again, the name input is re-presented to user.  If user then enters a known existing user, the application returns warning to user that staff does not exist. if user then searches for same staff again the serach is then successful.
-  
+
  ## Solved Bugs
  * info about bugs fixed and bugs remaining goes here...
 
