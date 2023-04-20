@@ -412,12 +412,12 @@ def get_id_breaker():
 
 def display_staff_skills():
     """Display list of skills assigned to staff member"""
+    clear_screen()
+
     t_log = training_log.get_all_values()
 
     skills1 = skills_dict()
     staff_id_found1 = get_staff_id()
-
-    clear_screen()
 
     print(Fore.BLUE + Style.BRIGHT
           + f"\n{requested_name[0]} {requested_name[1]}'s current skills\n")
