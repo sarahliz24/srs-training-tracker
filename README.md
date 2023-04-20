@@ -118,18 +118,20 @@ The code was regularly tested using the Code Institute PEP Validator substitute:
 | Feature | Action | Expected Result | Actual Result |
 |----------------------------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-------------------|
 | User input prompts | Enter first name, last name & position in successive input prompts | Validation of input occurs | Works as expected |
-| Input validation  | Entry of a non-alpha character in any of above fields | Warning to user, specifying the first invalid entry Menu option to exit or try again | Works as expected |
-| Menu option to exit or try again | User selects 0 or 1   | Reloads user input prompts (first/last names, position) or returns to main menu | Works as expected |
+| Input validation | Entry of a non-alpha character in any of above fields | Warning to user, specifying the first invalid entry Menu option to exit or try again | Works as expected |
+| Menu option to exit or try again | User selects 0 or 1 | Reloads user input prompts (first/last names, position) or returns to main menu | Works as expected |
 | Present user with inputted data  | User prompted to confirm if entry correct or not  | No = Menu option to try again or go to main menu Yes = success message, returns user to main menu | Works as expected |
 | Final validation  | User inputs invalid number or invalid alpha characters to confirmation query | Warning to user Menu option to exit or try again | Works as expected |
 | Final validation  | User inputs previously registered staff member | Warning to user re duplication, Menu option to exit or try again | Works as expected |
+
+# Update skills for existing staff member
 
 
 # BUGS
 
 ## Known Bugs
- * info about bugs fixed and bugs remaining goes here...
-
+ 1. When searching for existing staff member to update skills - if a user enters a number in the first name field (but not the last name field), then selects try again, the name input is re-presented to user.  If user then enters a known existing user, the application returns warning to user that staff does not exist. if user then searches for same staff again the serach is then successful.
+  
  ## Solved Bugs
  * info about bugs fixed and bugs remaining goes here...
 

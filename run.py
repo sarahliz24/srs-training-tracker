@@ -392,9 +392,9 @@ def get_id_breaker():
     user option to try again or return to main or
     search menu.
     """
-    answer7 = int(input(Fore.GREEN
-                  + 'Enter 0: main menu, 1: search menu, 2: try again:'))
     try:
+        answer7 = int(input(Fore.GREEN
+                      + 'Enter 0: main menu, 1: search menu, 2: try again:'))
         if answer7 == 0:
             main()
         elif answer7 == 1:
@@ -402,11 +402,12 @@ def get_id_breaker():
         elif answer7 == 2:
             find_staff()
         else:
-            print(Fore.RED + 'Please choose number 0 - 2 from the menu')
+            print(Fore.RED + 'PLEASE choose number 0 - 2 from the menu')
             get_id_breaker()
     except ValueError:
         print(Fore.RED + 'Please choose number 0 - 2 from the menu')
-        get_id_breaker()
+        # continue
+        # get_id_breaker()
 
 
 def display_staff_skills():
