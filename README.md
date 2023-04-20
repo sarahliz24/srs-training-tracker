@@ -35,18 +35,16 @@ Stereotactic Radiosurgery (SRS) is a highly skilled discpline.  in a busy Radiot
     
 This application is designed to record the training of staff members in each or any SRS skill they are trained in.  This acts as a training record for each staff member.  This is also a daily tool for the person managing the skill mix of the department - if there is a roster shortage the user can search the app for available staff members to see if their skills match the need for the day (with staff position displayed to aid in roster decision making), or search by staff member to see if an available staff member has the required skills.  This can improve staffing decisions by providing the required information in an easy to access manner, and reduce stress as managers don't have to memorise what skill each staff member possesses (particularly in cases where the skill is not often applied clinically).
 
-
 # User Experience
 
 ## Target Audience
 Managers and senior clinical staff responsible for staff training, and staff rostering, within the designated clinical area.
 
-
 ## User Stories
 
 ### As a user I want to:
 
-1. Understand how the application works
+1. Understand what the application is for
     - so I can use it successfully
 2. Be given feedback if my input is successful
     - so I know the application is working
@@ -63,7 +61,7 @@ Managers and senior clinical staff responsible for staff training, and staff ros
 8. Search for a skill to see which staff have that skill
     - so I can find staff to treat a certain technique
 9. see staff positions when presented with a list of staff who have a selected skill
-     - so I can consider skill mix when rostering staff
+    - so I can consider skill mix when rostering staff
 
 ## As the site owner I want:
 
@@ -75,14 +73,16 @@ Managers and senior clinical staff responsible for staff training, and staff ros
     - so they know the application is working
 13. The user to be given feedback if their input is incorrect
     - to help them input good data
-14.  want the user to be able to search for skills or staff 
+14. The user to be able to search for skills or staff
     - to facilitate training monitoring and rostering decisions
+15. The user to understand how to navigate through the application at all times
+    - so they feel confident using the application
 
 # Technical Design
 
 ## Flowchart
 
-Designed at planning stage of application, the chart was used to guide thedevelopment process while building the application.  The initial flowchart closely reflects the structure of the finished application.
+Designed at planning stage of application, the chart was used to guide the development process while building the application.  The initial flowchart closely reflects the structure of the finished application.
 <details><summary>SRS Training App Flowchart</summary>
     <img src="docs/flowchart/SRS_skill_flowchart.png">
 </details>
@@ -94,89 +94,124 @@ Functional programming was used as the primary approach for development of this 
 # Features
 
 ## Welcome page & Description
+Introduction: display logo, explain purpose of application, give menu option to enter application.
+* User story 1
+
 <details><summary>Welcome page</summary>
     <img src="docs/screenshots/welcome_page.png">
 </details>
 
 ## Menu options
-<details><summary>Welcome page</summary>
+* User story 15
+
+There are two main menus, allowing the user to select options to proceed, or return to main menu. Menu options and headings are displayed in blue for consistency and to highlight purpose to user. 
+* User story 15
+<details><summary>Main menu</summary>
     <img src="docs/screenshots/main_menu.png">
 </details>
-<details><summary>Welcome page</summary>
+<details><summary>Search menu</summary>
     <img src="docs/screenshots/serach_menu.png">
 </details>
 
 ## Add new staff member
-<details><summary>Welcome page</summary>
+User can enter a new staff member, adding first name, last name, and position (with prompts for position). User cannot enter a duplicate staff member.
+* User story 5
+
+<details><summary>Add new staff member</summary>
     <img src="docs/screenshots/enter_new_staff.png">
 </details>
 
 ## Update staff skills
-<details><summary>Welcome page</summary>
+* User story 6
+* User story 4
+
+User can search for an existing staff member, and when successfully found, can enter a new skill for that staff member. Staff members current skill status is displayed to user, along with a list of available skills to add. After skill entry user is prompted to enter another skill or return to main menu.  User cannot enter duplicate skills for the staff member.
+<details><summary>Enter skills</summary>
     <img src="docs/screenshots/update_skills.png">
 </details>
 
 ## Search by staff member
-<details><summary>Welcome page</summary>
+* User story 4
+* User story 7
+* User story 14
+
+User can search for a staff member and see a list of their assigned skills.  User given option to search for another staff member or update that staff member's skills. 
+<details><summary>Staff search results</summary>
     <img src="docs/screenshots/staff_search_list.png">
 </details>
 
 ## Search by skill
-<details><summary>Welcome page</summary>
+* User story 8
+* User story 9
+* User story 14
+
+User can search by skill.  User is presented with a list of skill to choose from.  Then presented with a list of staff assigned that skill. Staff position is displayed in this list as it can assist with decision making in rostering situations to ensure correct skill mix. User then given option to search for another skill or search by staff member. User cannot search for a skill that is not on the list.
+<details><summary>Skill list</summary>
     <img src="docs/screenshots/skill_search_choice_list.png">
 </details>
-<details><summary>Welcome page</summary>
+<details><summary>skill search results</summary>
     <img src="docs/screenshots/skill_search_result.png">
 </details>
 
 ## Warnings
+* User story 3
+* User story 11
+* User story 13
+* User story 15
+
+Throughout the application the user is given warnings for incorrect entries such as entering numbers out of range, entering letters instead of numbers (and vice versa), failed searches (e.g. no staff found by name entered), entering duplicate information.  Warnings are displayed in red to highlight to user.  After each warning a new input is requested or a menu selection is provided.
 <details><summary>Duplcate staff entry</summary>
     <img src="docs/screenshots/duplicate_staff_entry.png">
 </details>
-<details><summary>Welcome page</summary>
+<details><summary>Wrong number warning</summary>
     <img src="docs/screenshots/search_warning.png">
 </details>
-<details><summary>Welcome page</summary>
-    <img src="">
-</details>
-<details><summary>Welcome page</summary>
+<details><summary>Staff does not exist warning</summary>
     <img src="docs/screenshots/staff_not_exist.png">
+</details>
+<details><summary>Entering a letter not a number warning</summary>
+    <img src="docs/screenshots/user_warning_g.png">
+</details>
+<details><summary>Try input again warning</summary>
+    <img src="docs/screenshots/warning1.png">
 </details>
 
 ## User feedback
-<details><summary>Welcome page</summary>
+* User story 2
+* User story 11
+* User story 12
+* User story 15
+
+User is given feedback through the application.  Feedback is displayed in green for user experience.  User is informed when information is successfully stored (with a short time delay added to give the impression the system is doing "work"). User entries are displayed to user at all times to check user is satisfied with their input before further action.
+<details><summary>Sending to worksheet feedback</summary>
     <img src="docs/screenshots/success_feedback.png">
 </details>
-    <details><summary>Welcome page</summary>
+    <details><summary>Is this correct feedback</summary>
     <img src="docs/screenshots/user_feedback.png">
 </details>
-<details><summary>Welcome page</summary>
-    <img src="docs/screenshots/user_feedback2.png"
-</details>
-
-## Input fields
-<details><summary>Welcome page</summary>
+<details><summary>You selected feedback</summary>
     <img src="docs/screenshots/user_feedback2.png">
 </details>
-<details><summary>Welcome page</summary>
-    <img src="">
-</details>
-<details><summary>Welcome page</summary>
-    <img src="">
-</details>
-<details><summary>Welcome page</summary>
-    <img src="">
+<details><summary>You selected... sending to worksheet feedback</summary>
+    <img src="docs/screenshots/user_feedback3.png">
 </details>
 
+## Google Sheets
+* User story 10
+
+Google sheets showing data entry.  Can be used for reference if testing the application (i.e. to find existing users or skills etc).
+<details><summary>staff sheet</summary>
+    <img src="docs/screenshots/staff.png">
+</details>
+<details><summary>skills sheet</summary>
+    <img src="docs/screenshots/skills.png">
+</details>
+<details><summary>training log sheet</summary>
+    <img src="docs/screenshots/training_log.png">
+</details>
 
 
 
-Start Program & welcome
-instructions
-menu 1 - 3 options
-option 1 - add new trainee
-option 2 - update existing trainee
-option 3 - search training status (staff, skill)
 
 # Future Features
 
@@ -195,8 +230,8 @@ option 3 - search training status (staff, skill)
 
 ## Validator Testing
 
-The code was regularly tested using the Code Institute PEP Validator substitute:
-<a href="https://pep8ci.herokuapp.com/" target="_blank">CI Python Linter</a>
+The code was regularly tested using the Code Institute PEP Validator substitute
+<a href="https://pep8ci.herokuapp.com/" target="_blank">CI Python Linter</a>.  All tests passed with no warnings or errors.
 
 <details><summary>CI Python Linter Results</summary>
     <img src="docs/screenshots/py_linter_results.png">
@@ -270,9 +305,9 @@ The code was regularly tested using the Code Institute PEP Validator substitute:
 
 ## Known Bugs
  1. When searching for existing staff member to update skills - if a user enters a number in the first name field (but not the last name field), then selects try again, the name input is re-presented to user.  If user then enters a known existing user, the application returns warning to user that staff does not exist. if user then searches for same staff again the search is then successful.
- 2. When updating skills for a user unwanted decoration is displayed at the top of the screen
- 3. When entering a second skill for a user the skills list (for selection reference) does not display
- 4. If there are no staff with a skill, no message is given to user (system returns to search menu)
+ 2. When updating skills for a user unwanted decoration is displayed at the top of the screen.
+ 3. When entering a second skill for a user the skills list (for selection reference) does not display.
+ 4. If there are no staff with a skill, no message is given to user (system returns to search menu).
 
  ## Solved Bugs
 1. Early testing showed that user could not break out of loops when searching for staff name that could not be found, or unsuccessfully trying to add a new user (through entry error or searching for staff that did not exist).  Loop breaker functions were added to give user option to continue trying or return to main menu in these cases.
@@ -364,7 +399,7 @@ Languages
 
 Libraries
 - <a href="https://docs.python.org/3/library/os.html" target="_blank">OS</a> Gives functions for interacting with the operating system.  Allows use of clear screen function (used to improve user experience to declutter screen).
-- <a href="https://docs.python.org/3/library/sys.html" target="_blank">Sys</a> Interacts with the runtime environment.
+- <a href="https://docs.python.org/3/library/sys.html" target="_blank">Sys</a> Interacts with the runtime environment. Allows program exit function to run.
 - <a href="https://docs.python.org/3/library/datetime.html" target="_blank">Datetime</a> For getting & manipulation dates & time.  The date is added to the database when user adds a skill.  The date display (attached to a skill & user) will be implemented in user display in future versions of the applicationn.
 - <a href="https://docs.python.org/3/library/time.html" target="_blank">Time </a> Sleep was imported from Time to give a delay when sending information to worksheets, to enhance user experience (gives impression program is doing "work".)
 - <a href="https://docs.gspread.org/en/v5.7.2/" target="_blank">Gspread</a> An API for google sheets, used to enable interaction between sheet and application.
@@ -374,7 +409,7 @@ Libraries
 
 During the creation of this site I used the following technologies:
 
-- <a href="https://github.com/" target="_blank">Git Hub</a> used for online programming, change tracking and storage respository for this project
+- <a href="https://github.com/" target="_blank">Git Hub</a> used for online programming, change tracking and storage respository for this project.
 - <a href="https://www.heroku.com/" target="_blank">Heroku</a> cloud platform service to deploy, use & manage the application.
 - <a href="https://www.google.com/sheets/about/" target="_blank">Google Sheets</a> used as online spreadsheet editor to store application data.
 - <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Services</a> used as public cloud service.
