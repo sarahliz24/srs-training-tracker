@@ -38,13 +38,47 @@ This application is designed to record the training of staff members in each or 
 
 # User Experience
 
-As a new user I want to:
-* ...
-* ...
+## User Experience
 
-As a returning user I want to:
-* ...
-* ...
+### Target Audience
+Managers and senior clinical staff responsible for staff training, and staff rostering, within the designated clinical area.
+
+
+## User Stories
+
+As a user I want to:
+
+1. Understand how the application works
+    - so I can use it successfully
+2. Be given feedback if my input is successful
+    - so I know the application is working
+3. be given feedback if my input is incorrect
+    - so I know if I'm using the application correctly
+4. Search for staff by name
+    - so I don't have to remember staff ids
+5. Add a new staff member
+    - to track newly trained staff members
+6. Add skills for a staff member
+    - to update staff records for accuracy
+7. Search for a staff member to see what skills they have
+    - so I know if I can roster a staff member to treat a certain technique
+8. Search for a skill to see which staff have that skill
+    - so I can find staff to treat a certain technique
+9. see staff positions when presented with a list of staff who have a selected skill
+     - so I can consider skill mix when rostering staff
+
+As the site owner I want:
+
+10. Information storage to be spreadsheet based
+    - to allow for efficient data storage and retrieval
+11. User input to be validated
+    - so I know the data being collected is useful & relevant
+12. The user to be given feedback if their entry/search is successful
+    - so they know the application is working
+13. The user to be given feedback if their input is incorrect
+    - to help them input good data
+14.  want the user to be able to search for skills or staff 
+    - to facilitate training monitoring and rostering decisions
 
 # Technical Design
 
@@ -56,8 +90,8 @@ Designed at planning stage of application, the chart was used to guide thedevelo
 </details>
 
 ## Data Models
-Functional python - OOP could be implemented within this program to take advantage of classes, objects etc...
 
+Functional programming was used as the primary approach for development of this application. OOP could have be employed an an effective alternative to manage staff as a class.  One global variable was used in the application - it is acknowledged that is not considered best practice, and would be refactored in a future version of this application.
 
 # Features
 
@@ -65,8 +99,10 @@ Functional python - OOP could be implemented within this program to take advanta
 
 ## Welcome page & Description
 <details><summary>Welcome page</summary>
-    <img src="">
+    <img src="docs/screenshots/welcome_page.png">
 </details>
+
+## 
 
 
 
@@ -169,10 +205,16 @@ The code was regularly tested using the Code Institute PEP Validator substitute:
 
 ## Known Bugs
  1. When searching for existing staff member to update skills - if a user enters a number in the first name field (but not the last name field), then selects try again, the name input is re-presented to user.  If user then enters a known existing user, the application returns warning to user that staff does not exist. if user then searches for same staff again the search is then successful.
+ 2. When updating skills for a user unwanted decoration is displayed at the top of the screen
+ 3. When entering a second skill for a user the skills list (for selection reference) does not display
+ 4. If there are no staff with a skill, no message is given to user (system returns to search menu)
 
  ## Solved Bugs
- * 
-
+1. Early testing showed that user could not break out of loops when searching for staff name that could not be found, or unsuccessfully trying to add a new user (through entry error or searching for staff that did not exist).  Loop breaker functions were added to give user option to continue trying or return to main menu in these cases.
+ 2. Validation checks for number entries (e.g. selecting 1-9 for a skill search) did not include a check for entry of '0'.  Code was amended to include 0 e.g. changed from  'if int(skill_to_input) <= len(skills.get_all_values())' to 'if 0 < int(skill_to_input) <= len(skills.get_all_values())'.
+ 3. When user received a warning, the menu options presented (e.g. 'select 1 to try again, 0 to exit' ) controlled for user entering an invalid number, but not for a letter e.g. 'g' (which gave a value error).  All loop breaker functions were amended to try/except/else blocks with value error raised in the exception clause to solve this.
+ 4.  When user searched for a staff member, this worked correctly the first time, however if user searched for another staff member they were incorrectly given a warning and presented with menu options.  To solve this the try/except blocks were changed in the get_id_breaker and find_staff_breaker functions to move the else clause (checking for number errors) into the try block, instead of placing this after the except clause.
+ 5.  When searching for staff skills no message was given to the user if the staff member had no skills logged (i.e. nothing to display). To correct: added an empty key_dict to display_staff_skills(). If skill exists item added to key_dict, and if key dict false (empty) then warning printed to user re no skills.
 
 # DEPLOYMENT
 
@@ -233,25 +275,19 @@ The site github link is here:
         * Click **Enable Automatic Deploys** to enable automatic deployment based on every git push (ensuring desired branch is selected)
         6. Click **View** to go to deployed link
 
-
-
 # CREDITS
 
 ## Code
 
-- <a href="" target="_blank">Test</a>
+- Guidance on the use of colorama was from <a href="https://www.pythonpool.com/python-colorama/" target="_blank">pythonpool</a>
 
-- <a href="" target="_blank">Test</a>
+- Idea for truth value testing to solve 'Solved Bug #5' from <a href="https://flexiple.com/python/check-if-list-is-empty-python/#section2" target="_blank">flexiple</a>
 
-- <a href="" target="_blank">Test</a>
+- Working with lists and dictionaries was initally guided by <a href="https://blog.finxter.com/python-list-of-lists/" target="_blank">finxter</a>
 
-- <a href="" target="_blank">Test</a>
+- List to dictionary conversions were informed by <a href="https://builtin.com/software-engineering-perspectives/convert-list-to-dictionary-python" target="_blank">builtin</a>
 
-- <a href="" target="_blank">Test</a>
-
-- <a href="" target="_blank">Test</a>
-
-- Code Institute - deployment process for Heroku, API set-up, use of creds etc
+- Code Institute Love Sandwiches walk-through - API set-up, scoping, creds
 
 ## Contents
 All written content was created by the site author based on professional knowledge.  All code was written by the site author.
