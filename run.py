@@ -407,13 +407,10 @@ def get_id_breaker():
             get_id_breaker()
     except ValueError:
         print(Fore.RED + 'Please choose number 0 - 2 from the menu')
-        # continue
-        # get_id_breaker()
 
 
 def display_staff_skills():
     """Display list of skills assigned to staff member"""
-    # clear_screen()
 
     t_log = training_log.get_all_values()
 
