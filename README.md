@@ -38,15 +38,13 @@ This application is designed to record the training of staff members in each or 
 
 # User Experience
 
-## User Experience
-
-### Target Audience
+## Target Audience
 Managers and senior clinical staff responsible for staff training, and staff rostering, within the designated clinical area.
 
 
 ## User Stories
 
-As a user I want to:
+### As a user I want to:
 
 1. Understand how the application works
     - so I can use it successfully
@@ -67,7 +65,7 @@ As a user I want to:
 9. see staff positions when presented with a list of staff who have a selected skill
      - so I can consider skill mix when rostering staff
 
-As the site owner I want:
+## As the site owner I want:
 
 10. Information storage to be spreadsheet based
     - to allow for efficient data storage and retrieval
@@ -95,14 +93,81 @@ Functional programming was used as the primary approach for development of this 
 
 # Features
 
-* Info on all application features (with screenshots), incorporating user stories.
-
 ## Welcome page & Description
 <details><summary>Welcome page</summary>
     <img src="docs/screenshots/welcome_page.png">
 </details>
 
-## 
+## Menu options
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/main_menu.png">
+</details>
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/serach_menu.png">
+</details>
+
+## Add new staff member
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/enter_new_staff.png">
+</details>
+
+## Update staff skills
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/update_skills.png">
+</details>
+
+## Search by staff member
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/staff_search_list.png">
+</details>
+
+## Search by skill
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/skill_search_choice_list.png">
+</details>
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/skill_search_result.png">
+</details>
+
+## Warnings
+<details><summary>Duplcate staff entry</summary>
+    <img src="docs/screenshots/duplicate_staff_entry.png">
+</details>
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/search_warning.png">
+</details>
+<details><summary>Welcome page</summary>
+    <img src="">
+</details>
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/staff_not_exist.png">
+</details>
+
+## User feedback
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/success_feedback.png">
+</details>
+    <details><summary>Welcome page</summary>
+    <img src="docs/screenshots/user_feedback.png">
+</details>
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/user_feedback2.png"
+</details>
+
+## Input fields
+<details><summary>Welcome page</summary>
+    <img src="docs/screenshots/user_feedback2.png">
+</details>
+<details><summary>Welcome page</summary>
+    <img src="">
+</details>
+<details><summary>Welcome page</summary>
+    <img src="">
+</details>
+<details><summary>Welcome page</summary>
+    <img src="">
+</details>
+
 
 
 
