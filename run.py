@@ -261,6 +261,7 @@ def user_skill_input():
                     if answer3 != 'Y':
                         print(Fore.RED + '\nTry input again')
                         clear_screen()
+                        skill_menu()
                         display_staff_skills()
                         user_skill_input()
                     if answer3 == 'Y':
@@ -412,7 +413,7 @@ def get_id_breaker():
 
 def display_staff_skills():
     """Display list of skills assigned to staff member"""
-    clear_screen()
+    # clear_screen()
 
     t_log = training_log.get_all_values()
 
