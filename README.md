@@ -104,14 +104,26 @@ The code was regularly tested using the Code Institute PEP Validator substitute:
 ## Manual Testing
 
 # Welcome Menu
-| Feature   | Action                                               | Expected Result                                                         | Actual Result     |
+| Feature | Action | Expected Result | Actual Result |
 |-----------|------------------------------------------------------|-------------------------------------------------------------------------|-------------------|
-| Main Menu | Select 0 to exit                                     | Exits program                                                           | Works as expected |
-| Main Menu |  Select  1 to enter new staff member                 | Sends user to: Enter new staff member section                           | Works as expected |
-| Main Menu |  Select  2 to update skills for  a staff member      | Sends user to: Find staff member section                                | Works as expected |
-| Main Menu | Select 3 to search records by  skill or staff member | Sends user to: Search menu options section                              | Works as expected |
-| Main Menu | Select number other than 0-3                         | Warning message to user:  "Please choose number 0 -3 from the menu"     | Works as expected |
-| Main Menu | Select non-number input e.g. 'g'                     | Warning message to user:  "Please choose a number (only) from the menu" | Works as expected |
+| Main Menu | Select 0 to exit | Exits program | Works as expected |
+| Main Menu |  Select  1 to enter new staff member | Sends user to: Enter new staff member section  | Works as expected |
+| Main Menu |  Select  2 to update skills for  a staff member | Sends user to: Find staff member section | Works as expected |
+| Main Menu | Select 3 to search records by  skill or staff member | Sends user to: Search menu options section | Works as expected |
+| Main Menu | Select number other than 0-3 | Warning message to user:  "Please choose number 0 -3 from the menu" | Works as expected |
+| Main Menu | Select non-number input e.g. 'g' | Warning message to user: "Please choose a number (only) from the menu" | Works as expected |
+
+#  Enter new staff member
+
+| Feature | Action | Expected Result | Actual Result |
+|----------------------------------|------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-------------------|
+| User input prompts | Enter first name, last name & position in successive input prompts | Validation of input occurs | Works as expected |
+| Input validation  | Entry of a non-alpha character in any of above fields | Warning to user, specifying the first invalid entry Menu option to exit or try again | Works as expected |
+| Menu option to exit or try again | User selects 0 or 1   | Reloads user input prompts (first/last names, position) or returns to main menu | Works as expected |
+| Present user with inputted data  | User prompted to confirm if entry correct or not  | No = Menu option to try again or go to main menu Yes = success message, returns user to main menu | Works as expected |
+| Final validation  | User inputs invalid number or invalid alpha characters to confirmation query | Warning to user Menu option to exit or try again | Works as expected |
+| Final validation  | User inputs previously registered staff member | Warning to user re duplication, Menu option to exit or try again | Works as expected |
+
 
 # BUGS
 
